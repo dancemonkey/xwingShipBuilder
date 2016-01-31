@@ -1,0 +1,47 @@
+
+{
+  "ships": [
+            {
+            "ship_type":"X-Wing",
+            "pilot":"Luke Skywalker",
+            "ps":8,
+            "faction":"Rebel",
+            "attack":3,
+            "evade":2,
+            "hull":3,
+            "shield":2,
+            "text":"When defending, you may change one of your FOCUS results to an EVADE result.",
+            "avail_upgrades":["EPT", "Droid", "Torpedoes"],
+            "avail_actions":["Focus", "TargetLock"],
+            "point_cost":28
+            },
+            {
+            "ship_type":"TIE Phantom",
+            "pilot":"“Whisper\"",
+            "ps":7,
+            "faction":"Imperial",
+            "attack":4,
+            "evade":2,
+            "hull":2,
+            "shield":2,
+            "text":"After you perform an attack that hits, you may assign 1 FOCUS token to your ship.",
+            "avail_upgrades":["EPT", "Crew", "System"],
+            "avail_actions":["Focus", "BarrelRoll", "Evade", "Cloak"],
+            "point_cost":32
+            },
+            {
+            "ship_type":"Firespray-31",
+            "pilot":"Boba Fett",
+            "ps":8,
+            "faction":"Scum",
+            "attack":3,
+            "evade":2,
+            "hull":6,
+            "shield":4,
+            "text":"When attacking or defending, you may reroll 1 of your dice for each enemy ship at range 1.",
+            "avail_upgrades":["EPT", "Cannon", "Bomb", "Crew", "Missiles", "Illicit"],
+            "avail_actions":["Focus", "TargetLock", "Evade"],
+            "point_cost":39
+            }
+            ]
+}
