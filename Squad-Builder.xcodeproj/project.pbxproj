@@ -14,6 +14,8 @@
 		1022D0AE1C5C6263004E93EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1022D0AC1C5C6263004E93EA /* LaunchScreen.storyboard */; };
 		1022D0B61C5C628E004E93EA /* ship_data_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1022D0B51C5C628E004E93EA /* ship_data_json.json */; };
 		1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0B71C5C6310004E93EA /* ShipData.swift */; };
+		1024D3D01C62CAB600C88580 /* upgrades_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1024D3CF1C62CAB600C88580 /* upgrades_json.json */; };
+		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
 		10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6D8191C5C7E3500A8B91A /* PilotCard.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		1022D0AF1C5C6263004E93EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1022D0B51C5C628E004E93EA /* ship_data_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ship_data_json.json; sourceTree = "<group>"; };
 		1022D0B71C5C6310004E93EA /* ShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipData.swift; sourceTree = "<group>"; };
+		1024D3CF1C62CAB600C88580 /* upgrades_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = upgrades_json.json; sourceTree = "<group>"; };
+		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
 		10C6D8191C5C7E3500A8B91A /* PilotCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				1022D0B51C5C628E004E93EA /* ship_data_json.json */,
+				1024D3CF1C62CAB600C88580 /* upgrades_json.json */,
 				1022D0A31C5C6263004E93EA /* AppDelegate.swift */,
 				1022D0A51C5C6263004E93EA /* ViewController.swift */,
 				1022D0A71C5C6263004E93EA /* Main.storyboard */,
@@ -69,6 +74,7 @@
 				1022D0AF1C5C6263004E93EA /* Info.plist */,
 				1022D0B71C5C6310004E93EA /* ShipData.swift */,
 				10C6D8191C5C7E3500A8B91A /* PilotCard.swift */,
+				1024D3D11C62CDB700C88580 /* UpgradeData.swift */,
 			);
 			path = "Squad-Builder";
 			sourceTree = "<group>";
@@ -134,6 +140,7 @@
 				1022D0AE1C5C6263004E93EA /* LaunchScreen.storyboard in Resources */,
 				1022D0B61C5C628E004E93EA /* ship_data_json.json in Resources */,
 				1022D0AB1C5C6263004E93EA /* Assets.xcassets in Resources */,
+				1024D3D01C62CAB600C88580 /* upgrades_json.json in Resources */,
 				1022D0A91C5C6263004E93EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +154,7 @@
 			files = (
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
 				1022D0A61C5C6263004E93EA /* ViewController.swift in Sources */,
+				1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */,
 				1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
 			);

@@ -6,10 +6,7 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-// ship can initialize, display available upgrades, and attach upgrades.
-// ship can NOT remove upgrades/reset upgrades to stock
-// ship can NOT return available actions/track action already used during turn
-//    - should ship track this or the game state?
+//TODO: refactor upgrades on ship to handle upgrade types and their effects when attaching to ship
 
 import Foundation
 
@@ -18,7 +15,11 @@ enum Faction: String {
 }
 
 enum Actions: String {
-  case Focus, TargetLock, Evade, BarrelRoll, Cloak
+  case Focus, TargetLock, Evade, BarrelRoll, Cloak, Boost, Decloak, SLAM
+}
+
+enum UpgradeType: String {
+  case Elite, Astromech, Torpedoes, Missiles, Cannon, Turret, Bomb, Crew, SalvagedAstromech, System, Title, Modification, Illicit, Cargo, Hardpoint, Team, Tech
 }
 
 class PilotCard {
@@ -33,23 +34,49 @@ class PilotCard {
   private var _availUpgrades = [String]()
   var availUpgrades: [String] {
     get {
-        return _availUpgrades
+        return _availUpgrades.sort()
       }
   }
   private var _currentUpgrades = [String]()
   var currentUpgrades: [String] {
     get {
-        return _currentUpgrades
+        return _currentUpgrades.sort()
       }
+  }
+  var cardText: String {
+    get {
+      return _shipCard.text
+    }
+  }
+  struct Stats {
+    var attack: Int
+    var evade: Int
+    var hull: Int
+    var shield: Int
+  }
+  private var _shipStats: Stats!
+  var shipStats: Stats {
+    get {
+      return _shipStats
+    }
+  }
+  var shipPointCost: Int {
+    get {
+      return _shipCard.pointCost
+    }
   }
   
   init(ship: String, pilot: String) {
     let ships = ShipData()
     _shipCard = ships.getShip(ofType: ship, withPilot: pilot)
     _availUpgrades = _shipCard.avail_Upgrades
+    _availUpgrades.append("Title")
+    _availUpgrades.append("Modification")
     _originalUpgrades = _availUpgrades
+    _shipStats = Stats(attack: _shipCard.stat_Attack, evade: _shipCard.stat_Evade, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
   }
   
+  // REFACTOR THIS TO TEST FOR THE AVAILABILITY OF THE UPGRADE /TYPE/, THEN PUT THE UPGRADE /NAME/ IN THE CURRENT UPGRADES ARRAY
   func attachUpgrade(upgrade: String) -> Bool {
     if _availUpgrades.contains(upgrade) {
       _currentUpgrades.append(upgrade)
@@ -62,6 +89,21 @@ class PilotCard {
     } else {
       return false
     }
+  }
+  
+  func removeUpgrade(upgrade: String) -> Bool {
+    if _currentUpgrades.contains(upgrade) {
+      _currentUpgrades.removeAtIndex(_currentUpgrades.indexOf(upgrade)!)
+      _availUpgrades.append(upgrade)
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  func clearUpgrades() {
+    _availUpgrades = _originalUpgrades
+    _currentUpgrades.removeAll()
   }
   
 }

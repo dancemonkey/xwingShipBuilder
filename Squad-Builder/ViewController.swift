@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let new = PilotCard(ship: "X-Wing", pilot: "Luke Skywalker")
+    let newShip = PilotCard(ship: "X-Wing", pilot: "Luke Skywalker")
   }
 
 }
