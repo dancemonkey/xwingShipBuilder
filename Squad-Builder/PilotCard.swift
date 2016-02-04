@@ -18,10 +18,6 @@ enum Actions: String {
   case Focus, TargetLock, Evade, BarrelRoll, Cloak, Boost, Decloak, SLAM
 }
 
-enum UpgradeType: String {
-  case Elite, Astromech, Torpedoes, Missiles, Cannon, Turret, Bomb, Crew, SalvagedAstromech, System, Title, Modification, Illicit, Cargo, Hardpoint, Team, Tech
-}
-
 class PilotCard {
   
   private let _shipCard: ShipData.Ship!
@@ -76,12 +72,11 @@ class PilotCard {
     _shipStats = Stats(attack: _shipCard.stat_Attack, evade: _shipCard.stat_Evade, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
   }
   
-  // REFACTOR THIS TO TEST FOR THE AVAILABILITY OF THE UPGRADE /TYPE/, THEN PUT THE UPGRADE /NAME/ IN THE CURRENT UPGRADES ARRAY
-  func attachUpgrade(upgrade: String) -> Bool {
-    if _availUpgrades.contains(upgrade) {
-      _currentUpgrades.append(upgrade)
+  func attachUpgrade(upgrade: UpgradeCard) -> Bool {
+    if _availUpgrades.contains(upgrade.type.rawValue) {
+      _currentUpgrades.append(upgrade.name)
       for (index, entry) in _availUpgrades.enumerate() {
-        if entry == upgrade {
+        if entry == upgrade.name {
           _availUpgrades.removeAtIndex(index)
         }
       }
@@ -91,10 +86,10 @@ class PilotCard {
     }
   }
   
-  func removeUpgrade(upgrade: String) -> Bool {
-    if _currentUpgrades.contains(upgrade) {
-      _currentUpgrades.removeAtIndex(_currentUpgrades.indexOf(upgrade)!)
-      _availUpgrades.append(upgrade)
+  func removeUpgrade(upgrade: UpgradeCard) -> Bool {
+    if _currentUpgrades.contains(upgrade.name) {
+      _currentUpgrades.removeAtIndex(_currentUpgrades.indexOf(upgrade.name)!)
+      _availUpgrades.append(upgrade.type.rawValue)
       return true
     } else {
       return false

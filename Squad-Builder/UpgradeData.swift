@@ -9,30 +9,25 @@
 import Foundation
 import UIKit
 
-//TODO: change this around to be an Upgrade rather than Ship card
-//TODO: add UpgradeCard class type
+enum UpgradeType: String {
+  case Elite, Astromech, Torpedoes, Missiles, Cannon, Turret, Bomb, Crew, SalvagedAstromech, System, Title, Modification, Illicit, Cargo, Hardpoint, Team, Tech
+}
 
 class UpgradeData {
   let url: NSURL!
   let data: NSData!
-  struct Ship {
-    let shipType: String!
-    let pilotName: String!
-    let pilotSkill: Int!
-    let faction: Faction!
-    let stat_Attack: Int!
-    let stat_Evade: Int!
-    let stat_Hull: Int!
-    let stat_Shield: Int!
-    let text: String!
-    let avail_Upgrades: [String]!
-    let avail_Actions: [Actions]!
+  struct Upgrade {
+    let type: UpgradeType!
+    let name: String!
     let pointCost: Int!
+    let text: String!
+    let effect: String!
+    let limitation: String!
   }
-  var ships = [Ship]()
+  var upgrades = [Upgrade]()
   
   init() {
-    url = NSBundle.mainBundle().URLForResource("ship_data_json", withExtension: "json")
+    url = NSBundle.mainBundle().URLForResource("upgrades_json", withExtension: "json")
     data = NSData(contentsOfURL: url)
     
     do {
@@ -46,34 +41,25 @@ class UpgradeData {
   }
   
   func readJSONObject(object: [String: AnyObject]) {
-    guard let ships = object["ships"] as? [[String: AnyObject]] else { return }
+    guard let upgrades = object["upgrades"] as? [[String: AnyObject]] else { return }
     
-    for ship in ships {
-      guard let pilot = ship["pilot"] as? String else { break }
-      let ship_type = ship["ship_type"] as! String
-      let ps = ship["ps"] as! Int
-      let faction = Faction(rawValue: ship["faction"] as! String)
-      let s_a = ship["attack"] as! Int
-      let s_e = ship["evade"] as! Int
-      let s_h = ship["hull"] as! Int
-      let s_s = ship["shield"] as! Int
-      let text = ship["text"] as! String
-      let upgrades = ship["avail_upgrades"] as! [String]
-      var actions = [Actions]()
-      for value in (ship["avail_actions"] as! NSArray) {
-        actions.append(Actions(rawValue: value as! String)!)
-      }
-      let points = ship["point_cost"] as! Int
+    for upgrade in upgrades {
+      guard let name = upgrade["upgrade"] as? String else { break }
+      let upgrade_type = upgrade["type"] as! String
+      let cost = upgrade["pointCost"] as! Int
+      let text = upgrade["text"] as! String
+      let effect = upgrade["effect"] as! String
+      let limitation = upgrade["limitation"] as! String
       
-      let newShip = Ship(shipType: ship_type, pilotName: pilot, pilotSkill: ps, faction: faction, stat_Attack: s_a, stat_Evade: s_e, stat_Hull: s_h, stat_Shield: s_s, text: text, avail_Upgrades: upgrades, avail_Actions: actions, pointCost: points)
-      self.ships.append(newShip)
+      let newShip = Upgrade(type: UpgradeType(rawValue: upgrade_type), name: name, pointCost: cost, text: text, effect: effect, limitation: limitation)
+      self.upgrades.append(newShip)
     }
   }
   
-  func getShip(ofType type: String, withPilot: String) -> Ship? {
-    for ship in ships {
-      if ship.shipType == type && ship.pilotName == withPilot {
-        return ship
+  func getUpgrade(named: String) -> Upgrade? {
+    for upgrade in upgrades {
+      if upgrade.name == named {
+        return upgrade
       }
     }
     return nil
