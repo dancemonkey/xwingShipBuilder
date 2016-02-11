@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Ship SelectVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Squad_Builder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ShipSelectVC" customModule="Squad_Builder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +16,86 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBG" translatesAutoresizingMaskIntoConstraints="NO" id="JcS-hF-kY9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xWingLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ESk-wC-ALk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="a5U-T7-t16"/>
+                                    <constraint firstAttribute="height" constant="128" id="dwy-Xo-gNz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="a5U-T7-t16"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BY-iu-5g8">
+                                <rect key="frame" x="0.0" y="156" width="600" height="319"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="319" id="GEx-ur-pLh"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Ship" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMB-Hm-DNJ">
+                                <rect key="frame" x="199" y="483" width="202" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="202" id="8Hu-sy-XXg"/>
+                                    <constraint firstAttribute="height" constant="74" id="ahb-i1-Ngc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ESk-wC-ALk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2kN-Q2-YZX"/>
+                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="7Ym-HA-ZYZ"/>
+                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rxw-GY-x64"/>
+                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="TUU-yt-jTK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LMB-Hm-DNJ" secondAttribute="bottom" constant="43" id="TcC-jS-PCy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JcS-hF-kY9" secondAttribute="bottom" id="Uuo-6Y-LZJ"/>
+                            <constraint firstItem="0BY-iu-5g8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VtX-yU-aRO"/>
+                            <constraint firstAttribute="trailing" secondItem="JcS-hF-kY9" secondAttribute="trailing" id="XC4-0s-W7u"/>
+                            <constraint firstItem="0BY-iu-5g8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fuf-Yg-Qkx"/>
+                            <constraint firstItem="ESk-wC-ALk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g0t-WY-fYB"/>
+                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="top" secondItem="0BY-iu-5g8" secondAttribute="bottom" constant="8" id="gLp-Qf-FEr"/>
+                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="kyT-y1-6Z7"/>
+                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="l45-xk-Ns3"/>
+                            <constraint firstItem="JcS-hF-kY9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oQv-ed-tH3"/>
+                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="top" secondItem="0BY-iu-5g8" secondAttribute="bottom" constant="8" id="oZ4-6B-blc"/>
+                            <constraint firstAttribute="trailing" secondItem="0BY-iu-5g8" secondAttribute="trailing" id="p2H-YQ-fKR"/>
+                            <constraint firstAttribute="trailing" secondItem="0BY-iu-5g8" secondAttribute="trailing" id="pdu-qG-CMc"/>
+                            <constraint firstItem="JcS-hF-kY9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q6H-oH-LDB"/>
+                            <constraint firstItem="ESk-wC-ALk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tfv-Kh-ZBH"/>
+                            <constraint firstAttribute="trailing" secondItem="ESk-wC-ALk" secondAttribute="trailing" id="u7j-yd-65K"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Ym-HA-ZYZ"/>
+                                <exclude reference="TUU-yt-jTK"/>
+                                <exclude reference="fuf-Yg-Qkx"/>
+                                <exclude reference="kyT-y1-6Z7"/>
+                                <exclude reference="p2H-YQ-fKR"/>
+                                <exclude reference="gLp-Qf-FEr"/>
+                                <exclude reference="oZ4-6B-blc"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="0BY-iu-5g8" id="YcH-3j-MbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="435" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="spaceBG" width="1024" height="1024"/>
+        <image name="xWingLogo" width="1781" height="736"/>
+    </resources>
 </document>

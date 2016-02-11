@@ -6,6 +6,9 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+//TODO: implement upgrade effects and test for limitations
+//???: use closure for effects and limitations?
+
 import Foundation
 
 class UpgradeCard {

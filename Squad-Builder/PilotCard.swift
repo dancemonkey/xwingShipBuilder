@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: refactor upgrades on ship to handle upgrade types and their effects when attaching to ship
-
 import Foundation
 
 enum Faction: String {

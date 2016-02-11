@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009021B1C62D6A7008150EF /* UpgradeCard.swift */; };
 		1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A31C5C6263004E93EA /* AppDelegate.swift */; };
-		1022D0A61C5C6263004E93EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A51C5C6263004E93EA /* ViewController.swift */; };
+		1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */; };
 		1022D0A91C5C6263004E93EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1022D0A71C5C6263004E93EA /* Main.storyboard */; };
 		1022D0AB1C5C6263004E93EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1022D0AA1C5C6263004E93EA /* Assets.xcassets */; };
 		1022D0AE1C5C6263004E93EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1022D0AC1C5C6263004E93EA /* LaunchScreen.storyboard */; };
@@ -17,6 +17,8 @@
 		1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0B71C5C6310004E93EA /* ShipData.swift */; };
 		1024D3D01C62CAB600C88580 /* upgrades_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1024D3CF1C62CAB600C88580 /* upgrades_json.json */; };
 		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
+		107983C21C6C397300143132 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C11C6C397300143132 /* RoundImageView.swift */; };
+		107983C41C6C42C000143132 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C31C6C42C000143132 /* RoundButton.swift */; };
 		10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6D8191C5C7E3500A8B91A /* PilotCard.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +26,7 @@
 		1009021B1C62D6A7008150EF /* UpgradeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCard.swift; sourceTree = "<group>"; };
 		1022D0A01C5C6263004E93EA /* Squad-Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Squad-Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1022D0A31C5C6263004E93EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1022D0A51C5C6263004E93EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipSelectVC.swift; sourceTree = "<group>"; };
 		1022D0A81C5C6263004E93EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1022D0AA1C5C6263004E93EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1022D0AD1C5C6263004E93EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,6 +35,8 @@
 		1022D0B71C5C6310004E93EA /* ShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipData.swift; sourceTree = "<group>"; };
 		1024D3CF1C62CAB600C88580 /* upgrades_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = upgrades_json.json; sourceTree = "<group>"; };
 		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
+		107983C11C6C397300143132 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		107983C31C6C42C000143132 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		10C6D8191C5C7E3500A8B91A /* PilotCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +51,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101EA5941C6C284D00006F1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1022D0B71C5C6310004E93EA /* ShipData.swift */,
+				10C6D8191C5C7E3500A8B91A /* PilotCard.swift */,
+				1024D3D11C62CDB700C88580 /* UpgradeData.swift */,
+				1009021B1C62D6A7008150EF /* UpgradeCard.swift */,
+				1022D0B51C5C628E004E93EA /* ship_data_json.json */,
+				1024D3CF1C62CAB600C88580 /* upgrades_json.json */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		101EA5951C6C286400006F1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1022D0AC1C5C6263004E93EA /* LaunchScreen.storyboard */,
+				1022D0A71C5C6263004E93EA /* Main.storyboard */,
+				107983C11C6C397300143132 /* RoundImageView.swift */,
+				107983C31C6C42C000143132 /* RoundButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		101EA5961C6C287600006F1D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1022D0A31C5C6263004E93EA /* AppDelegate.swift */,
+				1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		1022D0971C5C6263004E93EA = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +103,11 @@
 		1022D0A21C5C6263004E93EA /* Squad-Builder */ = {
 			isa = PBXGroup;
 			children = (
-				1022D0B51C5C628E004E93EA /* ship_data_json.json */,
-				1024D3CF1C62CAB600C88580 /* upgrades_json.json */,
-				1022D0A31C5C6263004E93EA /* AppDelegate.swift */,
-				1022D0A51C5C6263004E93EA /* ViewController.swift */,
-				1022D0A71C5C6263004E93EA /* Main.storyboard */,
+				101EA5961C6C287600006F1D /* Controller */,
+				101EA5951C6C286400006F1D /* View */,
+				101EA5941C6C284D00006F1D /* Model */,
 				1022D0AA1C5C6263004E93EA /* Assets.xcassets */,
-				1022D0AC1C5C6263004E93EA /* LaunchScreen.storyboard */,
 				1022D0AF1C5C6263004E93EA /* Info.plist */,
-				1022D0B71C5C6310004E93EA /* ShipData.swift */,
-				10C6D8191C5C7E3500A8B91A /* PilotCard.swift */,
-				1024D3D11C62CDB700C88580 /* UpgradeData.swift */,
-				1009021B1C62D6A7008150EF /* UpgradeCard.swift */,
 			);
 			path = "Squad-Builder";
 			sourceTree = "<group>";
@@ -155,10 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				107983C41C6C42C000143132 /* RoundButton.swift in Sources */,
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
-				1022D0A61C5C6263004E93EA /* ViewController.swift in Sources */,
+				1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */,
 				1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */,
 				1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */,
+				107983C21C6C397300143132 /* RoundImageView.swift in Sources */,
 				1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
 			);
