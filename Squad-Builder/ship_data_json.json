@@ -2,7 +2,7 @@
 {
   "ships": [
             {
-            "ship_type":"X-Wing",
+            "ship_type":"T-65 X-Wing",
             "pilot":"Luke Skywalker",
             "ps":8,
             "faction":"Rebel",

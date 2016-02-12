@@ -22,5 +22,16 @@ class RoundButton: UIButton {
     layer.cornerRadius = frame.size.width / 2
     clipsToBounds = true
   }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+  }
+  
+  func setLabel(withText text: String) {
+    let label = UILabel()
+    label.text = text
+    label.textColor = UIColor.whiteColor()
+    addSubview(label)
+  }
 
 }
