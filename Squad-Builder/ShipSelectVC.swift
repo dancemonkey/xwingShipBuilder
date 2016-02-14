@@ -30,7 +30,7 @@ class ShipSelectVC: UIViewController {
   }
   
   func shipButtonPressed(sender: RoundButton) {
-    shipPressedTitle = sender.titleLabel?.text
+    shipPressedTitle = sender.titleLabel?.text      
     performSegueWithIdentifier("showShipDetail", sender: self)
   }
 

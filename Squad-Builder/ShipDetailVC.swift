@@ -11,6 +11,11 @@ import UIKit
 class ShipDetailVC: UIViewController {
 
   @IBOutlet weak var shipBtn: RoundButton!
+  @IBOutlet weak var pilotBtn: RoundButton!
+  @IBOutlet weak var pilotLbl: UILabel!
+  @IBOutlet weak var actionView: UIView!
+  @IBOutlet weak var upgradeView: UIView!
+  
   var buttonBackground: String!
   
     override func viewDidLoad() {
