@@ -59,8 +59,13 @@ class PilotCard {
       return _shipCard.pointCost
     }
   }
+  var shipType: String {
+    get {
+      return _shipCard.shipType
+    }
+  }
   
-  init(ship: String, pilot: String) {
+  init(ship: String, pilot: String?) {
     let ships = ShipData()
     _shipCard = ships.getShip(ofType: ship, withPilot: pilot)
     _availUpgrades = _shipCard.avail_Upgrades

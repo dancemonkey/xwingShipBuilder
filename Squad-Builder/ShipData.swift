@@ -67,9 +67,17 @@ class ShipData {
     }
   }
   
-  func getShip(ofType type: String, withPilot: String) -> Ship? {
+  func getShip(ofType type: String, withPilot: String?) -> Ship? {
+    guard let pilot = withPilot else {
+      for ship in ships {
+        if ship.shipType == type {
+          return ship
+        }
+      }
+      return nil
+    }
     for ship in ships {
-      if ship.shipType == type && ship.pilotName == withPilot {
+      if ship.shipType == type && pilot == withPilot {
         return ship
       }
     }

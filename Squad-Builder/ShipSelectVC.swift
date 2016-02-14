@@ -6,7 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//!!!: just playing around with an interface to keep my interest going
 //TODO: next is to have a button press on a ship move to a new VC that shows upgrades you can pick
 
 import UIKit
@@ -48,6 +47,7 @@ class ShipSelectVC: UIViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let destVC = segue.destinationViewController as! ShipDetailVC
     destVC.buttonBackground = shipPressedTitle
+    destVC.pilot = PilotCard(ship: shipPressedTitle, pilot: nil)
   }
 }
 
