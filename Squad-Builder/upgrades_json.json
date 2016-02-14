@@ -1,0 +1,53 @@
+{
+  "upgrades": [
+              {
+              "upgrade":"Autothrusters",
+              "type":"Modification",
+              "text":"When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to an evade result. You can equip this card only if you have the BOOST action icon.",
+              "effect":"FALSE",
+              "limitation":"Boost",
+              "pointCost":2
+              },
+              {
+              "upgrade":"Heavy Laser Cannon",
+              "type":"Cannon",
+              "text":"Immediately after rolling your attack dice, you must change all of your critical results to hit results.",
+              "effect":"FALSE",
+              "limitation":"nil",
+              "pointCost":7
+              },
+              {
+              "upgrade":"Engine Upgrade",
+              "type":"Modification",
+              "text":"Your action bar gains the BOOST action icon.",
+              "effect":"Boost",
+              "limitation":"nil",
+              "pointCost":4
+              },
+              {
+              "upgrade":"Veteran Instincts",
+              "type":"Elite",
+              "text":"Increase your pilot skill value by 2.",
+              "effect":"Pilot,+2",
+              "limitation":"nil",
+              "pointCost":1
+              },
+              {
+              "upgrade":"Millenium Falcon",
+              "type":"Title",
+              "text":"Your action bar gains the EVADE action icon.",
+              "effect":"Evade",
+              "limitation":"YT-1300",
+              "pointCost":1
+              },
+              {
+              "upgrade":"A-Wing Test Pilot",
+              "type":"Title",
+              "text":"Your upgrade bar gains 1 ELITE upgrade icon. You cannot equip 2 of the same Elite Upgrade cards. You cannot equip this card if your pilot skill value is \"1\" or lower.",
+              "effect":"Elite",
+              "limitation":"Pilot,<1",
+              "pointCost":0
+              }
+               ]
+}
+ 
