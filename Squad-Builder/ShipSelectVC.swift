@@ -6,7 +6,7 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: next is to have a button press on a ship move to a new VC that shows upgrades you can pick
+//TODO: have a button press on an upgrade move to a new VC that shows upgrades you can pick
 
 import UIKit
 

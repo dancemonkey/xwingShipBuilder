@@ -37,6 +37,12 @@ class PilotCard {
         return _currentUpgrades.sort()
       }
   }
+  private var _actions = [Actions]()
+  var actions: [Actions] {
+    get {
+      return _actions
+    }
+  }
   var cardText: String {
     get {
       return _shipCard.text
@@ -65,6 +71,12 @@ class PilotCard {
     }
   }
   
+  var pilotName: String? {
+    get {
+      return _shipCard.pilotName
+    }
+  }
+  
   init(ship: String, pilot: String?) {
     let ships = ShipData()
     _shipCard = ships.getShip(ofType: ship, withPilot: pilot)
@@ -72,6 +84,7 @@ class PilotCard {
     _availUpgrades.append("Title")
     _availUpgrades.append("Modification")
     _originalUpgrades = _availUpgrades
+    self._actions = _shipCard.avail_Actions
     _shipStats = Stats(attack: _shipCard.stat_Attack, evade: _shipCard.stat_Evade, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
   }
   

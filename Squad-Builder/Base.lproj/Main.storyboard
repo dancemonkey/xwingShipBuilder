@@ -109,17 +109,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBG" translatesAutoresizingMaskIntoConstraints="NO" id="ENH-UV-b51">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-NL-wOI">
-                                <rect key="frame" x="20" y="53" width="452" height="133"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="133" id="uPp-9h-3Dn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="Select Pilot...">
-                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrR-mx-y31" customClass="RoundButton" customModule="Squad_Builder" customModuleProvider="target">
                                 <rect key="frame" x="480" y="28" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,7 +119,7 @@
                                     <constraint firstAttribute="height" constant="100" id="vnJ-Zf-cG6"/>
                                     <constraint firstAttribute="height" constant="188" id="zHY-9D-SOQ"/>
                                 </constraints>
-                                <state key="normal" title="Ship Name"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Utg-jb-WWc"/>
@@ -299,6 +288,9 @@
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="zPE-uo-WDL">
                                 <rect key="frame" x="20" y="53" width="452" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="bOD-kB-w20"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -310,37 +302,31 @@
                             <constraint firstAttribute="trailing" secondItem="QrR-mx-y31" secondAttribute="trailing" constant="20" id="2w8-W4-KBg"/>
                             <constraint firstItem="oOp-Kd-hfr" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="3WO-sc-ekZ"/>
                             <constraint firstItem="oOp-Kd-hfr" firstAttribute="top" secondItem="jeQ-lH-9HL" secondAttribute="bottom" constant="8" id="4wg-zP-voY"/>
-                            <constraint firstItem="ICp-NL-wOI" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="7kL-lJ-owL"/>
                             <constraint firstItem="ENH-UV-b51" firstAttribute="top" secondItem="iPj-X4-ZDe" secondAttribute="top" id="8ro-7K-47e"/>
                             <constraint firstItem="qID-qk-7AG" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="A1j-vG-Kgg"/>
                             <constraint firstItem="xtS-QA-omg" firstAttribute="centerX" secondItem="QrR-mx-y31" secondAttribute="centerX" id="CnB-AM-1Hp"/>
                             <constraint firstItem="zIb-Qe-Rna" firstAttribute="top" secondItem="ENH-UV-b51" secondAttribute="bottom" id="Eet-uA-fB7"/>
                             <constraint firstAttribute="trailing" secondItem="QrR-mx-y31" secondAttribute="trailing" constant="20" id="F9E-oY-GqP"/>
-                            <constraint firstItem="y6h-mE-DlC" firstAttribute="top" secondItem="ICp-NL-wOI" secondAttribute="bottom" constant="8" id="FDS-2q-dKs"/>
-                            <constraint firstItem="zPE-uo-WDL" firstAttribute="top" secondItem="ICp-NL-wOI" secondAttribute="top" id="HDN-hh-9EQ"/>
-                            <constraint firstItem="zPE-uo-WDL" firstAttribute="bottom" secondItem="ICp-NL-wOI" secondAttribute="bottom" id="J84-6m-AHE"/>
                             <constraint firstItem="Oaz-B4-Mej" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="JPa-TM-Bz0"/>
                             <constraint firstItem="QrR-mx-y31" firstAttribute="top" secondItem="9Vk-fI-B8Z" secondAttribute="bottom" constant="8" id="LEl-Qs-e4S"/>
                             <constraint firstAttribute="trailing" secondItem="ENH-UV-b51" secondAttribute="trailing" id="Noo-wn-KpQ"/>
-                            <constraint firstItem="xtS-QA-omg" firstAttribute="bottom" secondItem="ICp-NL-wOI" secondAttribute="bottom" id="OFd-Kp-P8Q"/>
                             <constraint firstItem="Oaz-B4-Mej" firstAttribute="top" secondItem="9Vk-fI-B8Z" secondAttribute="bottom" id="OZ1-lo-tNb"/>
                             <constraint firstItem="jeQ-lH-9HL" firstAttribute="top" secondItem="qID-qk-7AG" secondAttribute="bottom" constant="8" id="Rs0-Gv-XfM"/>
+                            <constraint firstItem="zPE-uo-WDL" firstAttribute="top" secondItem="Oaz-B4-Mej" secondAttribute="bottom" constant="8" id="UoF-9z-5ro"/>
                             <constraint firstItem="jeQ-lH-9HL" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="UoR-Kp-GlF"/>
                             <constraint firstItem="Oaz-B4-Mej" firstAttribute="top" secondItem="9Vk-fI-B8Z" secondAttribute="bottom" id="VYg-A7-FF6"/>
-                            <constraint firstItem="zPE-uo-WDL" firstAttribute="leading" secondItem="ICp-NL-wOI" secondAttribute="leading" id="Y9F-4z-MgJ"/>
+                            <constraint firstItem="zPE-uo-WDL" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="aHV-2M-hs3"/>
                             <constraint firstItem="qID-qk-7AG" firstAttribute="top" secondItem="y6h-mE-DlC" secondAttribute="bottom" constant="8" id="bw5-QQ-wPf"/>
                             <constraint firstAttribute="trailing" secondItem="qID-qk-7AG" secondAttribute="trailing" constant="20" id="bwR-uU-hvZ"/>
                             <constraint firstItem="QrR-mx-y31" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="cCV-rJ-aqE"/>
+                            <constraint firstItem="y6h-mE-DlC" firstAttribute="top" secondItem="zPE-uo-WDL" secondAttribute="bottom" constant="8" id="cax-ue-rHt"/>
                             <constraint firstItem="xtS-QA-omg" firstAttribute="top" secondItem="QrR-mx-y31" secondAttribute="bottom" constant="8" id="eEz-H8-L5b"/>
-                            <constraint firstItem="QrR-mx-y31" firstAttribute="leading" secondItem="ICp-NL-wOI" secondAttribute="trailing" constant="8" id="gVg-QD-aGj"/>
                             <constraint firstItem="ENH-UV-b51" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" id="haK-HZ-K23"/>
                             <constraint firstAttribute="trailing" secondItem="oOp-Kd-hfr" secondAttribute="trailing" constant="20" id="kVd-B0-AYE"/>
                             <constraint firstItem="Oaz-B4-Mej" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="mTO-WD-DP1"/>
                             <constraint firstItem="y6h-mE-DlC" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="pN1-aD-h0X"/>
-                            <constraint firstItem="zPE-uo-WDL" firstAttribute="centerX" secondItem="ICp-NL-wOI" secondAttribute="centerX" id="rUC-U7-MnF"/>
+                            <constraint firstItem="QrR-mx-y31" firstAttribute="leading" secondItem="zPE-uo-WDL" secondAttribute="trailing" constant="8" id="vuD-uU-ef2"/>
                             <constraint firstItem="QrR-mx-y31" firstAttribute="top" secondItem="9Vk-fI-B8Z" secondAttribute="bottom" constant="8" id="yCD-sp-kkM"/>
-                            <constraint firstItem="zPE-uo-WDL" firstAttribute="centerY" secondItem="ICp-NL-wOI" secondAttribute="centerY" id="ySg-W9-qPg"/>
-                            <constraint firstItem="zPE-uo-WDL" firstAttribute="trailing" secondItem="ICp-NL-wOI" secondAttribute="trailing" id="zyZ-Zi-aiU"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -358,7 +344,6 @@
                         <outlet property="attack" destination="pXr-tZ-agk" id="f7H-XB-SJg"/>
                         <outlet property="evade" destination="0YC-DN-u2h" id="DmU-vm-Rd3"/>
                         <outlet property="hull" destination="t0s-Xx-G5e" id="by3-H1-kob"/>
-                        <outlet property="pilotBtn" destination="ICp-NL-wOI" id="xUm-cS-Uo1"/>
                         <outlet property="pilotLbl" destination="zPE-uo-WDL" id="WmP-51-4ne"/>
                         <outlet property="shield" destination="8EH-hP-NTn" id="ZvG-ay-1Ei"/>
                         <outlet property="shipBtn" destination="QrR-mx-y31" id="YI1-Hz-ZdA"/>

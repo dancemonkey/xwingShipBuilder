@@ -14,7 +14,7 @@ class ShipData {
   let data: NSData!
   struct Ship {
     let shipType: String!
-    let pilotName: String!
+    let pilotName: String?
     let pilotSkill: Int!
     let faction: Faction!
     let stat_Attack: Int!
