@@ -14,8 +14,8 @@ class ShipSelectVC: UIViewController {
 
   @IBOutlet weak var scrollView: UIScrollView!
   
-  let WIDTH: CGFloat = 188
-  let HEIGHT: CGFloat = 188
+  let WIDTH: CGFloat = 150
+  let HEIGHT: CGFloat = 150
   let SHIP_TITLES: [String] = ["Firespray-31","TIE Phantom","T-65 X-Wing"]
   var shipPressedTitle: String!
   

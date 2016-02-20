@@ -30,8 +30,8 @@ class ShipDetailVC: UIViewController {
       shipBtn.setBackgroundImage(UIImage(named: buttonBackground), forState: .Normal)
       shipBtn.setTitle(pilot.pilotName, forState: .Normal)
       loadUpgradeIcons()
-      //loadActionIcons()
-      //TODO: get and include action icons
+      loadActionIcons()
+      setStats()
     }
   
   @IBAction func cancelPressed(sender: AnyObject) {
@@ -62,11 +62,26 @@ class ShipDetailVC: UIViewController {
       let img = UIImage(named: action.rawValue)
       let WIDTH = 40
       let HEIGHT = WIDTH
-      let button = UIButton(frame: CGRect(x: index*WIDTH, y: 0, width: WIDTH, height: HEIGHT))
+      let button = RoundButton(frame: CGRect(x: index*WIDTH, y: 0, width: WIDTH, height: HEIGHT))
       button.setBackgroundImage(img, forState: .Normal)
       actionView.addSubview(button)
+      button.awakeFromNib()
       actionView.backgroundColor = UIColor.clearColor()
     }
     return true
+  }
+  
+  func setStats() {
+    guard let _ = pilot.pilotName else {
+      attack.text = "-"
+      evade.text = "-"
+      hull.text = "-"
+      shield.text = "-"
+      return
+    }
+    attack.text = String(pilot.shipStats.attack)
+    evade.text = String(pilot.shipStats.evade)
+    hull.text = String(pilot.shipStats.hull)
+    shield.text = String(pilot.shipStats.shield)
   }
 }

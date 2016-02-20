@@ -7,8 +7,7 @@
 //
 
 //TODO: implement upgrade effects and test for limitations
-//???: use closure for effects and limitations?
-//TODO: next is to let player pick pilot for ship, which will then update stats on detail screen and populate upgrades and actions
+//TODO: pilot button brings to pilot selectr screen, update stats on detail screen and populate upgrades and actions
 
 import Foundation
 
