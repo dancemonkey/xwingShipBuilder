@@ -77,6 +77,12 @@ class PilotCard {
     }
   }
   
+  var faction: String {
+    get {
+      return _shipCard.faction.rawValue
+    }
+  }
+  
   init(ship: String, pilot: String?) {
     let ships = ShipData()
     _shipCard = ships.getShip(ofType: ship, withPilot: pilot)

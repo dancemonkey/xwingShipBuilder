@@ -20,6 +20,7 @@ class ShipDetailVC: UIViewController {
   @IBOutlet weak var evade: UILabel!
   @IBOutlet weak var hull: UILabel!
   @IBOutlet weak var shield: UILabel!
+  @IBOutlet weak var factionImg: UIImageView!
   
   var buttonBackground: String!
   var pilot: PilotCard!
@@ -32,6 +33,7 @@ class ShipDetailVC: UIViewController {
       loadUpgradeIcons()
       loadActionIcons()
       setStats()
+      setupFactionImageView()
     }
   
   @IBAction func cancelPressed(sender: AnyObject) {
@@ -83,5 +85,10 @@ class ShipDetailVC: UIViewController {
     evade.text = String(pilot.shipStats.evade)
     hull.text = String(pilot.shipStats.hull)
     shield.text = String(pilot.shipStats.shield)
+  }
+  
+  func setupFactionImageView() {
+    factionImg.image = UIImage(named: pilot.faction)
+    factionImg.alpha = 0.25
   }
 }

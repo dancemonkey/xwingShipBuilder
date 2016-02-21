@@ -7,6 +7,8 @@
 //
 
 //TODO: have a button press on an upgrade move to a new VC that shows upgrades you can pick
+//TODO: divide ships into factions on ship select VC
+//TODO: action buttons on shipdetailVC popup in height when tapped and held
 
 import UIKit
 
@@ -16,7 +18,8 @@ class ShipSelectVC: UIViewController {
   
   let WIDTH: CGFloat = 150
   let HEIGHT: CGFloat = 150
-  let SHIP_TITLES: [String] = ["Firespray-31","TIE Phantom","T-65 X-Wing"]
+  let SHIP_TITLES: [String] = ["Firespray-31","TIE Phantom","T-65 X-Wing"] //!!!: This will eventually get pulled en masses from JSON data
+  let SHIP_FACTIONS: [String] = ["Scum","Imperial","Rebel"] //!!!: This too!
   var shipPressedTitle: String!
   
   override func viewDidLoad() {
