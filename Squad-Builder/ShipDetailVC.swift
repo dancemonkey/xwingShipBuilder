@@ -24,6 +24,7 @@ class ShipDetailVC: UIViewController {
   
   var buttonBackground: String!
   var pilot: PilotCard!
+  var pilotsForShipType = [String]()
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -34,6 +35,7 @@ class ShipDetailVC: UIViewController {
       loadActionIcons()
       setStats()
       setupFactionImageView()
+      print(pilotsForShipType)
     }
   
   @IBAction func cancelPressed(sender: AnyObject) {
@@ -50,6 +52,8 @@ class ShipDetailVC: UIViewController {
       let HEIGHT = WIDTH
       let button = UIButton(frame: CGRect(x: index*WIDTH, y: 0, width: WIDTH, height: HEIGHT))
       button.setBackgroundImage(img, forState: .Normal)
+      button.tag = index
+      button.addTarget(self, action: "upgradeButtonTapped:", forControlEvents: .TouchUpInside)
       upgradeView.addSubview(button)
       upgradeView.backgroundColor = UIColor.clearColor()
     }
@@ -64,10 +68,10 @@ class ShipDetailVC: UIViewController {
       let img = UIImage(named: action.rawValue)
       let WIDTH = 40
       let HEIGHT = WIDTH
-      let button = RoundButton(frame: CGRect(x: index*WIDTH, y: 0, width: WIDTH, height: HEIGHT))
-      button.setBackgroundImage(img, forState: .Normal)
-      actionView.addSubview(button)
-      button.awakeFromNib()
+      let imgView = RoundImageView(image: img)
+      imgView.frame = CGRect(x: index*WIDTH, y: 0, width: WIDTH, height: HEIGHT)
+      actionView.addSubview(imgView)
+      imgView.awakeFromNib()
       actionView.backgroundColor = UIColor.clearColor()
     }
     return true
@@ -90,5 +94,9 @@ class ShipDetailVC: UIViewController {
   func setupFactionImageView() {
     factionImg.image = UIImage(named: pilot.faction)
     factionImg.alpha = 0.25
+  }
+  
+  func upgradeButtonTapped(sender: UIButton!) {
+    print("tapped \(sender.tag) - \(pilot.availUpgrades[sender.tag])")
   }
 }

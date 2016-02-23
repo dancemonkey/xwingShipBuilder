@@ -42,6 +42,34 @@
             "avail_upgrades":["EPT", "Cannon", "Bomb", "Crew", "Missiles", "Illicit"],
             "avail_actions":["Focus", "TargetLock", "Evade"],
             "point_cost":39
+            },
+            {
+            "ship_type":"T-65 X-Wing",
+            "pilot":"Rookie Pilot",
+            "ps":2,
+            "faction":"Rebel",
+            "attack":3,
+            "evade":2,
+            "hull":3,
+            "shield":2,
+            "text":"Designed by Incom Corporation...",
+            "avail_upgrades":["Astromech", "Torpedoes"],
+            "avail_actions":["Focus", "TargetLock"],
+            "point_cost":28
+            },
+            {
+            "ship_type":"B-Wing",
+            "pilot":"Blue Squadron Pilot",
+            "ps":2,
+            "faction":"Rebel",
+            "attack":3,
+            "evade":1,
+            "hull":3,
+            "shield":5,
+            "text":"Because of its heavy weapons array...",
+            "avail_upgrades":["Cannon", "Torpedoes", "Torpedoes", "System"],
+            "avail_actions":["Focus", "TargetLock", "BarrelRoll"],
+            "point_cost":28
             }
-            ]
+          ]
 }

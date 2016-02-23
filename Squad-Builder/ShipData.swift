@@ -83,4 +83,25 @@ class ShipData {
     }
     return nil
   }
+  
+  func getAllShipTypes() -> [String] {
+    var shipTypes = [String]()
+    for ship in ships {
+      if shipTypes.contains(ship.shipType) {
+        continue
+      }
+      shipTypes.append(ship.shipType)
+    }
+    return shipTypes
+  }
+  
+  func getPilots(forShip: String) -> [String] {
+    var pilots = [String]()
+    for ship in ships {
+      if ship.shipType == forShip && ship.pilotName != nil {
+        pilots.append(ship.pilotName!)
+      }
+    }
+    return pilots
+  }
 }

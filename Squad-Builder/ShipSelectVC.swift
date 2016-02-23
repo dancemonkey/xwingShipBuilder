@@ -8,7 +8,8 @@
 
 //TODO: have a button press on an upgrade move to a new VC that shows upgrades you can pick
 //TODO: divide ships into factions on ship select VC
-//TODO: action buttons on shipdetailVC popup in height when tapped and held
+//TODO: upgrade buttons on shipdetailVC popup in size when tapped and held
+//TODO: ship factions and data pull from JSON, but in dictionary (values must be tied together in order)
 
 import UIKit
 
@@ -18,21 +19,26 @@ class ShipSelectVC: UIViewController {
   
   let WIDTH: CGFloat = 150
   let HEIGHT: CGFloat = 150
-  let SHIP_TITLES: [String] = ["Firespray-31","TIE Phantom","T-65 X-Wing"] //!!!: This will eventually get pulled en masses from JSON data
-  let SHIP_FACTIONS: [String] = ["Scum","Imperial","Rebel"] //!!!: This too!
-  var shipPressedTitle: String!
+  var SHIP_TITLES = [String]()
+  let SHIP_FACTIONS: [String] = ["Scum","Imperial","Rebel"] 
+  var selectedShipTitle: String!
+  var ships: ShipData!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    for x in 1...3 {
+    ships = ShipData()
+    SHIP_TITLES = ships.getAllShipTypes()
+    print(SHIP_TITLES)
+        
+    for x in 1...SHIP_TITLES.count {
       scrollView.addSubview(setUpButton(forX: x))
     }
-    scrollView.contentSize = CGSize(width: WIDTH * 3, height: scrollView.frame.size.height)
+    scrollView.contentSize = CGSize(width: WIDTH * CGFloat(SHIP_TITLES.count), height: scrollView.frame.size.height)
   }
   
   func shipButtonPressed(sender: RoundButton) {
-    shipPressedTitle = sender.titleLabel?.text      
+    selectedShipTitle = sender.titleLabel?.text
     performSegueWithIdentifier("showShipDetail", sender: self)
   }
 
@@ -49,8 +55,9 @@ class ShipSelectVC: UIViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let destVC = segue.destinationViewController as! ShipDetailVC
-    destVC.buttonBackground = shipPressedTitle
-    destVC.pilot = PilotCard(ship: shipPressedTitle, pilot: nil)
+    destVC.buttonBackground = selectedShipTitle
+    destVC.pilot = PilotCard(ship: selectedShipTitle, pilot: nil)
+    destVC.pilotsForShipType = ships.getPilots(selectedShipTitle)
   }
 }
 
