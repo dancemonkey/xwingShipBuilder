@@ -7,7 +7,6 @@
 //
 
 //TODO: implement upgrade effects and test for limitations
-//TODO: pilot button brings to pilot selector screen, update stats on detail screen and populate upgrades and actions
 
 import Foundation
 

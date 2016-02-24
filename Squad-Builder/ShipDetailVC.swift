@@ -6,11 +6,9 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: Create nil pilot name type for each ship type that loads initially. If nil pilot, btn text says to load pilot, no stats, upgrades, etc.
-
 import UIKit
 
-class ShipDetailVC: UIViewController {
+class ShipDetailVC: UIViewController, PilotSelectedDelegate {
 
   @IBOutlet weak var shipBtn: RoundButton!
   @IBOutlet weak var pilotLbl: UILabel!
@@ -21,28 +19,41 @@ class ShipDetailVC: UIViewController {
   @IBOutlet weak var hull: UILabel!
   @IBOutlet weak var shield: UILabel!
   @IBOutlet weak var factionImg: UIImageView!
+  @IBOutlet weak var pointCost: PointCostUILbl!
+  @IBOutlet weak var cardText: UITextView!
   
   var buttonBackground: String!
   var pilot: PilotCard!
   var pilotsForShipType = [String]()
+  var ships: ShipData!
   
     override func viewDidLoad() {
       super.viewDidLoad()
-      shipBtn.awakeFromNib()
+      ships = ShipData()
       shipBtn.setBackgroundImage(UIImage(named: buttonBackground), forState: .Normal)
-      shipBtn.setTitle(pilot.pilotName, forState: .Normal)
-      loadUpgradeIcons()
-      loadActionIcons()
-      setStats()
+      initializePilotData()
       setupFactionImageView()
-      print(pilotsForShipType)
     }
   
   @IBAction func cancelPressed(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
   }
+  
+  func initializePilotData() {
+    shipBtn.setTitle(pilot.pilotName, forState: .Normal)
+    loadUpgradeIcons()
+    loadActionIcons()
+    setStats()
+    cardText.text = pilot.cardText
+    cardText.font = UIFont(name: "Helvetica-Oblique", size: 16.0)
+    cardText.textColor = UIColor.whiteColor()
+  }
 
   func loadUpgradeIcons() -> Bool {
+    for view in upgradeView.subviews {
+      view.removeFromSuperview()
+    }
+    
     guard let _ = pilot.pilotName else {
       return false
     }
@@ -61,6 +72,10 @@ class ShipDetailVC: UIViewController {
   }
   
   func loadActionIcons() -> Bool {
+    for view in actionView.subviews {
+      view.removeFromSuperview()
+    }
+    
     guard let _ = pilot.pilotName else {
       return false
     }
@@ -89,6 +104,7 @@ class ShipDetailVC: UIViewController {
     evade.text = String(pilot.shipStats.evade)
     hull.text = String(pilot.shipStats.hull)
     shield.text = String(pilot.shipStats.shield)
+    pointCost.text = String(pilot.currenPointCost)
   }
   
   func setupFactionImageView() {
@@ -98,5 +114,19 @@ class ShipDetailVC: UIViewController {
   
   func upgradeButtonTapped(sender: UIButton!) {
     print("tapped \(sender.tag) - \(pilot.availUpgrades[sender.tag])")
+  }
+  
+  func userSelectedNewPilot(name: String) {
+    self.pilot = PilotCard(ship: self.pilot.shipType, pilot: name)
+    initializePilotData()
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "PilotSelect" {
+      let destination = segue.destinationViewController as? PilotSelectVC
+      destination?.pilots = self.pilotsForShipType
+      destination?.delegate = self
+      destination?.shipType = self.pilot.shipType
+    }
   }
 }

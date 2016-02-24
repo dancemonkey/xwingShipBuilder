@@ -54,17 +54,21 @@ class PilotCard {
     var hull: Int
     var shield: Int
   }
+  
   private var _shipStats: Stats!
   var shipStats: Stats {
     get {
       return _shipStats
     }
   }
-  var shipPointCost: Int {
+  
+  var startingPointCost: Int {
     get {
       return _shipCard.pointCost
     }
   }
+  var currenPointCost: Int
+  
   var shipType: String {
     get {
       return _shipCard.shipType
@@ -92,11 +96,13 @@ class PilotCard {
     _originalUpgrades = _availUpgrades
     self._actions = _shipCard.avail_Actions
     _shipStats = Stats(attack: _shipCard.stat_Attack, evade: _shipCard.stat_Evade, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
+    currenPointCost = _shipCard.pointCost
   }
   
   func attachUpgrade(upgrade: UpgradeCard) -> Bool {
     if _availUpgrades.contains(upgrade.type.rawValue) {
       _currentUpgrades.append(upgrade.name)
+      //TODO: also must add upgrade points cost to current point cost
       for (index, entry) in _availUpgrades.enumerate() {
         if entry == upgrade.name {
           _availUpgrades.removeAtIndex(index)
@@ -112,6 +118,7 @@ class PilotCard {
     if _currentUpgrades.contains(upgrade.name) {
       _currentUpgrades.removeAtIndex(_currentUpgrades.indexOf(upgrade.name)!)
       _availUpgrades.append(upgrade.type.rawValue)
+      //TODO: also must remove upgrade cost from current point cost
       return true
     } else {
       return false
@@ -121,6 +128,7 @@ class PilotCard {
   func clearUpgrades() {
     _availUpgrades = _originalUpgrades
     _currentUpgrades.removeAll()
+    currenPointCost = startingPointCost
   }
   
 }

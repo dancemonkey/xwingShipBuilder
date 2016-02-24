@@ -19,7 +19,7 @@ class ShipSelectVC: UIViewController {
   
   let WIDTH: CGFloat = 150
   let HEIGHT: CGFloat = 150
-  var SHIP_TITLES = [String]()
+  var SHIP_TYPES = [String]()
   let SHIP_FACTIONS: [String] = ["Scum","Imperial","Rebel"] 
   var selectedShipTitle: String!
   var ships: ShipData!
@@ -28,13 +28,12 @@ class ShipSelectVC: UIViewController {
     super.viewDidLoad()
     
     ships = ShipData()
-    SHIP_TITLES = ships.getAllShipTypes()
-    print(SHIP_TITLES)
-        
-    for x in 1...SHIP_TITLES.count {
+    SHIP_TYPES = ships.getAllShipTypes()
+    
+    for x in 1...SHIP_TYPES.count {
       scrollView.addSubview(setUpButton(forX: x))
     }
-    scrollView.contentSize = CGSize(width: WIDTH * CGFloat(SHIP_TITLES.count), height: scrollView.frame.size.height)
+    scrollView.contentSize = CGSize(width: WIDTH * CGFloat(SHIP_TYPES.count), height: scrollView.frame.size.height)
   }
   
   func shipButtonPressed(sender: RoundButton) {
@@ -44,9 +43,9 @@ class ShipSelectVC: UIViewController {
 
   func setUpButton(forX x: Int) -> RoundButton {
     let button = RoundButton()
-    button.setTitle(SHIP_TITLES[x-1], forState: .Normal)
+    button.setTitle(SHIP_TYPES[x-1], forState: .Normal)
     button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-    button.setBackgroundImage(UIImage(named: SHIP_TITLES[x-1]), forState: .Normal)
+    button.setBackgroundImage(UIImage(named: SHIP_TYPES[x-1]), forState: .Normal)
     button.frame = CGRect(x: -WIDTH + (WIDTH * CGFloat(x)), y: HEIGHT/2, width: WIDTH, height: HEIGHT)
     button.addTarget(self, action: "shipButtonPressed:", forControlEvents: .TouchUpInside)
     button.awakeFromNib()

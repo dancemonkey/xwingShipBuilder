@@ -55,7 +55,7 @@
             "text":"Designed by Incom Corporation...",
             "avail_upgrades":["Astromech", "Torpedoes"],
             "avail_actions":["Focus", "TargetLock"],
-            "point_cost":28
+            "point_cost":21
             },
             {
             "ship_type":"B-Wing",
@@ -69,7 +69,7 @@
             "text":"Because of its heavy weapons array...",
             "avail_upgrades":["Cannon", "Torpedoes", "Torpedoes", "System"],
             "avail_actions":["Focus", "TargetLock", "BarrelRoll"],
-            "point_cost":28
+            "point_cost":22
             }
           ]
 }

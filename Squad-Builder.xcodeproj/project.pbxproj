@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009021B1C62D6A7008150EF /* UpgradeCard.swift */; };
+		101650131C7CDDA600B43647 /* PilotSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101650121C7CDDA600B43647 /* PilotSelectVC.swift */; };
 		1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A31C5C6263004E93EA /* AppDelegate.swift */; };
 		1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */; };
 		1022D0A91C5C6263004E93EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1022D0A71C5C6263004E93EA /* Main.storyboard */; };
@@ -19,12 +20,14 @@
 		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
 		107983C21C6C397300143132 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C11C6C397300143132 /* RoundImageView.swift */; };
 		107983C41C6C42C000143132 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C31C6C42C000143132 /* RoundButton.swift */; };
+		1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */; };
 		10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */; };
 		10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6D8191C5C7E3500A8B91A /* PilotCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1009021B1C62D6A7008150EF /* UpgradeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCard.swift; sourceTree = "<group>"; };
+		101650121C7CDDA600B43647 /* PilotSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotSelectVC.swift; sourceTree = "<group>"; };
 		1022D0A01C5C6263004E93EA /* Squad-Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Squad-Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1022D0A31C5C6263004E93EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipSelectVC.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
 		107983C11C6C397300143132 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		107983C31C6C42C000143132 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCostUILbl.swift; sourceTree = "<group>"; };
 		10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
 		10C6D8191C5C7E3500A8B91A /* PilotCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +77,7 @@
 				1022D0A71C5C6263004E93EA /* Main.storyboard */,
 				107983C11C6C397300143132 /* RoundImageView.swift */,
 				107983C31C6C42C000143132 /* RoundButton.swift */,
+				1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 				1022D0A31C5C6263004E93EA /* AppDelegate.swift */,
 				1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */,
 				10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */,
+				101650121C7CDDA600B43647 /* PilotSelectVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */,
 				107983C41C6C42C000143132 /* RoundButton.swift in Sources */,
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
 				1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */,
@@ -195,6 +202,7 @@
 				10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */,
 				1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */,
 				107983C21C6C397300143132 /* RoundImageView.swift in Sources */,
+				101650131C7CDDA600B43647 /* PilotSelectVC.swift in Sources */,
 				1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
 			);
