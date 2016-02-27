@@ -18,6 +18,7 @@
 		1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0B71C5C6310004E93EA /* ShipData.swift */; };
 		1024D3D01C62CAB600C88580 /* upgrades_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1024D3CF1C62CAB600C88580 /* upgrades_json.json */; };
 		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
+		106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */; };
 		107983C21C6C397300143132 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C11C6C397300143132 /* RoundImageView.swift */; };
 		107983C41C6C42C000143132 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C31C6C42C000143132 /* RoundButton.swift */; };
 		1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */; };
@@ -39,6 +40,7 @@
 		1022D0B71C5C6310004E93EA /* ShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipData.swift; sourceTree = "<group>"; };
 		1024D3CF1C62CAB600C88580 /* upgrades_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = upgrades_json.json; sourceTree = "<group>"; };
 		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
+		106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCollectionViewCell.swift; sourceTree = "<group>"; };
 		107983C11C6C397300143132 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		107983C31C6C42C000143132 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCostUILbl.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */,
 				10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */,
 				101650121C7CDDA600B43647 /* PilotSelectVC.swift */,
+				106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				107983C21C6C397300143132 /* RoundImageView.swift in Sources */,
 				101650131C7CDDA600B43647 /* PilotSelectVC.swift in Sources */,
 				1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */,
+				106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

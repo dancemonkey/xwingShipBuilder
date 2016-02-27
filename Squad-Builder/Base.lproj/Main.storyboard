@@ -33,17 +33,56 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0BY-iu-5g8">
-                                <rect key="frame" x="0.0" y="156" width="600" height="319"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w05-u2-lmo">
+                                <rect key="frame" x="20" y="156" width="560" height="366"/>
+                                <color key="backgroundColor" white="1" alpha="0.13558382601351351" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="319" id="GEx-ur-pLh"/>
+                                    <constraint firstAttribute="height" constant="342" id="mei-vv-SUY"/>
                                 </constraints>
-                            </scrollView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jzw-mv-YzJ">
+                                    <size key="itemSize" width="130" height="114"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="shipCell" id="0Y5-Sz-JcC" customClass="ShipCollectionViewCell" customModule="Squad_Builder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibU-TZ-b8S">
+                                                    <rect key="frame" x="8" y="121" width="134" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="B-Wing" translatesAutoresizingMaskIntoConstraints="NO" id="2cN-dc-FQa" customClass="RoundImageView" customModule="Squad_Builder" customModuleProvider="target">
+                                                    <rect key="frame" x="23" y="8" width="105" height="105"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <connections>
+                                            <outlet property="shipImg" destination="2cN-dc-FQa" id="sdo-Ck-bXi"/>
+                                            <outlet property="shipName" destination="ibU-TZ-b8S" id="cKo-Lb-5Nu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mei-vv-SUY"/>
+                                    </mask>
+                                </variation>
+                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Ship" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMB-Hm-DNJ">
-                                <rect key="frame" x="199" y="483" width="202" height="74"/>
+                                <rect key="frame" x="199" y="530" width="202" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="8Hu-sy-XXg"/>
-                                    <constraint firstAttribute="height" constant="74" id="ahb-i1-Ngc"/>
+                                    <constraint firstAttribute="width" constant="202" id="3PS-as-bxH"/>
+                                    <constraint firstAttribute="height" constant="50" id="jAO-K6-JTy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,41 +91,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="w05-u2-lmo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="1Rd-Lt-XhU"/>
                             <constraint firstItem="ESk-wC-ALk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2kN-Q2-YZX"/>
-                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="7Ym-HA-ZYZ"/>
-                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rxw-GY-x64"/>
-                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="TUU-yt-jTK"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LMB-Hm-DNJ" secondAttribute="bottom" constant="43" id="TcC-jS-PCy"/>
+                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="top" secondItem="w05-u2-lmo" secondAttribute="bottom" constant="8" id="GLs-Vt-nWT"/>
+                            <constraint firstAttribute="trailing" secondItem="w05-u2-lmo" secondAttribute="trailing" constant="20" id="JCs-MF-8HQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JcS-hF-kY9" secondAttribute="bottom" id="Uuo-6Y-LZJ"/>
-                            <constraint firstItem="0BY-iu-5g8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VtX-yU-aRO"/>
                             <constraint firstAttribute="trailing" secondItem="JcS-hF-kY9" secondAttribute="trailing" id="XC4-0s-W7u"/>
-                            <constraint firstItem="0BY-iu-5g8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fuf-Yg-Qkx"/>
                             <constraint firstItem="ESk-wC-ALk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g0t-WY-fYB"/>
-                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="top" secondItem="0BY-iu-5g8" secondAttribute="bottom" constant="8" id="gLp-Qf-FEr"/>
-                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="kyT-y1-6Z7"/>
-                            <constraint firstItem="0BY-iu-5g8" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="l45-xk-Ns3"/>
+                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="top" secondItem="w05-u2-lmo" secondAttribute="bottom" constant="8" id="hx7-F9-mQy"/>
+                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lwD-iS-3Q1"/>
+                            <constraint firstItem="w05-u2-lmo" firstAttribute="top" secondItem="ESk-wC-ALk" secondAttribute="bottom" constant="8" id="oJU-tQ-S5j"/>
                             <constraint firstItem="JcS-hF-kY9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oQv-ed-tH3"/>
-                            <constraint firstItem="LMB-Hm-DNJ" firstAttribute="top" secondItem="0BY-iu-5g8" secondAttribute="bottom" constant="8" id="oZ4-6B-blc"/>
-                            <constraint firstAttribute="trailing" secondItem="0BY-iu-5g8" secondAttribute="trailing" id="p2H-YQ-fKR"/>
-                            <constraint firstAttribute="trailing" secondItem="0BY-iu-5g8" secondAttribute="trailing" id="pdu-qG-CMc"/>
                             <constraint firstItem="JcS-hF-kY9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q6H-oH-LDB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LMB-Hm-DNJ" secondAttribute="bottom" constant="20" id="qDG-Wg-1tK"/>
                             <constraint firstItem="ESk-wC-ALk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tfv-Kh-ZBH"/>
                             <constraint firstAttribute="trailing" secondItem="ESk-wC-ALk" secondAttribute="trailing" id="u7j-yd-65K"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="7Ym-HA-ZYZ"/>
-                                <exclude reference="TUU-yt-jTK"/>
-                                <exclude reference="fuf-Yg-Qkx"/>
-                                <exclude reference="kyT-y1-6Z7"/>
-                                <exclude reference="p2H-YQ-fKR"/>
-                                <exclude reference="gLp-Qf-FEr"/>
-                                <exclude reference="oZ4-6B-blc"/>
+                                <exclude reference="hx7-F9-mQy"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="scrollView" destination="0BY-iu-5g8" id="YcH-3j-MbE"/>
+                        <outlet property="collection" destination="w05-u2-lmo" id="BpG-St-uzr"/>
                         <segue destination="ZAO-Ms-RXA" kind="show" identifier="showShipDetail" id="e3n-iH-rcS"/>
                     </connections>
                 </viewController>
@@ -503,6 +531,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="B-Wing" width="500" height="462"/>
         <image name="Scum" width="100" height="100"/>
         <image name="spaceBG" width="1024" height="1024"/>
         <image name="xWingLogo" width="1781" height="736"/>

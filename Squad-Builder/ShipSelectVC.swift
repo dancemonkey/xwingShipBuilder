@@ -13,9 +13,10 @@
 
 import UIKit
 
-class ShipSelectVC: UIViewController {
+class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
+, UICollectionViewDelegateFlowLayout {
 
-  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var collection: UICollectionView!
   
   let WIDTH: CGFloat = 150
   let HEIGHT: CGFloat = 150
@@ -30,10 +31,8 @@ class ShipSelectVC: UIViewController {
     ships = ShipData()
     SHIP_TYPES = ships.getAllShipTypes()
     
-    for x in 1...SHIP_TYPES.count {
-      scrollView.addSubview(setUpButton(forX: x))
-    }
-    scrollView.contentSize = CGSize(width: WIDTH * CGFloat(SHIP_TYPES.count), height: scrollView.frame.size.height)
+    collection.delegate = self
+    collection.dataSource = self
   }
   
   func shipButtonPressed(sender: RoundButton) {
@@ -57,6 +56,32 @@ class ShipSelectVC: UIViewController {
     destVC.buttonBackground = selectedShipTitle
     destVC.pilot = PilotCard(ship: selectedShipTitle, pilot: nil)
     destVC.pilotsForShipType = ships.getPilots(selectedShipTitle)
+  }
+  
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("shipCell", forIndexPath: indexPath) as? ShipCollectionViewCell {
+      cell.configureCell(SHIP_TYPES[indexPath.row])
+      return cell
+    } else {
+      return UICollectionViewCell()
+    }
+  }
+  
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return SHIP_TYPES.count
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    return CGSize(width: 150.0, height: 150.0)
+  }
+  
+  func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    selectedShipTitle = SHIP_TYPES[indexPath.row]
+    performSegueWithIdentifier("showShipDetail", sender: self)
   }
 }
 
