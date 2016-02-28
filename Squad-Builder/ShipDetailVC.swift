@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShipDetailVC: UIViewController, PilotSelectedDelegate {
+class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDelegate {
 
   @IBOutlet weak var shipBtn: RoundButton!
   @IBOutlet weak var pilotLbl: UILabel!
@@ -106,7 +106,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
     evade.text = String(pilot.shipStats.evade)
     hull.text = String(pilot.shipStats.hull)
     shield.text = String(pilot.shipStats.shield)
-    pointCost.text = String(pilot.currenPointCost)
+    pointCost.text = String(pilot.currentPointCost)
   }
   
   func setupFactionImageView() {
@@ -124,6 +124,10 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
     initializePilotData()
   }
   
+  func userSelectedUpgrade(type: UpgradeCard) {
+    
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "PilotSelect" {
       let destination = segue.destinationViewController as? PilotSelectVC
@@ -132,6 +136,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
       destination?.shipType = self.pilot.shipType
     } else if segue.identifier == "UpgradeSelect" {
       let destination = segue.destinationViewController as? UpgradeSelectVC
+      destination?.delegate = self
       destination?.upgradeType = pilot.availUpgrades[upgradeSelected]
     }
   }

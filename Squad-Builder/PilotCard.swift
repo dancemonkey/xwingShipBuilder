@@ -67,7 +67,7 @@ class PilotCard {
       return _shipCard.pointCost
     }
   }
-  var currenPointCost: Int
+  var currentPointCost: Int
   
   var shipType: String {
     get {
@@ -96,7 +96,7 @@ class PilotCard {
     _originalUpgrades = _availUpgrades
     self._actions = _shipCard.avail_Actions
     _shipStats = Stats(attack: _shipCard.stat_Attack, evade: _shipCard.stat_Evade, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
-    currenPointCost = _shipCard.pointCost
+    currentPointCost = _shipCard.pointCost
   }
   
   func attachUpgrade(upgrade: UpgradeCard) -> Bool {
@@ -128,7 +128,7 @@ class PilotCard {
   func clearUpgrades() {
     _availUpgrades = _originalUpgrades
     _currentUpgrades.removeAll()
-    currenPointCost = startingPointCost
+    currentPointCost = startingPointCost
   }
   
 }

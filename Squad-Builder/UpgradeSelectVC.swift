@@ -7,13 +7,20 @@
 //
 
 //TODO: tapping a cell dismisses VC and loads upgrades into selected ship
+//TODO: implement search bar in ship select and upgrade select screens
 
 import UIKit
+
+protocol UpgradeSelectedDelegate: class {
+  func userSelectedUpgrade(type: UpgradeCard)
+}
 
 class UpgradeSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   var availableUpgrades = [UpgradeCard]()
   var upgradeType: String!
+  
+  weak var delegate: UpgradeSelectedDelegate? = nil
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var upgradeTypeLabel: UILabel!
@@ -48,6 +55,11 @@ class UpgradeSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    delegate?.userSelectedUpgrade(availableUpgrades[indexPath.row])
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
   func findAvailableUpgrades(forType type: String) -> [UpgradeCard] {

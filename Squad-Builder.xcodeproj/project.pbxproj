@@ -20,6 +20,7 @@
 		1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0B71C5C6310004E93EA /* ShipData.swift */; };
 		1024D3D01C62CAB600C88580 /* upgrades_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1024D3CF1C62CAB600C88580 /* upgrades_json.json */; };
 		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
+		1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */; };
 		106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */; };
 		107983C21C6C397300143132 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C11C6C397300143132 /* RoundImageView.swift */; };
 		107983C41C6C42C000143132 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C31C6C42C000143132 /* RoundButton.swift */; };
@@ -44,6 +45,7 @@
 		1022D0B71C5C6310004E93EA /* ShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipData.swift; sourceTree = "<group>"; };
 		1024D3CF1C62CAB600C88580 /* upgrades_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = upgrades_json.json; sourceTree = "<group>"; };
 		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
+		1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipUpgradeCell.swift; sourceTree = "<group>"; };
 		106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCollectionViewCell.swift; sourceTree = "<group>"; };
 		107983C11C6C397300143132 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		107983C31C6C42C000143132 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -84,6 +86,9 @@
 				107983C11C6C397300143132 /* RoundImageView.swift */,
 				107983C31C6C42C000143132 /* RoundButton.swift */,
 				1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */,
+				101199B91C828B1C0098F11B /* UpgradeCell.swift */,
+				106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */,
+				1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -95,9 +100,7 @@
 				1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */,
 				10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */,
 				101650121C7CDDA600B43647 /* PilotSelectVC.swift */,
-				106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */,
 				101199B71C82898A0098F11B /* UpgradeSelectVC.swift */,
-				101199B91C828B1C0098F11B /* UpgradeCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -121,9 +124,9 @@
 		1022D0A21C5C6263004E93EA /* Squad-Builder */ = {
 			isa = PBXGroup;
 			children = (
-				101EA5961C6C287600006F1D /* Controller */,
-				101EA5951C6C286400006F1D /* View */,
 				101EA5941C6C284D00006F1D /* Model */,
+				101EA5951C6C286400006F1D /* View */,
+				101EA5961C6C287600006F1D /* Controller */,
 				1022D0AA1C5C6263004E93EA /* Assets.xcassets */,
 				1022D0AF1C5C6263004E93EA /* Info.plist */,
 			);
@@ -209,6 +212,7 @@
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
 				1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */,
 				1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */,
+				1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */,
 				101199BA1C828B1C0098F11B /* UpgradeCell.swift in Sources */,
 				10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */,
 				1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */,
