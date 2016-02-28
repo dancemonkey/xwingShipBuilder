@@ -346,7 +346,7 @@
                                 <rect key="frame" x="20" y="53" width="452" height="133"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -417,11 +417,154 @@
                         <outlet property="shield" destination="8EH-hP-NTn" id="ZvG-ay-1Ei"/>
                         <outlet property="shipBtn" destination="QrR-mx-y31" id="YI1-Hz-ZdA"/>
                         <outlet property="upgradeView" destination="oOp-Kd-hfr" id="bIM-hA-Jpr"/>
+                        <segue destination="ZGs-bf-osU" kind="show" identifier="UpgradeSelect" id="C8f-Ul-SNF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooP-ah-6bS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1105" y="387"/>
+        </scene>
+        <!--Upgrade SelectVC-->
+        <scene sceneID="B5m-qP-B5p">
+            <objects>
+                <viewController id="ZGs-bf-osU" customClass="UpgradeSelectVC" customModule="Squad_Builder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ebd-5g-XdB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dv5-tX-JsR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="72E-q3-Fbi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBG" translatesAutoresizingMaskIntoConstraints="NO" id="X12-Rg-Dy4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-zP-HKD">
+                                <rect key="frame" x="20" y="20" width="54" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="25" id="4ET-cY-Jrr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="4Mg-sp-N0m"/>
+                                    <constraint firstAttribute="width" constant="100" id="7A5-Yv-bsB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Guf-31-hHL"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="HB3-s8-hfI"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Ym0-U8-KrX"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="54" id="aEC-sx-Qjo"/>
+                                    <constraint firstAttribute="width" constant="54" id="byA-e2-08n"/>
+                                    <constraint firstAttribute="height" constant="50" id="dBg-qs-vOh"/>
+                                    <constraint firstAttribute="height" constant="25" id="phB-DB-Zdi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7A5-Yv-bsB"/>
+                                        <exclude reference="HB3-s8-hfI"/>
+                                        <exclude reference="Ym0-U8-KrX"/>
+                                        <exclude reference="dBg-qs-vOh"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="ZGs-bf-osU" eventType="touchUpInside" id="4tR-P5-zlc"/>
+                                    <action selector="cancelPressed:" destination="oiy-Sy-4Nw" eventType="touchUpInside" id="ptL-BL-5bb"/>
+                                    <action selector="cancelPressed:" destination="ZAO-Ms-RXA" eventType="touchUpInside" id="xKX-Ht-1AI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Upgrade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aDQ-ON-Cpc">
+                                <rect key="frame" x="199" y="8" width="202" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="15N-LE-IOk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="202" id="1Ft-aJ-rBG"/>
+                                    <constraint firstAttribute="height" constant="50" id="BdY-ud-fkI"/>
+                                    <constraint firstAttribute="width" constant="202" id="tOT-vp-4Uu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="136" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fGi-xD-g7q">
+                                <rect key="frame" x="20" y="66" width="560" height="514"/>
+                                <color key="backgroundColor" white="1" alpha="0.21669130067567569" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="upgradeCell" rowHeight="136" id="jRO-7c-EKo" customClass="UpgradeCell" customModule="Squad_Builder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="136"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jRO-7c-EKo" id="jkJ-Rc-wOM">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="135"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uif-Pj-PcN">
+                                                    <rect key="frame" x="66" y="4" width="486" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="xVr-7P-QBg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Astromech" translatesAutoresizingMaskIntoConstraints="NO" id="y07-RD-ncx">
+                                                    <rect key="frame" x="8" y="4" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="6df-V7-eZf"/>
+                                                        <constraint firstAttribute="height" constant="50" id="meo-fn-5NF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade description text." lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eF-ks-TaK">
+                                                    <rect key="frame" x="66" y="33" width="486" height="94"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="94" id="qPc-vS-o5p"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y07-RD-ncx" firstAttribute="leading" secondItem="jkJ-Rc-wOM" secondAttribute="leading" constant="8" id="QLk-MX-pkc"/>
+                                                <constraint firstItem="y07-RD-ncx" firstAttribute="top" secondItem="jkJ-Rc-wOM" secondAttribute="top" constant="4" id="Qy6-sz-mRR"/>
+                                                <constraint firstItem="Uif-Pj-PcN" firstAttribute="leading" secondItem="y07-RD-ncx" secondAttribute="trailing" constant="8" id="Tz0-uE-8WG"/>
+                                                <constraint firstItem="Uif-Pj-PcN" firstAttribute="top" secondItem="jkJ-Rc-wOM" secondAttribute="top" constant="4" id="VdB-Y9-qhX"/>
+                                                <constraint firstItem="8eF-ks-TaK" firstAttribute="top" secondItem="Uif-Pj-PcN" secondAttribute="bottom" constant="8" id="eS5-ev-uoZ"/>
+                                                <constraint firstItem="8eF-ks-TaK" firstAttribute="leading" secondItem="y07-RD-ncx" secondAttribute="trailing" constant="8" id="nCi-WA-92E"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uif-Pj-PcN" secondAttribute="trailing" constant="8" id="xom-BN-0bo"/>
+                                                <constraint firstAttribute="trailing" secondItem="8eF-ks-TaK" secondAttribute="trailing" constant="8" id="yVB-S6-A1z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.29254645270270274" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="upgradeIcon" destination="y07-RD-ncx" id="ww7-lK-biq"/>
+                                            <outlet property="upgradeText" destination="8eF-ks-TaK" id="Hl6-ha-ct8"/>
+                                            <outlet property="upgradeTitle" destination="Uif-Pj-PcN" id="Xzv-jE-4cW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dv5-tX-JsR" firstAttribute="top" secondItem="fGi-xD-g7q" secondAttribute="bottom" constant="20" id="7zB-Ua-jJY"/>
+                            <constraint firstItem="fGi-xD-g7q" firstAttribute="leading" secondItem="72E-q3-Fbi" secondAttribute="leading" constant="20" id="94h-Xj-fbm"/>
+                            <constraint firstItem="Dv5-tX-JsR" firstAttribute="top" secondItem="X12-Rg-Dy4" secondAttribute="bottom" id="AjV-ZP-js3"/>
+                            <constraint firstItem="Ra8-zP-HKD" firstAttribute="top" secondItem="ebd-5g-XdB" secondAttribute="bottom" id="IJR-MU-oCk"/>
+                            <constraint firstItem="X12-Rg-Dy4" firstAttribute="leading" secondItem="72E-q3-Fbi" secondAttribute="leading" id="MoZ-5g-PRi"/>
+                            <constraint firstItem="fGi-xD-g7q" firstAttribute="top" secondItem="aDQ-ON-Cpc" secondAttribute="bottom" constant="8" id="Msv-Wk-J15"/>
+                            <constraint firstItem="aDQ-ON-Cpc" firstAttribute="top" secondItem="72E-q3-Fbi" secondAttribute="top" constant="8" id="N3u-oS-u1a"/>
+                            <constraint firstItem="X12-Rg-Dy4" firstAttribute="top" secondItem="72E-q3-Fbi" secondAttribute="top" id="NZH-2S-FJ1"/>
+                            <constraint firstItem="Ra8-zP-HKD" firstAttribute="leading" secondItem="72E-q3-Fbi" secondAttribute="leading" constant="20" id="a0x-8w-8vC"/>
+                            <constraint firstItem="aDQ-ON-Cpc" firstAttribute="centerX" secondItem="72E-q3-Fbi" secondAttribute="centerX" id="f9E-sq-Arc"/>
+                            <constraint firstAttribute="trailing" secondItem="X12-Rg-Dy4" secondAttribute="trailing" id="iYP-0g-mAX"/>
+                            <constraint firstAttribute="trailing" secondItem="fGi-xD-g7q" secondAttribute="trailing" constant="20" id="oIm-n3-jnL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="fGi-xD-g7q" id="3fp-l5-Udp"/>
+                        <outlet property="upgradeTypeLabel" destination="aDQ-ON-Cpc" id="zVa-Wo-7ww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d98-Fj-5ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1105" y="1143"/>
         </scene>
         <!--Pilot SelectVC-->
         <scene sceneID="nO9-AQ-Y5w">
@@ -531,6 +674,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Astromech" width="84" height="84"/>
         <image name="B-Wing" width="500" height="462"/>
         <image name="Scum" width="100" height="100"/>
         <image name="spaceBG" width="1024" height="1024"/>

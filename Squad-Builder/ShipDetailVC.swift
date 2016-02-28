@@ -27,6 +27,8 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
   var pilotsForShipType = [String]()
   var ships: ShipData!
   
+  var upgradeSelected: Int = 0
+  
     override func viewDidLoad() {
       super.viewDidLoad()
       ships = ShipData()
@@ -46,7 +48,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
     setStats()
     cardText.text = pilot.cardText
     cardText.font = UIFont(name: "Helvetica-Oblique", size: 16.0)
-    cardText.textColor = UIColor.whiteColor()
+    cardText.textColor = UIColor.lightGrayColor()
   }
 
   func loadUpgradeIcons() -> Bool {
@@ -113,7 +115,8 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
   }
   
   func upgradeButtonTapped(sender: UIButton!) {
-    print("tapped \(sender.tag) - \(pilot.availUpgrades[sender.tag])")
+    upgradeSelected = sender.tag
+    performSegueWithIdentifier("UpgradeSelect", sender: self)
   }
   
   func userSelectedNewPilot(name: String) {
@@ -127,6 +130,9 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate {
       destination?.pilots = self.pilotsForShipType
       destination?.delegate = self
       destination?.shipType = self.pilot.shipType
+    } else if segue.identifier == "UpgradeSelect" {
+      let destination = segue.destinationViewController as? UpgradeSelectVC
+      destination?.upgradeType = pilot.availUpgrades[upgradeSelected]
     }
   }
 }
