@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDelegate {
+class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDelegate, UITableViewDataSource, UITableViewDelegate {
 
   @IBOutlet weak var shipBtn: RoundButton!
   @IBOutlet weak var pilotLbl: UILabel!
@@ -21,6 +21,8 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   @IBOutlet weak var factionImg: UIImageView!
   @IBOutlet weak var pointCost: PointCostUILbl!
   @IBOutlet weak var cardText: UITextView!
+  
+  @IBOutlet weak var tableView: UITableView!
   
   var buttonBackground: String!
   var pilot: PilotCard!
@@ -35,6 +37,9 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
       shipBtn.setBackgroundImage(UIImage(named: buttonBackground), forState: .Normal)
       initializePilotData()
       setupFactionImageView()
+      
+      tableView.delegate = self
+      tableView.dataSource = self
     }
   
   @IBAction func cancelPressed(sender: AnyObject) {
@@ -59,6 +64,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
     guard let _ = pilot.pilotName else {
       return false
     }
+        
     for (index,upgrade) in pilot.availUpgrades.enumerate() {
       let img = UIImage(named: upgrade)
       let WIDTH = 40
@@ -107,6 +113,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
     hull.text = String(pilot.shipStats.hull)
     shield.text = String(pilot.shipStats.shield)
     pointCost.text = String(pilot.currentPointCost)
+    pointCost.setOriginalPointValue(withValue: pilot.startingPointCost)
   }
   
   func setupFactionImageView() {
@@ -125,7 +132,20 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   }
   
   func userSelectedUpgrade(type: UpgradeCard) {
-    
+    pilot.attachUpgrade(type)
+    loadUpgradeIcons()
+    tableView.reloadData()
+    updatePointCost(withValue: type.pointCost)
+  }
+  
+  func updatePointCost(withValue value: Int) {
+    pilot.currentPointCost += value
+    pointCost.text = String(pilot.currentPointCost)
+    if String(pointCost.originalPointValue) != pointCost.text! {
+      pointCost.textColor = UIColor.redColor()
+    } else if String(pointCost.originalPointValue) == pointCost.text! {
+      pointCost.textColor = UIColor.darkGrayColor()
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -139,5 +159,28 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
       destination?.delegate = self
       destination?.upgradeType = pilot.availUpgrades[upgradeSelected]
     }
+  }
+  
+  //MARK: TableView junk
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCellWithIdentifier("ShipUpgradeCell") as? ShipUpgradeCell {
+      cell.configureCell(withUpgrade: pilot.currentUpgrades[indexPath.row])
+      return cell
+    } else {
+      return ShipUpgradeCell()
+    }
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return pilot.currentUpgrades.count
+  }
+  
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
   }
 }

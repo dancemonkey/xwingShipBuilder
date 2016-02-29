@@ -10,6 +10,11 @@ import UIKit
 
 class PointCostUILbl: UILabel {
   
+  private var _originalPointValue: Int!
+  var originalPointValue: Int {
+    return _originalPointValue
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
@@ -26,6 +31,10 @@ class PointCostUILbl: UILabel {
     self.backgroundColor = UIColor.lightGrayColor()
     self.layer.borderColor = UIColor.darkGrayColor().CGColor
     self.layer.borderWidth = 2.0
+  }
+  
+  func setOriginalPointValue(withValue value: Int) {
+    self._originalPointValue = value
   }
 
 }

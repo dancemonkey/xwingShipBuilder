@@ -27,7 +27,7 @@ class ShipUpgradeCell: UITableViewCell {
   func configureCell(withUpgrade upgrade: UpgradeCard) {
     upgradeTitle.text = upgrade.name
     upgradePointCost.text = String(upgrade.pointCost)
-    upgradeIcon.image = UIImage(named: upgrade.name)
+    upgradeIcon.image = UIImage(named: upgrade.type.rawValue)
   }
 
 }
