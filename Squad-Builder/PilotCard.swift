@@ -102,7 +102,6 @@ class PilotCard {
   func attachUpgrade(upgrade: UpgradeCard) -> Bool {
     if _availUpgrades.contains(upgrade.type.rawValue) {
       _currentUpgrades.append(upgrade)
-      //TODO: also must add upgrade points cost to current point cost
       for (index, entry) in _availUpgrades.enumerate() {
         if entry == upgrade.type.rawValue {
           _availUpgrades.removeAtIndex(index)
