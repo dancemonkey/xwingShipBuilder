@@ -33,6 +33,8 @@ class UpgradeSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       tableView.dataSource = self
       tableView.delegate = self
       searchBar.delegate = self
+      searchBar.returnKeyType = UIReturnKeyType.Done
+      searchBar.setShowsCancelButton(false, animated: false)
       
       availableUpgrades = findAvailableUpgrades(forType: upgradeType)
       
@@ -57,6 +59,7 @@ class UpgradeSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   // MARK: TableView junk
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  
     if let cell = tableView.dequeueReusableCellWithIdentifier("upgradeCell") as? UpgradeCell {
       if searching {
         cell.configureCell(withUpgrade: filteredUpgrades[indexPath.row])
@@ -82,37 +85,54 @@ class UpgradeSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    delegate?.userSelectedUpgrade(availableUpgrades[indexPath.row])
+    if searching {
+      delegate?.userSelectedUpgrade(filteredUpgrades[indexPath.row])
+    } else {
+      delegate?.userSelectedUpgrade(availableUpgrades[indexPath.row])
+    }
     dismissViewControllerAnimated(true, completion: nil)
   }
 
   // MARK: SearchBar junk
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    filteredUpgrades = availableUpgrades.filter({ (upgrade) -> Bool in
-      return upgrade.name.lowercaseString.containsString(searchText.lowercaseString) || upgrade.text.lowercaseString.containsString(searchText.lowercaseString)
-    })
-    if filteredUpgrades.count == 0 {
+    
+    if searchBar.text == nil || searchBar.text == "" {
       searching = false
+      view.endEditing(true)
+      self.tableView.reloadData()
     } else {
       searching = true
+      filteredUpgrades = availableUpgrades.filter({ (upgrade) -> Bool in
+        return upgrade.name.lowercaseString.containsString(searchText.lowercaseString) || upgrade.text.lowercaseString.containsString(searchText.lowercaseString)
+      })
+      self.tableView.reloadData()
     }
-    self.tableView.reloadData()
-  }
-  
-  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    searching = true
   }
   
   func searchBarTextDidEndEditing(searchBar: UISearchBar) {
     searching = false
   }
   
+  func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    searchBar.setShowsCancelButton(true, animated: true)
+    return true
+  }
+  
+  func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+    searchBar.setShowsCancelButton(false, animated: true)
+    return true
+  }
+  
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    searchBar.text = ""
+    view.endEditing(true)
     searching = false
+    tableView.reloadData()
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    view.endEditing(true)
     searching = false
   }
 

@@ -30,6 +30,8 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
       tableView.dataSource = self
       
       searchBar.delegate = self
+      searchBar.returnKeyType = .Done
+      searchBar.setShowsCancelButton(false, animated: false)
     }
   
   @IBAction func cancelPressed(sender: AnyObject) {
@@ -51,6 +53,7 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
     if let cell = tableView.dequeueReusableCellWithIdentifier("pilotCell") {
       if searching {
         cell.textLabel!.text = filteredPilots[indexPath.row]
@@ -64,25 +67,38 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     dismissViewControllerAnimated(true, completion: nil)
-    delegate?.userSelectedNewPilot(pilots[indexPath.row])
+    if searching {
+      delegate?.userSelectedNewPilot(filteredPilots[indexPath.row])
+    } else {
+      delegate?.userSelectedNewPilot(pilots[indexPath.row])
+    }
   }
   
   // MARK: SearchBar junk
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    filteredPilots = pilots.filter({ (pilot) -> Bool in
-      return pilot.lowercaseString.containsString(searchText.lowercaseString)
-    })
-    if filteredPilots.count == 0 {
+    
+    if searchBar.text == nil || searchBar.text == "" {
       searching = false
+      view.endEditing(true)
+      self.tableView.reloadData()
     } else {
       searching = true
+      filteredPilots = pilots.filter({ (pilot) -> Bool in
+        return pilot.lowercaseString.containsString(searchText.lowercaseString)
+      })
+      self.tableView.reloadData()
     }
-    self.tableView.reloadData()
   }
   
-  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    searching = true
+  func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    searchBar.setShowsCancelButton(true, animated: true)
+    return true
+  }
+  
+  func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+    searchBar.setShowsCancelButton(false, animated: true)
+    return true
   }
   
   func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -90,10 +106,14 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    self.searchBar.text = ""
     searching = false
+    self.tableView.reloadData()
+    view.endEditing(true)
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    view.endEditing(true)
     searching = false
   }
 

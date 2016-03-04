@@ -38,6 +38,8 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     collection.dataSource = self
     
     searchBar.delegate = self
+    searchBar.returnKeyType = .Done
+    searchBar.setShowsCancelButton(false, animated: false)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -79,26 +81,40 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   }
   
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    selectedShipTitle = SHIP_TYPES[indexPath.row]
+    if searching {
+      selectedShipTitle = filteredShipTypes[indexPath.row]
+    } else {
+      selectedShipTitle = SHIP_TYPES[indexPath.row]
+    }
     performSegueWithIdentifier("showShipDetail", sender: self)
   }
   
   // MARK: SearchBar junk
   
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    filteredShipTypes = SHIP_TYPES.filter({ (ship) -> Bool in
-      return ship.lowercaseString.containsString(searchText.lowercaseString)
-    })
-    if filteredShipTypes.count == 0 {
+    
+    if searchBar.text == nil || searchBar.text == "" {
       searching = false
+      view.endEditing(true)
+      self.collection.reloadData()
     } else {
       searching = true
+      filteredShipTypes = SHIP_TYPES.filter({ (ship) -> Bool in
+        return ship.lowercaseString.containsString(searchText.lowercaseString)
+      })
+      self.collection.reloadData()
     }
-    self.collection.reloadData()
+
   }
   
-  func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    searching = true
+  func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    searchBar.setShowsCancelButton(true, animated: true)
+    return true
+  }
+  
+  func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+    searchBar.setShowsCancelButton(false, animated: true)
+    return true
   }
   
   func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -106,10 +122,14 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   }
   
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    self.searchBar.text = ""
     searching = false
+    self.collection.reloadData()
+    view.endEditing(true)
   }
   
   func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    view.endEditing(true)
     searching = false
   }
   

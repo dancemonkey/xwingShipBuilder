@@ -6,6 +6,8 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+//TODO: swipe to remove upgrade from ship
+
 import UIKit
 
 class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDelegate, UITableViewDataSource, UITableViewDelegate {
