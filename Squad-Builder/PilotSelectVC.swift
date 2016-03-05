@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: show stats and cost in table row
-
 import UIKit
 
 protocol PilotSelectedDelegate: class {
@@ -21,8 +19,8 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   weak var delegate: PilotSelectedDelegate? = nil
   
-  var pilots = [String]()
-  var filteredPilots = [String]()
+  var pilots = [PilotCard]()
+  var filteredPilots = [PilotCard]()
   var shipType: String!
   var searching = false
   
@@ -56,11 +54,11 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-    if let cell = tableView.dequeueReusableCellWithIdentifier("pilotCell") {
+    if let cell = tableView.dequeueReusableCellWithIdentifier("pilotCell") as? PilotCell {
       if searching {
-        cell.textLabel!.text = filteredPilots[indexPath.row]
+        cell.configureCell(withPilot: filteredPilots[indexPath.row])
       } else {
-        cell.textLabel!.text = pilots[indexPath.row]
+        cell.configureCell(withPilot: pilots[indexPath.row])
       }
       return cell
     }
@@ -70,9 +68,9 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     dismissViewControllerAnimated(true, completion: nil)
     if searching {
-      delegate?.userSelectedNewPilot(filteredPilots[indexPath.row])
+      delegate?.userSelectedNewPilot(filteredPilots[indexPath.row].pilotName!)
     } else {
-      delegate?.userSelectedNewPilot(pilots[indexPath.row])
+      delegate?.userSelectedNewPilot(pilots[indexPath.row].pilotName!)
     }
   }
   
@@ -87,7 +85,7 @@ class PilotSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     } else {
       searching = true
       filteredPilots = pilots.filter({ (pilot) -> Bool in
-        return pilot.lowercaseString.containsString(searchText.lowercaseString)
+        return pilot.pilotName!.lowercaseString.containsString(searchText.lowercaseString)
       })
       self.tableView.reloadData()
     }

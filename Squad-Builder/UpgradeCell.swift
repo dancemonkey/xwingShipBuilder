@@ -13,6 +13,7 @@ class UpgradeCell: UITableViewCell {
   @IBOutlet weak var upgradeIcon: UIImageView!
   @IBOutlet weak var upgradeTitle: UILabel!
   @IBOutlet weak var upgradeText: UILabel!
+  @IBOutlet weak var upgradeCost: PointCostUILbl!
   
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,7 @@ class UpgradeCell: UITableViewCell {
     upgradeTitle.text = upgrade.name
     upgradeText.text = upgrade.text
     upgradeText.sizeToFit()
+    upgradeCost.text = String(upgrade.pointCost)
   }
 
 }

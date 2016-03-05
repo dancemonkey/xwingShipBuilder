@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: show point cost for upgrade
-
 import UIKit
 
 protocol UpgradeSelectedDelegate: class {

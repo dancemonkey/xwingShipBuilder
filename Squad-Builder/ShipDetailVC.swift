@@ -128,7 +128,9 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   
   func userSelectedNewPilot(name: String) {
     self.pilot = PilotCard(ship: self.pilot.shipType, pilot: name)
+    self.pilot.clearUpgrades()
     initializePilotData()
+    tableView.reloadData()
   }
   
   func userSelectedUpgrade(type: UpgradeCard) {
@@ -150,8 +152,13 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "PilotSelect" {
+      var pilots = [PilotCard]()
+      for pilot in pilotsForShipType {
+        pilots.append(PilotCard(ship: self.pilot.shipType, pilot: pilot))
+      }
+      
       let destination = segue.destinationViewController as? PilotSelectVC
-      destination?.pilots = self.pilotsForShipType
+      destination?.pilots = pilots
       destination?.delegate = self
       destination?.shipType = self.pilot.shipType
     } else if segue.identifier == "UpgradeSelect" {
