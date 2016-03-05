@@ -117,7 +117,6 @@ class PilotCard {
     if _currentUpgrades.contains({upgrade.name == $0.name}) {
       _currentUpgrades.removeAtIndex(_currentUpgrades.indexOf({upgrade.name == $0.name})!)
       _availUpgrades.append(upgrade.type.rawValue)
-      //TODO: also must remove upgrade cost from current point cost
       return true
     } else {
       return false

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: need squad creation screen that leads to ship select screen, etc.
+//TODO: show point cost for upgrade
 
 import UIKit
 

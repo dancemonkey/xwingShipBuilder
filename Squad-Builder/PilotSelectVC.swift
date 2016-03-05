@@ -6,6 +6,8 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+//TODO: show stats and cost in table row
+
 import UIKit
 
 protocol PilotSelectedDelegate: class {

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: swipe to remove upgrade from ship
-
 import UIKit
 
 class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -184,5 +182,12 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    updatePointCost(withValue: -pilot.currentUpgrades[indexPath.row].pointCost)
+    pilot.removeUpgrade(pilot.currentUpgrades[indexPath.row])
+    tableView.reloadData()
+    loadUpgradeIcons()
   }
 }

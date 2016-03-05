@@ -9,6 +9,7 @@
 //TODO: divide ships into factions on ship select VC
 //???: holding upgrade button pops up a tooltip telling what it does?
 //TODO: ship factions and data pull from JSON, but in dictionary (values must be tied together in order)
+//TODO: need squad creation screen that leads to ship select screen, etc.
 
 import UIKit
 
