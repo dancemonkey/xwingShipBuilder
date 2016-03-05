@@ -15,7 +15,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   @IBOutlet weak var actionView: UIView!
   @IBOutlet weak var upgradeView: UIView!
   @IBOutlet weak var attack: UILabel!
-  @IBOutlet weak var evade: UILabel!
+  @IBOutlet weak var agility: UILabel!
   @IBOutlet weak var hull: UILabel!
   @IBOutlet weak var shield: UILabel!
   @IBOutlet weak var factionImg: UIImageView!
@@ -103,13 +103,13 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   func setStats() {
     guard let _ = pilot.pilotName else {
       attack.text = "-"
-      evade.text = "-"
+      agility.text = "-"
       hull.text = "-"
       shield.text = "-"
       return
     }
     attack.text = String(pilot.shipStats.attack)
-    evade.text = String(pilot.shipStats.evade)
+    agility.text = String(pilot.shipStats.agility)
     hull.text = String(pilot.shipStats.hull)
     shield.text = String(pilot.shipStats.shield)
     pointCost.text = String(pilot.currentPointCost)

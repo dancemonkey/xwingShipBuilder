@@ -13,7 +13,7 @@ class PilotCell: UITableViewCell {
   @IBOutlet weak var pilotName: UILabel!
   @IBOutlet weak var pointCost: PointCostUILbl!
   @IBOutlet weak var attack: UILabel!
-  @IBOutlet weak var evade: UILabel!
+  @IBOutlet weak var agility: UILabel!
   @IBOutlet weak var shield: UILabel!
   @IBOutlet weak var hull: UILabel!
 
@@ -26,7 +26,7 @@ class PilotCell: UITableViewCell {
     self.pilotName.text = pilot.pilotName!
     self.pointCost.text = String(pilot.startingPointCost)
     self.attack.text = String(pilot.shipStats.attack)
-    self.evade.text = String(pilot.shipStats.evade)
+    self.agility.text = String(pilot.shipStats.agility)
     self.shield.text = String(pilot.shipStats.shield)
     self.hull.text = String(pilot.shipStats.hull)
   }

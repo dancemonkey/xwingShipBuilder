@@ -50,7 +50,7 @@ class PilotCard {
   }
   struct Stats {
     var attack: Int
-    var evade: Int
+    var agility: Int
     var hull: Int
     var shield: Int
   }
@@ -95,7 +95,7 @@ class PilotCard {
     _availUpgrades.append("Modification")
     _originalUpgrades = _availUpgrades
     self._actions = _shipCard.avail_Actions
-    _shipStats = Stats(attack: _shipCard.stat_Attack, evade: _shipCard.stat_Evade, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
+    _shipStats = Stats(attack: _shipCard.stat_Attack, agility: _shipCard.stat_Agility, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
     currentPointCost = _shipCard.pointCost
   }
   

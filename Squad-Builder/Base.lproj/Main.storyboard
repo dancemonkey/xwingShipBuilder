@@ -213,7 +213,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="pbU-la-8We">
                                                 <rect key="frame" x="0.0" y="30" width="32" height="20"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukw-ll-yww">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukw-ll-yww">
                                                         <rect key="frame" x="0.0" y="0.0" width="9" height="20"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -471,9 +471,9 @@
                     </view>
                     <connections>
                         <outlet property="actionView" destination="qID-qk-7AG" id="zKh-42-f2x"/>
+                        <outlet property="agility" destination="0YC-DN-u2h" id="lgX-N3-Uvc"/>
                         <outlet property="attack" destination="pXr-tZ-agk" id="f7H-XB-SJg"/>
                         <outlet property="cardText" destination="bv8-A9-fAE" id="DRl-OR-kJF"/>
-                        <outlet property="evade" destination="0YC-DN-u2h" id="DmU-vm-Rd3"/>
                         <outlet property="factionImg" destination="cKH-Mw-g7N" id="ihs-oQ-0dh"/>
                         <outlet property="hull" destination="t0s-Xx-G5e" id="by3-H1-kob"/>
                         <outlet property="pilotLbl" destination="zPE-uo-WDL" id="WmP-51-4ne"/>
@@ -755,7 +755,7 @@
                                                         <constraint firstAttribute="width" constant="20" id="ziI-11-dny"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -764,7 +764,7 @@
                                                     </variation>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="rWi-Ra-3wY">
-                                                    <rect key="frame" x="8" y="41" width="151" height="21"/>
+                                                    <rect key="frame" x="8" y="41" width="153" height="21"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd2-Z9-2xG">
                                                             <rect key="frame" x="0.0" y="0.0" width="12" height="21"/>
@@ -772,20 +772,20 @@
                                                             <color key="textColor" red="1" green="0.13725490196078433" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP6-H6-wPc">
-                                                            <rect key="frame" x="47" y="0.0" width="10" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP6-H6-wPc">
+                                                            <rect key="frame" x="47" y="0.0" width="12" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfd-CT-MDj">
-                                                            <rect key="frame" x="92" y="0.0" width="11" height="21"/>
+                                                            <rect key="frame" x="94" y="0.0" width="11" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-He-K7K">
-                                                            <rect key="frame" x="138" y="0.0" width="13" height="21"/>
+                                                            <rect key="frame" x="140" y="0.0" width="13" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="0.93725490196078431" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -821,8 +821,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="agility" destination="QP6-H6-wPc" id="Lsg-Af-qCX"/>
                                             <outlet property="attack" destination="cd2-Z9-2xG" id="VoA-jo-qam"/>
-                                            <outlet property="evade" destination="QP6-H6-wPc" id="Cad-vO-mkF"/>
                                             <outlet property="hull" destination="bCv-He-K7K" id="IgU-Z4-drj"/>
                                             <outlet property="pilotName" destination="Uxn-bt-saa" id="mlb-E3-AU4"/>
                                             <outlet property="pointCost" destination="49G-cx-3yb" id="ZfN-Fo-DZt"/>

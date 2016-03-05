@@ -18,7 +18,7 @@ class ShipData {
     let pilotSkill: Int!
     let faction: Faction!
     let stat_Attack: Int!
-    let stat_Evade: Int!
+    let stat_Agility: Int!
     let stat_Hull: Int!
     let stat_Shield: Int!
     let text: String!
@@ -51,7 +51,7 @@ class ShipData {
       let ps = ship["ps"] as! Int
       let faction = Faction(rawValue: ship["faction"] as! String)
       let s_a = ship["attack"] as! Int
-      let s_e = ship["evade"] as! Int
+      let s_ag = ship["agility"] as! Int
       let s_h = ship["hull"] as! Int
       let s_s = ship["shield"] as! Int
       let text = ship["text"] as! String
@@ -62,7 +62,7 @@ class ShipData {
       }
       let points = ship["point_cost"] as! Int
       
-      let newShip = Ship(shipType: ship_type, pilotName: pilot, pilotSkill: ps, faction: faction, stat_Attack: s_a, stat_Evade: s_e, stat_Hull: s_h, stat_Shield: s_s, text: text, avail_Upgrades: upgrades, avail_Actions: actions, pointCost: points)
+      let newShip = Ship(shipType: ship_type, pilotName: pilot, pilotSkill: ps, faction: faction, stat_Attack: s_a, stat_Agility: s_ag, stat_Hull: s_h, stat_Shield: s_s, text: text, avail_Upgrades: upgrades, avail_Actions: actions, pointCost: points)
       self.ships.append(newShip)
     }
   }
