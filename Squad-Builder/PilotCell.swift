@@ -16,6 +16,7 @@ class PilotCell: UITableViewCell {
   @IBOutlet weak var agility: UILabel!
   @IBOutlet weak var shield: UILabel!
   @IBOutlet weak var hull: UILabel!
+  @IBOutlet weak var actions: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,5 +30,10 @@ class PilotCell: UITableViewCell {
     self.agility.text = String(pilot.shipStats.agility)
     self.shield.text = String(pilot.shipStats.shield)
     self.hull.text = String(pilot.shipStats.hull)
+    
+    self.actions.text! = ""
+    for action in pilot.actions {
+      self.actions.text! += "\(action.rawValue) "
+    }
   }
 }
