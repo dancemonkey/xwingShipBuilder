@@ -21,9 +21,12 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   
   let WIDTH: CGFloat = 150
   let HEIGHT: CGFloat = 150
-  var SHIP_TYPES = [String]()
+  
+  var SHIP_TYPES = [[String]]()
+  var ALL_SHIPS = [String]()
   var filteredShipTypes = [String]()
-  let SHIP_FACTIONS: [String] = ["Scum","Imperial","Rebel"] 
+  let SHIP_FACTIONS: [Faction] = [.Scum, .Rebel, .Imperial]
+  
   var selectedShipTitle: String!
   var ships: ShipData!
   
@@ -33,7 +36,11 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     super.viewDidLoad()
     
     ships = ShipData()
-    SHIP_TYPES = ships.getAllShipTypes()
+    for faction in SHIP_FACTIONS {
+      SHIP_TYPES.append(ships.getShipsOfFaction(faction))
+    }
+    print(SHIP_TYPES)
+    ALL_SHIPS = ships.getAllShipTypes()
     
     collection.delegate = self
     collection.dataSource = self
@@ -57,7 +64,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
       if searching {
         cell.configureCell(filteredShipTypes[indexPath.row])
       } else {
-        cell.configureCell(SHIP_TYPES[indexPath.row])
+        cell.configureCell(SHIP_TYPES[indexPath.section][indexPath.row])
       }
       return cell
     } else {
@@ -69,7 +76,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     if searching {
       return filteredShipTypes.count
     } else {
-      return SHIP_TYPES.count
+      return SHIP_TYPES[section].count
     }
   }
   
@@ -78,16 +85,36 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   }
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-    return 3
+    if searching {
+      return 1
+    } else {
+      return SHIP_FACTIONS.count
+    }
   }
   
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if searching {
       selectedShipTitle = filteredShipTypes[indexPath.row]
     } else {
-      selectedShipTitle = SHIP_TYPES[indexPath.row]
+      selectedShipTitle = SHIP_TYPES[indexPath.section][indexPath.row]
     }
     performSegueWithIdentifier("showShipDetail", sender: self)
+  }
+  
+  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    
+    var header: ShipFactionSectionHeader?
+    
+    if kind == UICollectionElementKindSectionHeader {
+      header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as? ShipFactionSectionHeader
+      header?.configureCell(forFaction: SHIP_FACTIONS[indexPath.section].rawValue)
+    }
+    if searching {
+      header?.factionImg.hidden = true
+    } else if !searching {
+      header?.factionImg.hidden = false
+    }
+    return header!
   }
   
   // MARK: SearchBar junk
@@ -100,7 +127,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
       self.collection.reloadData()
     } else {
       searching = true
-      filteredShipTypes = SHIP_TYPES.filter({ (ship) -> Bool in
+      filteredShipTypes = ALL_SHIPS.filter({ (ship) -> Bool in
         return ship.lowercaseString.containsString(searchText.lowercaseString)
       })
       self.collection.reloadData()

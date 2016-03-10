@@ -95,6 +95,17 @@ class ShipData {
     return shipTypes
   }
   
+  func getShipsOfFaction(faction: Faction) -> [String] {
+    var shipTypes = [String]()
+    for ship in ships where ship.faction == faction {
+      if shipTypes.contains(ship.shipType) {
+        continue
+      }
+      shipTypes.append(ship.shipType)
+    }
+    return shipTypes
+  }
+  
   func getPilots(forShip: String) -> [String] {
     var pilots = [String]()
     for ship in ships {

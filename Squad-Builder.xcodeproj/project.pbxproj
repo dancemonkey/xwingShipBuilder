@@ -22,6 +22,7 @@
 		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
 		1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */; };
 		106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */; };
+		1077843F1C91335A00597BE8 /* ShipFactionSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */; };
 		107983C21C6C397300143132 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C11C6C397300143132 /* RoundImageView.swift */; };
 		107983C41C6C42C000143132 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C31C6C42C000143132 /* RoundButton.swift */; };
 		1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */; };
@@ -48,6 +49,7 @@
 		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
 		1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipUpgradeCell.swift; sourceTree = "<group>"; };
 		106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCollectionViewCell.swift; sourceTree = "<group>"; };
+		1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipFactionSectionHeader.swift; sourceTree = "<group>"; };
 		107983C11C6C397300143132 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		107983C31C6C42C000143132 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCostUILbl.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */,
 				1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */,
 				10FEB0801C8A8BDB00F9085B /* PilotCell.swift */,
+				1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */,
 				106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
+				1077843F1C91335A00597BE8 /* ShipFactionSectionHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

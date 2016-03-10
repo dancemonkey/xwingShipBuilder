@@ -29,13 +29,13 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jzw-mv-YzJ">
                                     <size key="itemSize" width="130" height="114"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="shipCell" id="0Y5-Sz-JcC" customClass="ShipCollectionViewCell" customModule="Squad_Builder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="50" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -72,6 +72,26 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="3x4-DU-VpL" customClass="ShipFactionSectionHeader" customModule="Squad_Builder" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rebel" translatesAutoresizingMaskIntoConstraints="NO" id="bXp-WO-MHa">
+                                            <rect key="frame" x="230" y="-25" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="GZV-Gr-pJp"/>
+                                                <constraint firstAttribute="width" constant="100" id="W29-ZF-d7P"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bXp-WO-MHa" firstAttribute="centerY" secondItem="3x4-DU-VpL" secondAttribute="centerY" id="4pt-u2-LIQ"/>
+                                        <constraint firstItem="bXp-WO-MHa" firstAttribute="centerX" secondItem="3x4-DU-VpL" secondAttribute="centerX" id="QRc-3C-huH"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="factionImg" destination="bXp-WO-MHa" id="OOc-HW-zmd"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="mei-vv-SUY"/>
@@ -873,6 +893,7 @@
     <resources>
         <image name="Astromech" width="84" height="84"/>
         <image name="B-Wing" width="500" height="462"/>
+        <image name="Rebel" width="100" height="100"/>
         <image name="Scum" width="100" height="100"/>
         <image name="spaceBG" width="1024" height="1024"/>
     </resources>
