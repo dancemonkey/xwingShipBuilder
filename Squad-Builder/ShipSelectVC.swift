@@ -6,10 +6,8 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: divide ships into factions on ship select VC
 //???: holding upgrade button pops up a tooltip telling what it does?
-//TODO: ship factions and data pull from JSON, but in dictionary (values must be tied together in order)
-//TODO: need squad creation screen that leads to ship select screen, etc.
+//TODO: squad creation screen should lead to tableView of ships in squadron, then you add ships to the squadron from there and save to squadron
 
 import UIKit
 
@@ -39,7 +37,6 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     for faction in SHIP_FACTIONS {
       SHIP_TYPES.append(ships.getShipsOfFaction(faction))
     }
-    print(SHIP_TYPES)
     ALL_SHIPS = ships.getAllShipTypes()
     
     collection.delegate = self
@@ -48,6 +45,10 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     searchBar.delegate = self
     searchBar.returnKeyType = .Done
     searchBar.setShowsCancelButton(false, animated: false)
+  }
+  
+  @IBAction func cancelPressed(sender: UIButton) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

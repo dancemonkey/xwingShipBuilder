@@ -10,6 +10,9 @@
 		1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1009021B1C62D6A7008150EF /* UpgradeCard.swift */; };
 		101199B81C82898A0098F11B /* UpgradeSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101199B71C82898A0098F11B /* UpgradeSelectVC.swift */; };
 		101199BA1C828B1C0098F11B /* UpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101199B91C828B1C0098F11B /* UpgradeCell.swift */; };
+		10132CF61C928DBC00626D00 /* SquadronCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10132CF51C928DBC00626D00 /* SquadronCreateVC.swift */; };
+		10132CF81C928DF700626D00 /* SquadronCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10132CF71C928DF700626D00 /* SquadronCell.swift */; };
+		10132CFA1C928E6000626D00 /* Squadron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10132CF91C928E6000626D00 /* Squadron.swift */; };
 		101650131C7CDDA600B43647 /* PilotSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101650121C7CDDA600B43647 /* PilotSelectVC.swift */; };
 		1022D0A41C5C6263004E93EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A31C5C6263004E93EA /* AppDelegate.swift */; };
 		1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */; };
@@ -35,6 +38,9 @@
 		1009021B1C62D6A7008150EF /* UpgradeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCard.swift; sourceTree = "<group>"; };
 		101199B71C82898A0098F11B /* UpgradeSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeSelectVC.swift; sourceTree = "<group>"; };
 		101199B91C828B1C0098F11B /* UpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeCell.swift; sourceTree = "<group>"; };
+		10132CF51C928DBC00626D00 /* SquadronCreateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquadronCreateVC.swift; sourceTree = "<group>"; };
+		10132CF71C928DF700626D00 /* SquadronCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquadronCell.swift; sourceTree = "<group>"; };
+		10132CF91C928E6000626D00 /* Squadron.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Squadron.swift; sourceTree = "<group>"; };
 		101650121C7CDDA600B43647 /* PilotSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotSelectVC.swift; sourceTree = "<group>"; };
 		1022D0A01C5C6263004E93EA /* Squad-Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Squad-Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1022D0A31C5C6263004E93EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 			children = (
 				1022D0B71C5C6310004E93EA /* ShipData.swift */,
 				10C6D8191C5C7E3500A8B91A /* PilotCard.swift */,
+				10132CF91C928E6000626D00 /* Squadron.swift */,
 				1024D3D11C62CDB700C88580 /* UpgradeData.swift */,
 				1009021B1C62D6A7008150EF /* UpgradeCard.swift */,
 				1022D0B51C5C628E004E93EA /* ship_data_json.json */,
@@ -95,6 +102,7 @@
 				1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */,
 				10FEB0801C8A8BDB00F9085B /* PilotCell.swift */,
 				1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */,
+				10132CF71C928DF700626D00 /* SquadronCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 				10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */,
 				101650121C7CDDA600B43647 /* PilotSelectVC.swift */,
 				101199B71C82898A0098F11B /* UpgradeSelectVC.swift */,
+				10132CF51C928DBC00626D00 /* SquadronCreateVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -214,9 +223,11 @@
 			files = (
 				101199B81C82898A0098F11B /* UpgradeSelectVC.swift in Sources */,
 				1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */,
+				10132CFA1C928E6000626D00 /* Squadron.swift in Sources */,
 				10FEB0811C8A8BDB00F9085B /* PilotCell.swift in Sources */,
 				107983C41C6C42C000143132 /* RoundButton.swift in Sources */,
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
+				10132CF61C928DBC00626D00 /* SquadronCreateVC.swift in Sources */,
 				1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */,
 				1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */,
 				1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */,
@@ -228,6 +239,7 @@
 				1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */,
 				106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
+				10132CF81C928DF700626D00 /* SquadronCell.swift in Sources */,
 				1077843F1C91335A00597BE8 /* ShipFactionSectionHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
