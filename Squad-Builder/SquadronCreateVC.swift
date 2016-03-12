@@ -15,6 +15,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   let testSquad = Squadron(name: "test", faction: .Scum)
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var factionSelectView: UIView!
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       tableView.dataSource = self
       squadrons.insert(promptSquad, atIndex: 0)
       squadrons.append(testSquad)
+      selectFaction()
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +63,11 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func selectFaction() -> Faction {
+    
+    if let customView = NSBundle.mainBundle().loadNibNamed("FactionSelect", owner: self, options: nil).first as? FactionSelect {
+      factionSelectView.addSubview(customView)
+      factionSelectView.hidden = false
+    }
     return .Rebel
   }
 }

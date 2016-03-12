@@ -427,11 +427,20 @@
                                     <constraint firstAttribute="height" constant="128" id="8Xu-es-JLQ"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqX-QM-Uks">
+                                <rect key="frame" x="150" y="200" width="300" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="DQX-T5-A81"/>
+                                    <constraint firstAttribute="height" constant="200" id="cew-AQ-QrH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y2r-Re-2dK" firstAttribute="leading" secondItem="flB-k0-3Cl" secondAttribute="leading" constant="20" id="4SP-z1-YLL"/>
                             <constraint firstItem="yWg-Am-f6o" firstAttribute="centerX" secondItem="flB-k0-3Cl" secondAttribute="centerX" id="7nN-HY-ozy"/>
+                            <constraint firstItem="WqX-QM-Uks" firstAttribute="centerY" secondItem="flB-k0-3Cl" secondAttribute="centerY" id="KTt-k7-8wK"/>
                             <constraint firstItem="ymK-9X-D8X" firstAttribute="top" secondItem="EWK-Pc-d2p" secondAttribute="bottom" id="OCJ-N4-nc4"/>
                             <constraint firstItem="y2r-Re-2dK" firstAttribute="top" secondItem="yWg-Am-f6o" secondAttribute="bottom" constant="20" id="TAP-Gz-bCW"/>
                             <constraint firstItem="ymK-9X-D8X" firstAttribute="top" secondItem="y2r-Re-2dK" secondAttribute="bottom" constant="20" id="Tmd-bI-Wgh"/>
@@ -439,10 +448,12 @@
                             <constraint firstAttribute="trailing" secondItem="y2r-Re-2dK" secondAttribute="trailing" constant="20" id="dUA-tj-k3F"/>
                             <constraint firstAttribute="trailing" secondItem="EWK-Pc-d2p" secondAttribute="trailing" id="tON-MO-PF6"/>
                             <constraint firstItem="EWK-Pc-d2p" firstAttribute="top" secondItem="flB-k0-3Cl" secondAttribute="top" id="u4K-Vx-rW4"/>
+                            <constraint firstItem="WqX-QM-Uks" firstAttribute="centerX" secondItem="flB-k0-3Cl" secondAttribute="centerX" id="vyh-YH-Lc3"/>
                             <constraint firstItem="yWg-Am-f6o" firstAttribute="top" secondItem="iUu-O1-6wC" secondAttribute="bottom" constant="8" id="yaF-fv-mxW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="factionSelectView" destination="WqX-QM-Uks" id="3EY-xG-23H"/>
                         <outlet property="tableView" destination="y2r-Re-2dK" id="fon-1f-GUy"/>
                         <segue destination="mZU-4N-4eu" kind="presentation" identifier="newSquadron" modalTransitionStyle="flipHorizontal" id="adI-vw-S8U"/>
                     </connections>
