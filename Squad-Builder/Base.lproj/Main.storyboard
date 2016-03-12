@@ -44,7 +44,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fzq-fn-xHV">
                                                     <rect key="frame" x="23" y="8" width="100" height="128"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B-Wing" translatesAutoresizingMaskIntoConstraints="NO" id="2cN-dc-FQa" customClass="RoundImageView" customModule="Squad_Builder" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="T-65 X-Wing" translatesAutoresizingMaskIntoConstraints="NO" id="2cN-dc-FQa" customClass="RoundImageView" customModule="Squad_Builder" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="3db-IY-WN2"/>
@@ -1202,9 +1202,9 @@
     </scenes>
     <resources>
         <image name="Astromech" width="84" height="84"/>
-        <image name="B-Wing" width="500" height="462"/>
         <image name="Rebel" width="100" height="100"/>
         <image name="Scum" width="100" height="100"/>
+        <image name="T-65 X-Wing" width="1008" height="704"/>
         <image name="spaceBG" width="1024" height="1024"/>
         <image name="xWingLogo" width="1781" height="736"/>
     </resources>
