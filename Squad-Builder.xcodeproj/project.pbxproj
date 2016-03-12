@@ -32,6 +32,7 @@
 		10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */; };
 		10C454CE1C93BF5C008A141F /* SquadBuildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C454CD1C93BF5C008A141F /* SquadBuildVC.swift */; };
 		10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6D8191C5C7E3500A8B91A /* PilotCard.swift */; };
+		10C9BE8A1C93E0E00049B4F9 /* SquadShipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C9BE891C93E0E00049B4F9 /* SquadShipCell.swift */; };
 		10FEB0811C8A8BDB00F9085B /* PilotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FEB0801C8A8BDB00F9085B /* PilotCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
 		10C454CD1C93BF5C008A141F /* SquadBuildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquadBuildVC.swift; sourceTree = "<group>"; };
 		10C6D8191C5C7E3500A8B91A /* PilotCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCard.swift; sourceTree = "<group>"; };
+		10C9BE891C93E0E00049B4F9 /* SquadShipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquadShipCell.swift; sourceTree = "<group>"; };
 		10FEB0801C8A8BDB00F9085B /* PilotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				10FEB0801C8A8BDB00F9085B /* PilotCell.swift */,
 				1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */,
 				10132CF71C928DF700626D00 /* SquadronCell.swift */,
+				10C9BE891C93E0E00049B4F9 /* SquadShipCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */,
 				10132CFA1C928E6000626D00 /* Squadron.swift in Sources */,
 				10FEB0811C8A8BDB00F9085B /* PilotCell.swift in Sources */,
+				10C9BE8A1C93E0E00049B4F9 /* SquadShipCell.swift in Sources */,
 				107983C41C6C42C000143132 /* RoundButton.swift in Sources */,
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
 				10132CF61C928DBC00626D00 /* SquadronCreateVC.swift in Sources */,

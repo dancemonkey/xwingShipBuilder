@@ -237,7 +237,7 @@
                                 <rect key="frame" x="20" y="66" width="560" height="514"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="t37-AG-H1z">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shipCell" rowHeight="70" id="t37-AG-H1z">
                                         <rect key="frame" x="0.0" y="28" width="560" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t37-AG-H1z" id="aIA-83-zfW">
@@ -290,6 +290,7 @@
                             <constraint firstAttribute="trailing" secondItem="3g1-SC-bPR" secondAttribute="trailing" id="4Uu-bE-fIP"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="3g1-SC-bPR" secondAttribute="bottom" id="7kn-Dp-yCz"/>
                             <constraint firstItem="PC5-Ej-m3C" firstAttribute="top" secondItem="haQ-MP-wVh" secondAttribute="bottom" id="CS9-OT-udj"/>
+                            <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="20" id="L2w-ol-uGg"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="20" id="RDB-pO-tFg"/>
                             <constraint firstItem="PC5-Ej-m3C" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" constant="20" id="Rhx-tf-3s7"/>
                             <constraint firstItem="3g1-SC-bPR" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" id="SFS-ar-H3Y"/>
@@ -300,6 +301,11 @@
                             <constraint firstItem="asB-zQ-TnN" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" constant="20" id="hSp-zx-iWW"/>
                             <constraint firstItem="asB-zQ-TnN" firstAttribute="top" secondItem="Mzp-7B-voo" secondAttribute="bottom" constant="8" id="tQB-g4-Us4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RDB-pO-tFg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="squadNameLbl" destination="Mzp-7B-voo" id="ia3-m5-iSc"/>
@@ -309,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYb-1D-QsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="1246"/>
+            <point key="canvasLocation" x="-290" y="1247"/>
         </scene>
         <!--Squadron CreateVC-->
         <scene sceneID="RQn-wf-R7v">

@@ -42,26 +42,25 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if indexPath.row == 0 {
-      performSegueWithIdentifier("newSquadron", sender: self)
-    }
+    performSegueWithIdentifier("newSquadron", sender: tableView)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
-    // USE THIS IF BUILDING A NEW SQUAD FROM SCRATCH
     if segue.identifier == "newSquadron" {
       if let destination = segue.destinationViewController as? SquadBuildVC {
-        destination.squadName = "New Squad"
-      }
-      
-    // IF LOADING EXISTING SQUAD TRY AND PULL THE NAME FROM THE INDEXPATH OF THE SELECTED ROW. HOPE THIS WORKS NEVER USED IT
-    } else if segue.identifier == "loadSquadron" {
-      if let destination = segue.destinationViewController as? SquadBuildVC {
         if let table = sender as? UITableView {
-          destination.squadName = squadrons[(table.indexPathForSelectedRow?.row)!].name
+          if (table.indexPathForSelectedRow?.row) == 0 {
+            destination.squadron = Squadron(name: "New Squad", faction: .Rebel)
+          } else {
+            destination.squadron = squadrons[(table.indexPathForSelectedRow?.row)!]
+          }
         }
       }
     }
+  }
+  
+  func selectFaction() -> Faction {
+    return .Rebel
   }
 }
