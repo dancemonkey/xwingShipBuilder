@@ -13,9 +13,11 @@ class SquadBuildVC: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var squadNameLbl: UILabel!
   
+  var squadName = ""
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      squadNameLbl.text = squadName
         // Do any additional setup after loading the view.
     }
 

@@ -302,7 +302,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="squadNameLbl" destination="Mzp-7B-voo" id="Tn5-JH-ZeW"/>
+                        <outlet property="squadNameLbl" destination="Mzp-7B-voo" id="ia3-m5-iSc"/>
                         <outlet property="tableView" destination="asB-zQ-TnN" id="6Tx-Xf-kJY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="shipSelect" id="wOK-Zu-Prt"/>
                     </connections>
