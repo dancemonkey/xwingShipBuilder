@@ -30,6 +30,7 @@
 		107983C41C6C42C000143132 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107983C31C6C42C000143132 /* RoundButton.swift */; };
 		1088DE861C7D77AC00CF8790 /* PointCostUILbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */; };
 		10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */; };
+		10C454CE1C93BF5C008A141F /* SquadBuildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C454CD1C93BF5C008A141F /* SquadBuildVC.swift */; };
 		10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6D8191C5C7E3500A8B91A /* PilotCard.swift */; };
 		10FEB0811C8A8BDB00F9085B /* PilotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FEB0801C8A8BDB00F9085B /* PilotCell.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		107983C31C6C42C000143132 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1088DE851C7D77AC00CF8790 /* PointCostUILbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCostUILbl.swift; sourceTree = "<group>"; };
 		10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDetailVC.swift; sourceTree = "<group>"; };
+		10C454CD1C93BF5C008A141F /* SquadBuildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquadBuildVC.swift; sourceTree = "<group>"; };
 		10C6D8191C5C7E3500A8B91A /* PilotCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCard.swift; sourceTree = "<group>"; };
 		10FEB0801C8A8BDB00F9085B /* PilotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +118,7 @@
 				101650121C7CDDA600B43647 /* PilotSelectVC.swift */,
 				101199B71C82898A0098F11B /* UpgradeSelectVC.swift */,
 				10132CF51C928DBC00626D00 /* SquadronCreateVC.swift */,
+				10C454CD1C93BF5C008A141F /* SquadBuildVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				10132CF61C928DBC00626D00 /* SquadronCreateVC.swift in Sources */,
 				1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */,
 				1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */,
+				10C454CE1C93BF5C008A141F /* SquadBuildVC.swift in Sources */,
 				1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */,
 				101199BA1C828B1C0098F11B /* UpgradeCell.swift in Sources */,
 				10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */,
