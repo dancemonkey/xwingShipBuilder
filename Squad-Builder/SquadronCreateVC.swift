@@ -45,7 +45,8 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.row == 0 {
-      selectFaction()
+      let newSquadSegue = selectFaction()
+      newSquadSegue()
     } else {
       performSegueWithIdentifier("newSquadron", sender: tableView)
     }
@@ -66,13 +67,18 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
   }
   
-  func selectFaction() -> Faction {
+  func selectFaction() -> () -> () {
     
     if let customView = NSBundle.mainBundle().loadNibNamed("FactionSelect", owner: self, options: nil).first as? FactionSelect {
       factionSelectView.addSubview(customView)
       factionSelectView.hidden = false
+      customView.factionSelectDelegate = self
     }
-    return .Rebel
+    
+    return { () -> Void in
+      //self.performSegueWithIdentifier("newSquadron", sender: self.tableView)
+    }
+    
   }
   
   func factionSelected(faction: Faction) {
