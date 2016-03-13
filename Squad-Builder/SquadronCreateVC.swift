@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FactionSelectDelegate {
 
   var squadrons = [Squadron]()
   let promptSquad = Squadron(name: "Tap To Create Squadron", faction: .Rebel)
   let testSquad = Squadron(name: "test", faction: .Scum)
+  var selectedFaction: Faction!
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var factionSelectView: UIView!
@@ -23,7 +24,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       tableView.dataSource = self
       squadrons.insert(promptSquad, atIndex: 0)
       squadrons.append(testSquad)
-      selectFaction()
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +44,11 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("newSquadron", sender: tableView)
+    if indexPath.row == 0 {
+      selectFaction()
+    } else {
+      performSegueWithIdentifier("newSquadron", sender: tableView)
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -69,5 +73,9 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       factionSelectView.hidden = false
     }
     return .Rebel
+  }
+  
+  func factionSelected(faction: Faction) {
+    self.selectedFaction = faction
   }
 }

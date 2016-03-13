@@ -39,6 +39,9 @@
                         <constraint firstAttribute="height" constant="75" id="5LV-XN-dMc"/>
                     </constraints>
                     <state key="normal" image="Imperial"/>
+                    <connections>
+                        <action selector="imperialPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="07c-Ub-FRa"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOw-Aw-cM3" customClass="RoundButton" customModule="Squad_Builder" customModuleProvider="target">
                     <rect key="frame" x="217" y="67" width="75" height="75"/>
@@ -48,6 +51,9 @@
                         <constraint firstAttribute="width" constant="75" id="mdu-QJ-X9i"/>
                     </constraints>
                     <state key="normal" image="Scum"/>
+                    <connections>
+                        <action selector="scumPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="UnG-ds-FVG"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oI-Pt-54A" customClass="RoundButton" customModule="Squad_Builder" customModuleProvider="target">
                     <rect key="frame" x="8" y="67" width="75" height="75"/>
@@ -65,6 +71,9 @@
                             <exclude reference="qku-FW-d6A"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="rebelPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="YO2-zn-4hi"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
