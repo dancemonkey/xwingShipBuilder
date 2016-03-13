@@ -14,10 +14,13 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   @IBOutlet weak var squadNameLbl: UILabel!
   
   var squadron: Squadron!
+  var faction: Faction!
   
     override func viewDidLoad() {
       super.viewDidLoad()
       squadNameLbl.text = squadron.name
+      faction = squadron.faction
+      print(faction)
     }
 
   @IBAction func cancelPressed(sender: AnyObject) {

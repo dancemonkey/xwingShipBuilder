@@ -45,8 +45,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.row == 0 {
-      let newSquadSegue = selectFaction()
-      newSquadSegue()
+      selectFaction()
     } else {
       performSegueWithIdentifier("newSquadron", sender: tableView)
     }
@@ -58,7 +57,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       if let destination = segue.destinationViewController as? SquadBuildVC {
         if let table = sender as? UITableView {
           if (table.indexPathForSelectedRow?.row) == 0 {
-            destination.squadron = Squadron(name: "New Squad", faction: .Rebel)
+            destination.squadron = Squadron(name: "New Squad", faction: self.selectedFaction)
           } else {
             destination.squadron = squadrons[(table.indexPathForSelectedRow?.row)!]
           }
@@ -67,21 +66,22 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
   }
   
-  func selectFaction() -> () -> () {
+  func selectFaction() {
     
     if let customView = NSBundle.mainBundle().loadNibNamed("FactionSelect", owner: self, options: nil).first as? FactionSelect {
-      factionSelectView.addSubview(customView)
-      factionSelectView.hidden = false
+      let popupFrame = CGRect(x: self.view.frame.size.width/2 - customView.frame.width/2, y: self.view.frame.size.height/2-customView.frame.height/2, width: customView.frame.width, height: customView.frame.height)
+      customView.layer.cornerRadius = 10.0
+      customView.clipsToBounds = true
+      customView.frame = popupFrame
+      self.view.addSubview(customView)
+      factionSelectView = customView
       customView.factionSelectDelegate = self
     }
-    
-    return { () -> Void in
-      //self.performSegueWithIdentifier("newSquadron", sender: self.tableView)
-    }
-    
   }
   
   func factionSelected(faction: Faction) {
     self.selectedFaction = faction
+    performSegueWithIdentifier("newSquadron", sender: tableView)
+    factionSelectView.removeFromSuperview()
   }
 }
