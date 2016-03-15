@@ -37,4 +37,8 @@ class Squadron {
     self._faction = faction
   }
   
+  func addPilot(pilot: PilotCard) {
+    self._ships.append(pilot)
+  }
+  
 }

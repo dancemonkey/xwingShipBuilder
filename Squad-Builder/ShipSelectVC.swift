@@ -7,7 +7,6 @@
 //
 
 //???: holding upgrade button pops up a tooltip telling what it does?
-//TODO: squad creation screen should lead to tableView of ships in squadron, then you add ships to the squadron from there and save to squadron
 
 import UIKit
 

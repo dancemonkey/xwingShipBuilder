@@ -6,6 +6,9 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+//TODO: load ships from ship select vc into this squadron array so they show up on table
+//TODO: connect + button to ship select and pass selected pilot/ship back to this view
+
 import UIKit
 
 class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -20,11 +23,18 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
       super.viewDidLoad()
       squadNameLbl.text = squadron.name
       faction = squadron.faction
-      print(faction)
-    }
+      
+      tableView.delegate = self
+      tableView.dataSource = self
+      
+  }
 
   @IBAction func cancelPressed(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  @IBAction func newSquadPressed(sender: UIButton) {
+  
   }
   
   // MARK: Tableview junk
@@ -39,6 +49,7 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCellWithIdentifier("shipCell") as? SquadShipCell {
+      cell.configureCell(withPilot: squadron.ships[indexPath.row])
       return cell
     } else {
       return SquadShipCell()
