@@ -6,8 +6,8 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: load ships from ship select vc into this squadron array so they show up on table
-//TODO: connect + button to ship select and pass selected pilot/ship back to this view
+//TODO: name squad
+//TODO: save squad to main squad list
 
 import UIKit
 
@@ -34,7 +34,23 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   }
   
   @IBAction func newSquadPressed(sender: UIButton) {
+    performSegueWithIdentifier("shipSelect", sender: self)
+  }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "shipSelect" {
+      if let destination = segue.destinationViewController as? ShipSelectVC {
+        destination.squadVC = self
+        destination.selectedFaction = self.faction
+      }
+    }
+  }
+  
+  @IBAction func unwindToHere(segue: UIStoryboardSegue) {
+    if let previousVC = segue.sourceViewController as? ShipDetailVC {
+      squadron.addPilot(previousVC.pilot)
+      tableView.reloadData()
+    }
   }
   
   // MARK: Tableview junk

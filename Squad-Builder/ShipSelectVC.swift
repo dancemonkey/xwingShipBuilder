@@ -6,7 +6,7 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//???: holding upgrade button pops up a tooltip telling what it does?
+//TODO: only show ships from squad faction on list
 
 import UIKit
 
@@ -23,9 +23,11 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   var ALL_SHIPS = [String]()
   var filteredShipTypes = [String]()
   let SHIP_FACTIONS: [Faction] = [.Scum, .Rebel, .Imperial]
+  var selectedFaction: Faction!
   
   var selectedShipTitle: String!
   var ships: ShipData!
+  var squadVC: SquadBuildVC!
   
   var searching = false
   
@@ -55,6 +57,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     destVC.buttonBackground = selectedShipTitle
     destVC.pilot = PilotCard(ship: selectedShipTitle, pilot: nil)
     destVC.pilotsForShipType = ships.getPilots(selectedShipTitle)
+    destVC.squadVC = self.squadVC //!!!: Nope don't like trojan-horsing this data through here to the next stop
   }
   
   // MARK: CollectionView junk

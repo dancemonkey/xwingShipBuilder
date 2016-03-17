@@ -31,6 +31,8 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   
   var upgradeSelected: Int = 0
   
+  var squadVC: SquadBuildVC!
+  
     override func viewDidLoad() {
       super.viewDidLoad()
       ships = ShipData()
@@ -166,6 +168,10 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
       destination?.delegate = self
       destination?.upgradeType = pilot.availUpgrades[upgradeSelected]
     }
+  }
+  
+  @IBAction func doneBtnPressed(sender: UIButton) {
+    
   }
   
   //MARK: TableView junk

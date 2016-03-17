@@ -12,7 +12,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
   var squadrons = [Squadron]()
   let promptSquad = Squadron(name: "Tap To Create Squadron", faction: .Rebel)
-  let testSquad = Squadron(name: "test", faction: .Scum)
   var selectedFaction: Faction!
   
   @IBOutlet weak var tableView: UITableView!
@@ -23,7 +22,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       tableView.delegate = self
       tableView.dataSource = self
       squadrons.insert(promptSquad, atIndex: 0)
-      squadrons.append(testSquad)
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +55,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       if let destination = segue.destinationViewController as? SquadBuildVC {
         if let table = sender as? UITableView {
           if (table.indexPathForSelectedRow?.row) == 0 {
-            destination.squadron = Squadron(name: "New Squad", faction: self.selectedFaction)
+            destination.squadron = Squadron(name: "\(self.selectedFaction) Squad", faction: self.selectedFaction)
           } else {
             destination.squadron = squadrons[(table.indexPathForSelectedRow?.row)!]
           }

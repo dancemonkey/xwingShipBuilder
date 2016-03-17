@@ -138,7 +138,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="irf-eu-hUE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -211,7 +211,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBG" translatesAutoresizingMaskIntoConstraints="NO" id="3g1-SC-bPR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Squadron" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-7B-voo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Squadron" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-7B-voo">
                                 <rect key="frame" x="193" y="8" width="214" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="214" id="CXU-Ir-MhG"/>
@@ -258,10 +258,10 @@
                                                         <constraint firstAttribute="height" constant="30" id="xip-R3-LI2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Upgrades upgrades upgrades" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5ju-ki-Iq5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Upgrades upgrades upgrades" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="5ju-ki-Iq5">
                                                     <rect key="frame" x="66" y="30" width="448" height="37"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="88" id="g6l-uC-JNs"/>
@@ -330,7 +330,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="vdR-Cg-8vt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -588,7 +588,7 @@
                                     <constraint firstAttribute="width" constant="54" id="jnl-IN-8Ti"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -770,7 +770,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yVi-Zg-Gvg">
-                                <rect key="frame" x="20" y="364" width="560" height="216"/>
+                                <rect key="frame" x="20" y="364" width="560" height="166"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShipUpgradeCell" id="mNO-jF-lTP" customClass="ShipUpgradeCell" customModule="Squad_Builder" customModuleProvider="target">
@@ -832,6 +832,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNS-jx-HJs">
+                                <rect key="frame" x="225" y="542" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1Jl-4l-l7U"/>
+                                    <constraint firstAttribute="width" constant="150" id="e78-Nh-HG5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.67000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="ZAO-Ms-RXA" eventType="touchUpInside" id="ohR-4s-2NB"/>
+                                    <segue destination="oRs-FN-vmi" kind="unwind" unwindAction="unwindToHere:" id="K6F-9G-LXl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -861,11 +877,13 @@
                             <constraint firstItem="zPE-uo-WDL" firstAttribute="top" secondItem="Oaz-B4-Mej" secondAttribute="bottom" constant="8" id="UoF-9z-5ro"/>
                             <constraint firstItem="jeQ-lH-9HL" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="UoR-Kp-GlF"/>
                             <constraint firstItem="Oaz-B4-Mej" firstAttribute="top" secondItem="9Vk-fI-B8Z" secondAttribute="bottom" id="VYg-A7-FF6"/>
-                            <constraint firstItem="zIb-Qe-Rna" firstAttribute="top" secondItem="yVi-Zg-Gvg" secondAttribute="bottom" constant="20" id="ZxO-uF-n3k"/>
+                            <constraint firstItem="zIb-Qe-Rna" firstAttribute="top" secondItem="yVi-Zg-Gvg" secondAttribute="bottom" constant="70" id="ZxO-uF-n3k"/>
                             <constraint firstItem="zPE-uo-WDL" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="aHV-2M-hs3"/>
+                            <constraint firstItem="tNS-jx-HJs" firstAttribute="top" secondItem="yVi-Zg-Gvg" secondAttribute="bottom" constant="12" id="bR8-mx-Wms"/>
                             <constraint firstItem="qID-qk-7AG" firstAttribute="top" secondItem="y6h-mE-DlC" secondAttribute="bottom" constant="8" id="bw5-QQ-wPf"/>
                             <constraint firstAttribute="trailing" secondItem="qID-qk-7AG" secondAttribute="trailing" constant="20" id="bwR-uU-hvZ"/>
                             <constraint firstItem="QrR-mx-y31" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="cCV-rJ-aqE"/>
+                            <constraint firstItem="zIb-Qe-Rna" firstAttribute="top" secondItem="tNS-jx-HJs" secondAttribute="bottom" constant="8" id="cMe-Kp-MYd"/>
                             <constraint firstItem="y6h-mE-DlC" firstAttribute="top" secondItem="zPE-uo-WDL" secondAttribute="bottom" constant="8" id="cax-ue-rHt"/>
                             <constraint firstItem="xtS-QA-omg" firstAttribute="top" secondItem="QrR-mx-y31" secondAttribute="bottom" constant="8" id="eEz-H8-L5b"/>
                             <constraint firstItem="ENH-UV-b51" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" id="haK-HZ-K23"/>
@@ -873,6 +891,7 @@
                             <constraint firstItem="Oaz-B4-Mej" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="mTO-WD-DP1"/>
                             <constraint firstAttribute="trailing" secondItem="QB1-Ug-AL9" secondAttribute="trailing" constant="49" id="nqh-gV-aeF"/>
                             <constraint firstItem="y6h-mE-DlC" firstAttribute="leading" secondItem="iPj-X4-ZDe" secondAttribute="leading" constant="20" id="pN1-aD-h0X"/>
+                            <constraint firstItem="tNS-jx-HJs" firstAttribute="centerX" secondItem="iPj-X4-ZDe" secondAttribute="centerX" id="rYf-Wn-bpd"/>
                             <constraint firstItem="QrR-mx-y31" firstAttribute="leading" secondItem="zPE-uo-WDL" secondAttribute="trailing" constant="8" id="vuD-uU-ef2"/>
                             <constraint firstItem="cKH-Mw-g7N" firstAttribute="centerX" secondItem="xtS-QA-omg" secondAttribute="centerX" id="wuF-8I-Y68"/>
                             <constraint firstItem="qID-qk-7AG" firstAttribute="top" secondItem="QB1-Ug-AL9" secondAttribute="bottom" constant="6" id="x90-OF-E5c"/>
@@ -888,6 +907,7 @@
                                 <exclude reference="cCV-rJ-aqE"/>
                                 <exclude reference="yCD-sp-kkM"/>
                                 <exclude reference="nqh-gV-aeF"/>
+                                <exclude reference="ZxO-uF-n3k"/>
                             </mask>
                         </variation>
                     </view>
@@ -908,6 +928,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooP-ah-6bS" sceneMemberID="firstResponder"/>
+                <exit id="oRs-FN-vmi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1105" y="387"/>
         </scene>
