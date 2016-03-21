@@ -374,6 +374,12 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="0.67000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cfl-7G-9wm"/>
+                                        <exclude reference="uut-uF-hMj"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="doneBtnPressed:" destination="ZAO-Ms-RXA" eventType="touchUpInside" id="ngm-LH-QlR"/>
                                     <action selector="donePressed:" destination="mZU-4N-4eu" eventType="touchUpInside" id="P0l-jf-cvd"/>
@@ -435,7 +441,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y2r-Re-2dK">
-                                <rect key="frame" x="20" y="176" width="560" height="404"/>
+                                <rect key="frame" x="20" y="176" width="560" height="358"/>
                                 <color key="backgroundColor" white="1" alpha="0.14000000000000001" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SquadronCell" rowHeight="75" id="Qaq-Xf-8A9" customClass="SquadronCell" customModule="Squad_Builder" customModuleProvider="target">
@@ -537,22 +543,55 @@
                                     <constraint firstAttribute="height" constant="200" id="cew-AQ-QrH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-hO-5o7">
+                                <rect key="frame" x="225" y="542" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="0lk-rr-VOq"/>
+                                    <constraint firstAttribute="height" constant="50" id="bbF-6p-8jm"/>
+                                    <constraint firstAttribute="width" constant="150" id="idr-jJ-7cK"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="wYw-j6-WBp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="+ Squad">
+                                    <color key="titleColor" white="0.67000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wYw-j6-WBp"/>
+                                        <exclude reference="0lk-rr-VOq"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="ZAO-Ms-RXA" eventType="touchUpInside" id="Xds-da-gBu"/>
+                                    <action selector="donePressed:" destination="mZU-4N-4eu" eventType="touchUpInside" id="Uep-aY-lRa"/>
+                                    <action selector="newSquadPressed:" destination="F3A-dx-4fG" eventType="touchUpInside" id="sAV-fw-3fJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y2r-Re-2dK" firstAttribute="leading" secondItem="flB-k0-3Cl" secondAttribute="leading" constant="20" id="4SP-z1-YLL"/>
+                            <constraint firstItem="ENp-hO-5o7" firstAttribute="top" secondItem="y2r-Re-2dK" secondAttribute="bottom" constant="8" id="5yJ-Vb-q8k"/>
                             <constraint firstItem="yWg-Am-f6o" firstAttribute="centerX" secondItem="flB-k0-3Cl" secondAttribute="centerX" id="7nN-HY-ozy"/>
+                            <constraint firstItem="ymK-9X-D8X" firstAttribute="top" secondItem="ENp-hO-5o7" secondAttribute="bottom" constant="8" id="91v-gT-qhd"/>
                             <constraint firstItem="WqX-QM-Uks" firstAttribute="centerY" secondItem="flB-k0-3Cl" secondAttribute="centerY" id="KTt-k7-8wK"/>
                             <constraint firstItem="ymK-9X-D8X" firstAttribute="top" secondItem="EWK-Pc-d2p" secondAttribute="bottom" id="OCJ-N4-nc4"/>
                             <constraint firstItem="y2r-Re-2dK" firstAttribute="top" secondItem="yWg-Am-f6o" secondAttribute="bottom" constant="20" id="TAP-Gz-bCW"/>
                             <constraint firstItem="ymK-9X-D8X" firstAttribute="top" secondItem="y2r-Re-2dK" secondAttribute="bottom" constant="20" id="Tmd-bI-Wgh"/>
                             <constraint firstItem="EWK-Pc-d2p" firstAttribute="leading" secondItem="flB-k0-3Cl" secondAttribute="leading" id="Y0A-Qy-iLO"/>
                             <constraint firstAttribute="trailing" secondItem="y2r-Re-2dK" secondAttribute="trailing" constant="20" id="dUA-tj-k3F"/>
+                            <constraint firstItem="ENp-hO-5o7" firstAttribute="centerX" secondItem="flB-k0-3Cl" secondAttribute="centerX" id="o6Q-9d-Mtp"/>
                             <constraint firstAttribute="trailing" secondItem="EWK-Pc-d2p" secondAttribute="trailing" id="tON-MO-PF6"/>
                             <constraint firstItem="EWK-Pc-d2p" firstAttribute="top" secondItem="flB-k0-3Cl" secondAttribute="top" id="u4K-Vx-rW4"/>
                             <constraint firstItem="WqX-QM-Uks" firstAttribute="centerX" secondItem="flB-k0-3Cl" secondAttribute="centerX" id="vyh-YH-Lc3"/>
                             <constraint firstItem="yWg-Am-f6o" firstAttribute="top" secondItem="iUu-O1-6wC" secondAttribute="bottom" constant="8" id="yaF-fv-mxW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Tmd-bI-Wgh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="factionSelectView" destination="WqX-QM-Uks" id="3EY-xG-23H"/>

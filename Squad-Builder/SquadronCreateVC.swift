@@ -14,7 +14,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 {
 
   var squadrons = [Squadron]()
-  let promptSquad = Squadron(name: "Tap To Create Squadron", faction: .Rebel)
   var selectedFaction: Faction!
   
   @IBOutlet weak var tableView: UITableView!
@@ -24,7 +23,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
       tableView.delegate = self
       tableView.dataSource = self
-      squadrons.insert(promptSquad, atIndex: 0)
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,11 +43,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if indexPath.row == 0 {
-      selectFaction()
-    } else {
-      performSegueWithIdentifier("newSquadron", sender: tableView)
-    }
+    performSegueWithIdentifier("newSquadron", sender: tableView)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -58,15 +52,17 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       if let destination = segue.destinationViewController as? SquadBuildVC {
         destination.delegate = self
         if let table = sender as? UITableView {
-          if (table.indexPathForSelectedRow?.row) == 0 {
-            destination.squadron = Squadron(name: "\(self.selectedFaction) Squad", faction: self.selectedFaction)
-          } else {
-            destination.squadron = squadrons[(table.indexPathForSelectedRow?.row)!]
-          }
+          destination.squadron = squadrons[(table.indexPathForSelectedRow?.row)!]
+        } else if sender == nil {
+          destination.squadron = Squadron(name: "\(self.selectedFaction) Squad", faction: self.selectedFaction)
         }
       }
     }
     
+  }
+  
+  @IBAction func newSquadPressed(sender: UIButton) {
+    selectFaction()
   }
   
   func saveToSquadList(squad: Squadron) {
@@ -98,7 +94,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   
   func factionSelected(faction: Faction) {
     self.selectedFaction = faction
-    performSegueWithIdentifier("newSquadron", sender: tableView)
+    performSegueWithIdentifier("newSquadron", sender: nil)
     factionSelectView.removeFromSuperview()
   }
 }
