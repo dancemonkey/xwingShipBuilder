@@ -53,11 +53,12 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let destVC = segue.destinationViewController as! ShipDetailVC
-    destVC.buttonBackground = selectedShipTitle
-    destVC.pilot = PilotCard(ship: selectedShipTitle, pilot: nil)
-    destVC.pilotsForShipType = ships.getPilots(selectedShipTitle)
-    destVC.squadVC = self.squadVC //!!!: Nope don't like trojan-horsing this data through here to the next stop
+    if segue.identifier == "showShipDetail" {
+      let destVC = segue.destinationViewController as! ShipDetailVC
+      destVC.pilot = PilotCard(ship: selectedShipTitle, pilot: nil)
+      destVC.squadIndex = squadVC.squadron.ships.count
+      destVC.squadVC = self.squadVC //!!!: Nope don't like trojan-horsing this data through here to the next stop
+    }
   }
   
   // MARK: CollectionView junk
@@ -101,7 +102,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     } else {
       selectedShipTitle = SHIP_TYPES[indexPath.section][indexPath.row]
     }
-    performSegueWithIdentifier("showShipDetail", sender: self)
+    performSegueWithIdentifier("showShipDetail", sender: indexPath.row)
   }
   
   func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

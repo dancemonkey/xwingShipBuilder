@@ -29,20 +29,23 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   var pilotsForShipType = [String]()
   var ships: ShipData!
   
+  var squadIndex: Int? = nil
+  
   var upgradeSelected: Int = 0
   
   var squadVC: SquadBuildVC!
-  
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      ships = ShipData()
-      shipBtn.setBackgroundImage(UIImage(named: buttonBackground), forState: .Normal)
-      initializePilotData()
-      setupFactionImageView()
-      
-      tableView.delegate = self
-      tableView.dataSource = self
-    }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    ships = ShipData()
+    shipBtn.setBackgroundImage(UIImage(named: "\(pilot.shipType)"), forState: .Normal)
+    initializePilotData()
+    setupFactionImageView()
+    
+    tableView.delegate = self
+    tableView.dataSource = self
+    
+  }
   
   @IBAction func cancelPressed(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
@@ -50,6 +53,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   
   func initializePilotData() {
     shipBtn.setTitle(pilot.pilotName, forState: .Normal)
+    pilotsForShipType = ships.getPilots(pilot.shipType)
     loadUpgradeIcons()
     loadActionIcons()
     setStats()

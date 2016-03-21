@@ -7,7 +7,11 @@
 //
 
 //TODO: name squad
-//TODO: save squad to main squad list
+//TODO: delete ship from squad
+
+protocol SquadSaveDelegate {
+  func saveToSquadList(squad: Squadron)
+}
 
 import UIKit
 
@@ -18,6 +22,8 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   var squadron: Squadron!
   var faction: Faction!
+  
+  var delegate: SquadSaveDelegate!
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -43,14 +49,24 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         destination.squadVC = self
         destination.selectedFaction = self.faction
       }
+    } else if segue.identifier == "loadShipFromSquad" {
+      if let destination = segue.destinationViewController as? ShipDetailVC {
+        destination.pilot = squadron.ships[(sender as! Int)]
+        destination.squadIndex = sender as? Int
+      }
     }
   }
   
   @IBAction func unwindToHere(segue: UIStoryboardSegue) {
     if let previousVC = segue.sourceViewController as? ShipDetailVC {
-      squadron.addPilot(previousVC.pilot)
+      squadron.addPilot(previousVC.pilot, atIndex: previousVC.squadIndex)
       tableView.reloadData()
     }
+  }
+  
+  @IBAction func donePressed(sender: UIButton) {
+    delegate.saveToSquadList(squadron)
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
   // MARK: Tableview junk
@@ -70,5 +86,9 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     } else {
       return SquadShipCell()
     }
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("loadShipFromSquad", sender: indexPath.row)
   }
 }

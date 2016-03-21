@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="387"/>
+            <point key="canvasLocation" x="275" y="261"/>
         </scene>
         <!--Squad BuildVC-->
         <scene sceneID="QgY-Sd-JUg">
@@ -234,7 +234,7 @@
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asB-zQ-TnN">
-                                <rect key="frame" x="20" y="66" width="560" height="514"/>
+                                <rect key="frame" x="20" y="66" width="560" height="468"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shipCell" rowHeight="75" id="t37-AG-H1z" customClass="SquadShipCell" customModule="Squad_Builder" customModuleProvider="target">
@@ -361,13 +361,33 @@
                                     <action selector="newSquadPressed:" destination="mZU-4N-4eu" eventType="touchUpInside" id="EXh-PV-sjW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SER-KX-c9u">
+                                <rect key="frame" x="225" y="542" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ANx-Mb-YcJ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="cfl-7G-9wm"/>
+                                    <constraint firstAttribute="width" constant="150" id="hRp-Z5-YGd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="uut-uF-hMj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.67000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="ZAO-Ms-RXA" eventType="touchUpInside" id="ngm-LH-QlR"/>
+                                    <action selector="donePressed:" destination="mZU-4N-4eu" eventType="touchUpInside" id="P0l-jf-cvd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gZr-lX-7ps" firstAttribute="top" secondItem="haQ-MP-wVh" secondAttribute="bottom" constant="2" id="390-7z-gtJ"/>
+                            <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="SER-KX-c9u" secondAttribute="bottom" constant="8" id="3Mu-es-0Ju"/>
                             <constraint firstAttribute="trailing" secondItem="3g1-SC-bPR" secondAttribute="trailing" id="4Uu-bE-fIP"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="3g1-SC-bPR" secondAttribute="bottom" id="7kn-Dp-yCz"/>
                             <constraint firstItem="PC5-Ej-m3C" firstAttribute="top" secondItem="haQ-MP-wVh" secondAttribute="bottom" id="CS9-OT-udj"/>
+                            <constraint firstItem="SER-KX-c9u" firstAttribute="centerX" secondItem="lHt-P0-TnC" secondAttribute="centerX" id="CqA-0h-XCo"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="20" id="L2w-ol-uGg"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="20" id="RDB-pO-tFg"/>
                             <constraint firstItem="PC5-Ej-m3C" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" constant="20" id="Rhx-tf-3s7"/>
@@ -378,10 +398,12 @@
                             <constraint firstItem="Mzp-7B-voo" firstAttribute="centerX" secondItem="lHt-P0-TnC" secondAttribute="centerX" id="eGO-Sx-UZn"/>
                             <constraint firstItem="Mzp-7B-voo" firstAttribute="top" secondItem="lHt-P0-TnC" secondAttribute="top" constant="8" id="hNU-At-0JG"/>
                             <constraint firstItem="asB-zQ-TnN" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" constant="20" id="hSp-zx-iWW"/>
+                            <constraint firstItem="SER-KX-c9u" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="8" id="sau-Pu-bdB"/>
                             <constraint firstItem="asB-zQ-TnN" firstAttribute="top" secondItem="Mzp-7B-voo" secondAttribute="bottom" constant="8" id="tQB-g4-Us4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="L2w-ol-uGg"/>
                                 <exclude reference="RDB-pO-tFg"/>
                             </mask>
                         </variation>
@@ -390,11 +412,12 @@
                         <outlet property="squadNameLbl" destination="Mzp-7B-voo" id="ia3-m5-iSc"/>
                         <outlet property="tableView" destination="asB-zQ-TnN" id="6Tx-Xf-kJY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="shipSelect" id="wOK-Zu-Prt"/>
+                        <segue destination="ZAO-Ms-RXA" kind="show" identifier="loadShipFromSquad" id="f4o-1g-65b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYb-1D-QsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290" y="1247"/>
+            <point key="canvasLocation" x="-456" y="1279"/>
         </scene>
         <!--Squadron CreateVC-->
         <scene sceneID="RQn-wf-R7v">
@@ -1308,4 +1331,7 @@
         <image name="spaceBG" width="1024" height="1024"/>
         <image name="xWingLogo" width="1781" height="736"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="f4o-1g-65b"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -6,9 +6,12 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+//TODO: delete squad from list
+
 import UIKit
 
-class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FactionSelectDelegate {
+class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FactionSelectDelegate, SquadSaveDelegate
+{
 
   var squadrons = [Squadron]()
   let promptSquad = Squadron(name: "Tap To Create Squadron", faction: .Rebel)
@@ -53,6 +56,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     if segue.identifier == "newSquadron" {
       if let destination = segue.destinationViewController as? SquadBuildVC {
+        destination.delegate = self
         if let table = sender as? UITableView {
           if (table.indexPathForSelectedRow?.row) == 0 {
             destination.squadron = Squadron(name: "\(self.selectedFaction) Squad", faction: self.selectedFaction)
@@ -62,6 +66,21 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
       }
     }
+    
+  }
+  
+  func saveToSquadList(squad: Squadron) {
+    var found = false
+    for (index,s) in squadrons.enumerate() {
+      if s === squad {
+        squadrons[index] = squad
+        found = true
+      }
+    }
+    if !found {
+      squadrons.append(squad)
+    }
+    tableView.reloadData()
   }
   
   func selectFaction() {

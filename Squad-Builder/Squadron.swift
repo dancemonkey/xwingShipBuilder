@@ -20,7 +20,13 @@ class Squadron {
   }
   
   var pointCost: Int {
-    return _pointCost
+    get {
+      var cost = 0
+      for ship in _ships {
+        cost += ship.currentPointCost
+      }
+      return cost
+    }
   }
   
   var ships: [PilotCard] {
@@ -37,8 +43,12 @@ class Squadron {
     self._faction = faction
   }
   
-  func addPilot(pilot: PilotCard) {
-    self._ships.append(pilot)
+  func addPilot(pilot: PilotCard, atIndex index: Int?) {
+    if index == nil || _ships.count == 0 || _ships.count <= index! {
+      _ships.append(pilot)
+    } else {
+      _ships[index!] = pilot
+    }
   }
   
 }
