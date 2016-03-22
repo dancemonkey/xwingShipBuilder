@@ -26,7 +26,7 @@ class SquadronCell: UITableViewCell {
     self.factionImg.image = UIImage(named: squadron.faction.rawValue)
     var descText = ""
     for ship in squadron.ships {
-      descText += ship.pilotName! + " "
+      descText += ship.pilotName! + "  "
     }
     self.squadDesc.text = descText
   }

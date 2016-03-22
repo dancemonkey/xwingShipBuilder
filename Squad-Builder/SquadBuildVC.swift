@@ -6,9 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: name squad
-//TODO: delete ship from squad
-
 protocol SquadSaveDelegate {
   func saveToSquadList(squad: Squadron)
 }
@@ -69,6 +66,23 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     dismissViewControllerAnimated(true, completion: nil)
   }
   
+  @IBAction func nameLblTapped(sender: AnyObject) {
+    let whitespace = NSCharacterSet.whitespaceCharacterSet()
+    let renamePopup = UIAlertController(title: "Rename Squad?", message: "Enter a new name for your squad.", preferredStyle: .Alert)
+    let doneAction = UIAlertAction(title: "Done", style: .Default) { (action) -> Void in
+      if let newName = renamePopup.textFields?.first?.text where newName.stringByTrimmingCharactersInSet(whitespace) != "" {
+        self.squadron.name = newName
+        self.squadNameLbl.text = self.squadron.name
+      }
+    }
+    renamePopup.addAction(doneAction)
+    renamePopup.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+    renamePopup.addTextFieldWithConfigurationHandler { (textField) -> Void in
+      textField.placeholder = "Enter a new squad name..."
+    }
+    presentViewController(renamePopup, animated: true, completion: nil)
+  }
+  
   // MARK: Tableview junk
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,5 +104,10 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     performSegueWithIdentifier("loadShipFromSquad", sender: indexPath.row)
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    squadron.removePilot(atIndex: indexPath.row)
+    tableView.reloadData()
   }
 }

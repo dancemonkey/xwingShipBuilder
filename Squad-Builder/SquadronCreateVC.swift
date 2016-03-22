@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: delete squad from list
-
 import UIKit
 
 class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FactionSelectDelegate, SquadSaveDelegate
@@ -19,31 +17,14 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var factionSelectView: UIView!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      tableView.delegate = self
-      tableView.dataSource = self
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.delegate = self
+    tableView.dataSource = self
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return squadrons.count
-  }
-  
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
-  }
-  
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCellWithIdentifier("SquadronCell") as? SquadronCell {
-      cell.configureCell(withSquadron: squadrons[indexPath.row])
-      return cell
-    } else {
-      return SquadronCell()
-    }
-  }
-  
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("newSquadron", sender: tableView)
+  override func viewWillAppear(animated: Bool) {
+    tableView.reloadData()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -96,5 +77,33 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     self.selectedFaction = faction
     performSegueWithIdentifier("newSquadron", sender: nil)
     factionSelectView.removeFromSuperview()
+  }
+  
+  // MARK: Tableview junk
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return squadrons.count
+  }
+  
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCellWithIdentifier("SquadronCell") as? SquadronCell {
+      cell.configureCell(withSquadron: squadrons[indexPath.row])
+      return cell
+    } else {
+      return SquadronCell()
+    }
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("newSquadron", sender: tableView)
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    squadrons.removeAtIndex(indexPath.row)
+    tableView.reloadData()
   }
 }

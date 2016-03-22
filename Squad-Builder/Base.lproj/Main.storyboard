@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F3A-dx-4fG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F3A-dx-4fG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -211,8 +211,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceBG" translatesAutoresizingMaskIntoConstraints="NO" id="3g1-SC-bPR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Squadron" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-7B-voo">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Squadron" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mzp-7B-voo">
                                 <rect key="frame" x="193" y="8" width="214" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="214" id="CXU-Ir-MhG"/>
                                     <constraint firstAttribute="width" constant="202" id="clP-s9-qMC"/>
@@ -232,6 +233,9 @@
                                         <exclude reference="snk-et-8cO"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="p6C-Qb-G7o" appends="YES" id="bvG-Zi-Z8j"/>
+                                </connections>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asB-zQ-TnN">
                                 <rect key="frame" x="20" y="66" width="560" height="468"/>
@@ -422,6 +426,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYb-1D-QsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p6C-Qb-G7o">
+                    <connections>
+                        <action selector="nameLblTapped:" destination="mZU-4N-4eu" id="BXD-8F-KEq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-456" y="1279"/>
         </scene>
@@ -474,8 +483,8 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap here to create a new squad." lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-KC-Jyq">
-                                                    <rect key="frame" x="81" y="22" width="433" height="47"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squad members" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-KC-Jyq">
+                                                    <rect key="frame" x="81" y="16" width="433" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="94" id="xTd-j9-ncE"/>
                                                     </constraints>
@@ -489,9 +498,9 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squadron Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW5-FU-Ufg">
-                                                    <rect key="frame" x="81" y="0.0" width="433" height="21"/>
+                                                    <rect key="frame" x="81" y="0.0" width="433" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="DCx-bF-MQZ"/>
+                                                        <constraint firstAttribute="height" constant="15" id="DCx-bF-MQZ"/>
                                                         <constraint firstAttribute="width" constant="124" id="jq1-5j-HOe"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="14"/>
@@ -558,8 +567,8 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="wYw-j6-WBp"/>
                                         <exclude reference="0lk-rr-VOq"/>
+                                        <exclude reference="wYw-j6-WBp"/>
                                     </mask>
                                 </variation>
                                 <connections>

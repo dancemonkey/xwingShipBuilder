@@ -16,7 +16,13 @@ class Squadron {
   private var _faction: Faction
   
   var name: String {
-    return self._name
+    get {
+      return self._name
+    }
+    set {
+      self._name = newValue
+    }
+    
   }
   
   var pointCost: Int {
@@ -49,6 +55,10 @@ class Squadron {
     } else {
       _ships[index!] = pilot
     }
+  }
+  
+  func removePilot(atIndex index: Int) {
+    _ships.removeAtIndex(index)
   }
   
 }
