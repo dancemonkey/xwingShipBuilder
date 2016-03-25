@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: only show ships from squad faction on list
-
 import UIKit
 
 class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
@@ -19,8 +17,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   let WIDTH: CGFloat = 150
   let HEIGHT: CGFloat = 150
   
-  var SHIP_TYPES = [[String]]()
-  var ALL_SHIPS = [String]()
+  var shipTypes = [String]()
   var filteredShipTypes = [String]()
   let SHIP_FACTIONS: [Faction] = [.Scum, .Rebel, .Imperial]
   var selectedFaction: Faction!
@@ -35,10 +32,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     super.viewDidLoad()
     
     ships = ShipData()
-    for faction in SHIP_FACTIONS {
-      SHIP_TYPES.append(ships.getShipsOfFaction(faction))
-    }
-    ALL_SHIPS = ships.getAllShipTypes()
+    shipTypes = ships.getShipsOfFaction(selectedFaction)
     
     collection.delegate = self
     collection.dataSource = self
@@ -68,7 +62,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
       if searching {
         cell.configureCell(filteredShipTypes[indexPath.row])
       } else {
-        cell.configureCell(SHIP_TYPES[indexPath.section][indexPath.row])
+        cell.configureCell(shipTypes[indexPath.row])
       }
       return cell
     } else {
@@ -80,7 +74,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     if searching {
       return filteredShipTypes.count
     } else {
-      return SHIP_TYPES[section].count
+      return shipTypes.count
     }
   }
   
@@ -89,18 +83,14 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   }
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-    if searching {
-      return 1
-    } else {
-      return SHIP_FACTIONS.count
-    }
+    return 1
   }
   
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     if searching {
       selectedShipTitle = filteredShipTypes[indexPath.row]
     } else {
-      selectedShipTitle = SHIP_TYPES[indexPath.section][indexPath.row]
+      selectedShipTitle = shipTypes[indexPath.row]
     }
     performSegueWithIdentifier("showShipDetail", sender: indexPath.row)
   }
@@ -131,7 +121,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
       self.collection.reloadData()
     } else {
       searching = true
-      filteredShipTypes = ALL_SHIPS.filter({ (ship) -> Bool in
+      filteredShipTypes = shipTypes.filter({ (ship) -> Bool in
         return ship.lowercaseString.containsString(searchText.lowercaseString)
       })
       self.collection.reloadData()
