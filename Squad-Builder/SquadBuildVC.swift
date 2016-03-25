@@ -16,20 +16,22 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
 
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var squadNameLbl: UILabel!
+  @IBOutlet weak var squadPointTotalLbl: UILabel!
   
   var squadron: Squadron!
   var faction: Faction!
   
   var delegate: SquadSaveDelegate!
   
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      squadNameLbl.text = squadron.name
-      faction = squadron.faction
-      
-      tableView.delegate = self
-      tableView.dataSource = self
-      
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    squadNameLbl.text = squadron.name
+    faction = squadron.faction
+    
+    tableView.delegate = self
+    tableView.dataSource = self
+    
+    setSquadPointLabel()
   }
 
   @IBAction func cancelPressed(sender: AnyObject) {
@@ -38,6 +40,12 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   @IBAction func newSquadPressed(sender: UIButton) {
     performSegueWithIdentifier("shipSelect", sender: self)
+  }
+  
+  func setSquadPointLabel() {
+    if let squad = self.squadron {
+      squadPointTotalLbl.text = "\(squad.pointCost)"
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,6 +65,7 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   @IBAction func unwindToHere(segue: UIStoryboardSegue) {
     if let previousVC = segue.sourceViewController as? ShipDetailVC {
       squadron.addPilot(previousVC.pilot, atIndex: previousVC.squadIndex)
+      setSquadPointLabel()
       tableView.reloadData()
     }
   }
@@ -108,6 +117,7 @@ class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     squadron.removePilot(atIndex: indexPath.row)
+    setSquadPointLabel()
     tableView.reloadData()
   }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F3A-dx-4fG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F3A-dx-4fG">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -389,9 +389,20 @@
                                     <action selector="donePressed:" destination="mZU-4N-4eu" eventType="touchUpInside" id="P0l-jf-cvd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzf-2A-qoQ" customClass="PointCostUILbl" customModule="Squad_Builder" customModuleProvider="target">
+                                <rect key="frame" x="540" y="547" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="4g9-5K-jF9"/>
+                                    <constraint firstAttribute="height" constant="40" id="VAB-c8-GNF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Nzf-2A-qoQ" firstAttribute="centerY" secondItem="SER-KX-c9u" secondAttribute="centerY" id="355-vz-ZOj"/>
                             <constraint firstItem="gZr-lX-7ps" firstAttribute="top" secondItem="haQ-MP-wVh" secondAttribute="bottom" constant="2" id="390-7z-gtJ"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="SER-KX-c9u" secondAttribute="bottom" constant="8" id="3Mu-es-0Ju"/>
                             <constraint firstAttribute="trailing" secondItem="3g1-SC-bPR" secondAttribute="trailing" id="4Uu-bE-fIP"/>
@@ -399,6 +410,7 @@
                             <constraint firstItem="PC5-Ej-m3C" firstAttribute="top" secondItem="haQ-MP-wVh" secondAttribute="bottom" id="CS9-OT-udj"/>
                             <constraint firstItem="SER-KX-c9u" firstAttribute="centerX" secondItem="lHt-P0-TnC" secondAttribute="centerX" id="CqA-0h-XCo"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="20" id="L2w-ol-uGg"/>
+                            <constraint firstAttribute="trailing" secondItem="Nzf-2A-qoQ" secondAttribute="trailing" constant="20" id="O4p-A5-ujC"/>
                             <constraint firstItem="hst-Ei-RVE" firstAttribute="top" secondItem="asB-zQ-TnN" secondAttribute="bottom" constant="20" id="RDB-pO-tFg"/>
                             <constraint firstItem="PC5-Ej-m3C" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" constant="20" id="Rhx-tf-3s7"/>
                             <constraint firstItem="3g1-SC-bPR" firstAttribute="leading" secondItem="lHt-P0-TnC" secondAttribute="leading" id="SFS-ar-H3Y"/>
@@ -420,6 +432,7 @@
                     </view>
                     <connections>
                         <outlet property="squadNameLbl" destination="Mzp-7B-voo" id="ia3-m5-iSc"/>
+                        <outlet property="squadPointTotalLbl" destination="Nzf-2A-qoQ" id="YnE-Wv-gFR"/>
                         <outlet property="tableView" destination="asB-zQ-TnN" id="6Tx-Xf-kJY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="shipSelect" id="wOK-Zu-Prt"/>
                         <segue destination="ZAO-Ms-RXA" kind="show" identifier="loadShipFromSquad" id="f4o-1g-65b"/>

@@ -78,7 +78,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
       let button = UIButton(frame: CGRect(x: index*WIDTH, y: 0, width: WIDTH, height: HEIGHT))
       button.setBackgroundImage(img, forState: .Normal)
       button.tag = index
-      button.addTarget(self, action: "upgradeButtonTapped:", forControlEvents: .TouchUpInside)
+      button.addTarget(self, action: #selector(ShipDetailVC.upgradeButtonTapped(_:)), forControlEvents: .TouchUpInside)
       upgradeView.addSubview(button)
       upgradeView.backgroundColor = UIColor.clearColor()
     }
