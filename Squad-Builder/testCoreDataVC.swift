@@ -15,6 +15,7 @@ class testCoreDataVC: UIViewController {
         super.viewDidLoad()
 
       seedSquad()
+      fetchSquad()
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +32,18 @@ class testCoreDataVC: UIViewController {
       print("saved")
     } catch {
       fatalError("Failure to save context: \(error)")
+    }
+  }
+  
+  func fetchSquad() {
+    let moc = DataController().managedObjectContext
+    let squadFetch = NSFetchRequest(entityName: "SquadEntity")
+    
+    do {
+      let fetchedSquad = try moc.executeFetchRequest(squadFetch) as! [Squad]
+      print("fetched \(fetchedSquad.first!.name!)")
+    } catch {
+      fatalError("Failed to fetch any squads. \(error)")
     }
   }
 
