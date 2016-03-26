@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-// TODO: only show avaiable upgrades to currently selected ship
-
 import UIKit
 
 protocol UpgradeSelectedDelegate: class {
