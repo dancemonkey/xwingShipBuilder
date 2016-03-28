@@ -16,7 +16,7 @@ enum Actions: String {
   case Focus, TargetLock, Evade, BarrelRoll, Cloak, Boost, Decloak, SLAM
 }
 
-class PilotCard {
+class PilotCard: NSObject, NSCoding {
   
   private let _shipCard: ShipData.Ship!
   private var _originalUpgrades = [String]()
@@ -127,6 +127,29 @@ class PilotCard {
     _availUpgrades = _originalUpgrades
     _currentUpgrades.removeAll()
     currentPointCost = startingPointCost
+  }
+  
+  func encodeWithCoder(aCoder: NSCoder) {
+    // TODO: encode all pilot data so it can be saved in core data
+    aCoder.encodeObject(self, forKey: "PilotCard")
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    if let pilot = aDecoder.decodeObjectForKey("PilotCard") {
+      // TODO: init the pilot card with this data
+    }
+    
+    // test init stuff just to make it all run
+    let ships = ShipData()
+    _shipCard = ships.getShip(ofType: "Firespray-31", withPilot: "Boba Fett")
+    _availUpgrades = _shipCard.avail_Upgrades
+    _availUpgrades.append("Title")
+    _availUpgrades.append("Modification")
+    _originalUpgrades = _availUpgrades
+    self._actions = _shipCard.avail_Actions
+    _shipStats = Stats(attack: _shipCard.stat_Attack, agility: _shipCard.stat_Agility, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
+    currentPointCost = _shipCard.pointCost
+    
   }
   
 }
