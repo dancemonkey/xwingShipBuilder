@@ -130,26 +130,35 @@ class PilotCard: NSObject, NSCoding {
   }
   
   func encodeWithCoder(aCoder: NSCoder) {
-    // TODO: encode all pilot data so it can be saved in core data
-    aCoder.encodeObject(self, forKey: "PilotCard")
+    aCoder.encodeObject(shipType, forKey: "shipType")
+    aCoder.encodeObject(pilotName, forKey: "pilotName")
+    aCoder.encodeObject(_currentUpgrades, forKey: "currentUpgrades")
+    aCoder.encodeObject(_availUpgrades, forKey: "availableUpgrades")
+    aCoder.encodeObject(_originalUpgrades, forKey: "originalUpgrades")
+    aCoder.encodeObject(currentPointCost, forKey: "currentPointCost")
+    aCoder.encodeObject(_shipStats! as? AnyObject, forKey: "shipStats")
+    for (index,action) in _actions.enumerate() {
+      aCoder.encodeObject(action.rawValue, forKey: "action\(index)")
+    }
+    aCoder.encodeObject(_actions.count, forKey: "actionCount")
   }
   
   required init?(coder aDecoder: NSCoder) {
-    if let pilot = aDecoder.decodeObjectForKey("PilotCard") {
-      // TODO: init the pilot card with this data
+    guard let ship = aDecoder.decodeObjectForKey("shipType") as? String, let name = aDecoder.decodeObjectForKey("pilotName") as? String else {
+      fatalError("no ship found in core data")
     }
-    
-    // test init stuff just to make it all run
-    let ships = ShipData()
-    _shipCard = ships.getShip(ofType: "Firespray-31", withPilot: "Boba Fett")
-    _availUpgrades = _shipCard.avail_Upgrades
-    _availUpgrades.append("Title")
-    _availUpgrades.append("Modification")
-    _originalUpgrades = _availUpgrades
-    self._actions = _shipCard.avail_Actions
-    _shipStats = Stats(attack: _shipCard.stat_Attack, agility: _shipCard.stat_Agility, hull: _shipCard.stat_Hull, shield: _shipCard.stat_Shield)
-    currentPointCost = _shipCard.pointCost
-    
+    self._shipCard = ShipData().getShip(ofType: ship, withPilot: name)
+    self._currentUpgrades = (aDecoder.decodeObjectForKey("currentUpgrades") as? [UpgradeCard])!
+    self._availUpgrades = (aDecoder.decodeObjectForKey("availableUpgrades") as? [String])!
+    self._availUpgrades = (aDecoder.decodeObjectForKey("originalUpgrades") as? [String])!
+    self.currentPointCost = (aDecoder.decodeObjectForKey("currentPointCost") as? Int)!
+    self._shipStats = aDecoder.decodeObjectForKey("shipStats") as? PilotCard.Stats
+    self._actions = [Actions]()
+    if let actionCount = aDecoder.decodeObjectForKey("actionCount") as? Int {
+      for i in 0..<actionCount {
+        let ac = aDecoder.decodeObjectForKey("action\(i)") as? String
+        self._actions.append(Actions(rawValue: ac!)!)
+      }
+    }
   }
-  
 }

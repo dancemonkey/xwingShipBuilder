@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-// ???: do i need to convert this to the managed object i was working with in the testCoreDataVC file, and then have all of the various screens read this instead?
-
 import Foundation
 import CoreData
 

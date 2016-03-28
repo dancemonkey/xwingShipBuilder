@@ -12,6 +12,7 @@ import CoreData
 class DataController: NSObject {
   
   var managedObjectContext: NSManagedObjectContext
+  var psc: NSPersistentStoreCoordinator!
   
   override init() {
     guard let modelURL = NSBundle.mainBundle().URLForResource("SquadModel", withExtension: "momd") else {
@@ -21,7 +22,7 @@ class DataController: NSObject {
     guard let mom = NSManagedObjectModel(contentsOfURL: modelURL) else {
       fatalError("Error initializing mom from \(modelURL)")
     }
-    let psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
+    psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
     self.managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
     self.managedObjectContext.persistentStoreCoordinator = psc
     
