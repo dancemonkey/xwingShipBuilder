@@ -23,7 +23,7 @@ class testCoreDataVC: UIViewController {
       //test for core data saving and fetching
       squad.addPilot(pilot, atIndex: nil)
 
-      seedSquad()
+      //seedSquad()
       fetchSquads()
         // Do any additional setup after loading the view.
     }
@@ -52,7 +52,14 @@ class testCoreDataVC: UIViewController {
     
     do {
       let fetchedSquad = try moc.executeFetchRequest(squadFetch) as! [Squad]
-      // populate squad list with this data, should this then be in that view?
+      let newSquad = Squadron(name: fetchedSquad.first!.name!, pointCost: Int((fetchedSquad.first?.pointCost)!), faction: Faction(rawValue: fetchedSquad.first!.faction!)!)
+      for (i,pilot) in ((fetchedSquad.first?.ships)!).enumerate() {
+        newSquad.addPilot(pilot as! PilotCard, atIndex: i)
+      }
+      print(newSquad.faction)
+      print(newSquad.name)
+      print(newSquad.ships[0].pilotName)
+      print(newSquad.pointCost)
     } catch {
       fatalError("Failed to fetch any squads. \(error)")
     }
