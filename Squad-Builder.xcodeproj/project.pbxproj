@@ -23,6 +23,11 @@
 		1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1022D0B71C5C6310004E93EA /* ShipData.swift */; };
 		1024D3D01C62CAB600C88580 /* upgrades_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 1024D3CF1C62CAB600C88580 /* upgrades_json.json */; };
 		1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1024D3D11C62CDB700C88580 /* UpgradeData.swift */; };
+		10266DB91CA64BEC005E52B1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10266DB81CA64BEC005E52B1 /* CoreData.framework */; };
+		10266DBC1CA64C09005E52B1 /* SquadModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10266DBA1CA64C09005E52B1 /* SquadModel.xcdatamodeld */; };
+		10266DBE1CA64CC9005E52B1 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10266DBD1CA64CC9005E52B1 /* DataController.swift */; };
+		10266DC21CA64EE4005E52B1 /* SquadCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10266DC01CA64EE4005E52B1 /* SquadCoreData.swift */; };
+		10266DC41CA64F7A005E52B1 /* testCoreDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10266DC31CA64F7A005E52B1 /* testCoreDataVC.swift */; };
 		1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */; };
 		106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */; };
 		1077843F1C91335A00597BE8 /* ShipFactionSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */; };
@@ -57,6 +62,11 @@
 		1022D0B71C5C6310004E93EA /* ShipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipData.swift; sourceTree = "<group>"; };
 		1024D3CF1C62CAB600C88580 /* upgrades_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = upgrades_json.json; sourceTree = "<group>"; };
 		1024D3D11C62CDB700C88580 /* UpgradeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeData.swift; sourceTree = "<group>"; };
+		10266DB81CA64BEC005E52B1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		10266DBB1CA64C09005E52B1 /* SquadModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SquadModel.xcdatamodel; sourceTree = "<group>"; };
+		10266DBD1CA64CC9005E52B1 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		10266DC01CA64EE4005E52B1 /* SquadCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SquadCoreData.swift; path = ../SquadCoreData.swift; sourceTree = "<group>"; };
+		10266DC31CA64F7A005E52B1 /* testCoreDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testCoreDataVC.swift; sourceTree = "<group>"; };
 		1047FDF91C82C24400985843 /* ShipUpgradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipUpgradeCell.swift; sourceTree = "<group>"; };
 		106893AF1C813250008C09F0 /* ShipCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipCollectionViewCell.swift; sourceTree = "<group>"; };
 		1077843E1C91335A00597BE8 /* ShipFactionSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipFactionSectionHeader.swift; sourceTree = "<group>"; };
@@ -77,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10266DB91CA64BEC005E52B1 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +104,9 @@
 				1009021B1C62D6A7008150EF /* UpgradeCard.swift */,
 				1022D0B51C5C628E004E93EA /* ship_data_json.json */,
 				1024D3CF1C62CAB600C88580 /* upgrades_json.json */,
+				10266DBA1CA64C09005E52B1 /* SquadModel.xcdatamodeld */,
+				10266DC01CA64EE4005E52B1 /* SquadCoreData.swift */,
+				10266DBD1CA64CC9005E52B1 /* DataController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -120,6 +134,7 @@
 		101EA5961C6C287600006F1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				10266DC31CA64F7A005E52B1 /* testCoreDataVC.swift */,
 				1022D0A31C5C6263004E93EA /* AppDelegate.swift */,
 				1022D0A51C5C6263004E93EA /* ShipSelectVC.swift */,
 				10C0F96B1C6D960400D03A9F /* ShipDetailVC.swift */,
@@ -135,6 +150,7 @@
 		1022D0971C5C6263004E93EA = {
 			isa = PBXGroup;
 			children = (
+				10266DB81CA64BEC005E52B1 /* CoreData.framework */,
 				1022D0A21C5C6263004E93EA /* Squad-Builder */,
 				1022D0A11C5C6263004E93EA /* Products */,
 			);
@@ -240,11 +256,14 @@
 				10FEB0811C8A8BDB00F9085B /* PilotCell.swift in Sources */,
 				10C9BE8A1C93E0E00049B4F9 /* SquadShipCell.swift in Sources */,
 				107983C41C6C42C000143132 /* RoundButton.swift in Sources */,
+				10266DBC1CA64C09005E52B1 /* SquadModel.xcdatamodeld in Sources */,
 				10C6D81A1C5C7E3500A8B91A /* PilotCard.swift in Sources */,
 				10132CF61C928DBC00626D00 /* SquadronCreateVC.swift in Sources */,
 				1022D0A61C5C6263004E93EA /* ShipSelectVC.swift in Sources */,
+				10266DBE1CA64CC9005E52B1 /* DataController.swift in Sources */,
 				1024D3D21C62CDB700C88580 /* UpgradeData.swift in Sources */,
 				10C454CE1C93BF5C008A141F /* SquadBuildVC.swift in Sources */,
+				10266DC21CA64EE4005E52B1 /* SquadCoreData.swift in Sources */,
 				1047FDFA1C82C24400985843 /* ShipUpgradeCell.swift in Sources */,
 				101199BA1C828B1C0098F11B /* UpgradeCell.swift in Sources */,
 				10C0F96C1C6D960400D03A9F /* ShipDetailVC.swift in Sources */,
@@ -255,6 +274,7 @@
 				1009021C1C62D6A7008150EF /* UpgradeCard.swift in Sources */,
 				106893B01C813250008C09F0 /* ShipCollectionViewCell.swift in Sources */,
 				1022D0B81C5C6310004E93EA /* ShipData.swift in Sources */,
+				10266DC41CA64F7A005E52B1 /* testCoreDataVC.swift in Sources */,
 				10132CF81C928DF700626D00 /* SquadronCell.swift in Sources */,
 				1077843F1C91335A00597BE8 /* ShipFactionSectionHeader.swift in Sources */,
 			);
@@ -407,6 +427,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		10266DBA1CA64C09005E52B1 /* SquadModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				10266DBB1CA64C09005E52B1 /* SquadModel.xcdatamodel */,
+			);
+			currentVersion = 10266DBB1CA64C09005E52B1 /* SquadModel.xcdatamodel */;
+			path = SquadModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1022D0981C5C6263004E93EA /* Project object */;
 }

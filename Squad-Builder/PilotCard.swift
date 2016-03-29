@@ -16,7 +16,7 @@ enum Actions: String {
   case Focus, TargetLock, Evade, BarrelRoll, Cloak, Boost, Decloak, SLAM
 }
 
-class PilotCard {
+class PilotCard: NSObject, NSCoding {
   
   private let _shipCard: ShipData.Ship!
   private var _originalUpgrades = [String]()
@@ -129,4 +129,36 @@ class PilotCard {
     currentPointCost = startingPointCost
   }
   
+  func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(shipType, forKey: "shipType")
+    aCoder.encodeObject(pilotName, forKey: "pilotName")
+    aCoder.encodeObject(_currentUpgrades, forKey: "currentUpgrades")
+    aCoder.encodeObject(_availUpgrades, forKey: "availableUpgrades")
+    aCoder.encodeObject(_originalUpgrades, forKey: "originalUpgrades")
+    aCoder.encodeObject(currentPointCost, forKey: "currentPointCost")
+    aCoder.encodeObject(_shipStats! as? AnyObject, forKey: "shipStats")
+    for (index,action) in _actions.enumerate() {
+      aCoder.encodeObject(action.rawValue, forKey: "action\(index)")
+    }
+    aCoder.encodeObject(_actions.count, forKey: "actionCount")
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    guard let ship = aDecoder.decodeObjectForKey("shipType") as? String, let name = aDecoder.decodeObjectForKey("pilotName") as? String else {
+      fatalError("no ship found in core data")
+    }
+    self._shipCard = ShipData().getShip(ofType: ship, withPilot: name)
+    self._currentUpgrades = (aDecoder.decodeObjectForKey("currentUpgrades") as? [UpgradeCard])!
+    self._availUpgrades = (aDecoder.decodeObjectForKey("availableUpgrades") as? [String])!
+    self._availUpgrades = (aDecoder.decodeObjectForKey("originalUpgrades") as? [String])!
+    self.currentPointCost = (aDecoder.decodeObjectForKey("currentPointCost") as? Int)!
+    self._shipStats = aDecoder.decodeObjectForKey("shipStats") as? PilotCard.Stats
+    self._actions = [Actions]()
+    if let actionCount = aDecoder.decodeObjectForKey("actionCount") as? Int {
+      for i in 0..<actionCount {
+        let ac = aDecoder.decodeObjectForKey("action\(i)") as? String
+        self._actions.append(Actions(rawValue: ac!)!)
+      }
+    }
+  }
 }

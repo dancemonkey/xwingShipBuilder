@@ -447,6 +447,24 @@
             </objects>
             <point key="canvasLocation" x="-456" y="1279"/>
         </scene>
+        <!--Test Core DataVC-->
+        <scene sceneID="zFh-T4-EBE">
+            <objects>
+                <viewController id="5Xu-OT-oxp" customClass="testCoreDataVC" customModule="Squad_Builder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L9S-z2-n4t"/>
+                        <viewControllerLayoutGuide type="bottom" id="smz-Ac-ljL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YyV-kl-M7D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NFA-x5-qCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-371" y="1940"/>
+        </scene>
         <!--Squadron CreateVC-->
         <scene sceneID="RQn-wf-R7v">
             <objects>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FactionSelectDelegate, SquadSaveDelegate
 {
@@ -24,6 +25,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   override func viewWillAppear(animated: Bool) {
+    squadrons = fetchSquads()
     tableView.reloadData()
   }
   
@@ -78,6 +80,32 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     performSegueWithIdentifier("newSquadron", sender: nil)
     factionSelectView.removeFromSuperview()
   }
+  
+  
+  func fetchSquads() -> [Squadron] {
+    
+    let moc = DataController().managedObjectContext
+    let squadFetch = NSFetchRequest(entityName: "SquadEntity")
+    var squadArray = [Squadron]()
+    
+    do {
+      let fetchedSquad = try moc.executeFetchRequest(squadFetch) as! [Squad]
+      
+      for squad in fetchedSquad {
+        let new = Squadron(name: squad.name!, pointCost: Int(squad.pointCost!), faction: Faction(rawValue: squad.faction!)!)
+        for (i, pilot) in squad.ships.enumerate() {
+          new.addPilot(pilot as! PilotCard, atIndex: i)
+        }
+        squadArray.append(new)
+      }
+    } catch {
+      fatalError("Error fetching squads. \(error)")
+    }
+    
+    return squadArray
+    
+  }
+
   
   // MARK: Tableview junk
   
