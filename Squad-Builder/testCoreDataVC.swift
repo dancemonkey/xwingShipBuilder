@@ -41,21 +41,28 @@ class testCoreDataVC: UIViewController {
     }
   }
   
-  func fetchSquads() {
+  func fetchSquads() -> [Squadron] {
     
     let moc = DataController().managedObjectContext
     let squadFetch = NSFetchRequest(entityName: "SquadEntity")
+    var squadArray = [Squadron]()
     
     do {
       let fetchedSquad = try moc.executeFetchRequest(squadFetch) as! [Squad]
       
-      let newSquad = Squadron(name: fetchedSquad.first!.name!, pointCost: Int((fetchedSquad.first?.pointCost)!), faction: Faction(rawValue: fetchedSquad.first!.faction!)!)
-      for (i,pilot) in ((fetchedSquad.first?.ships)!).enumerate() {
-        newSquad.addPilot(pilot as! PilotCard, atIndex: i)
+      for squad in fetchedSquad {
+        let new = Squadron(name: squad.name!, pointCost: Int(squad.pointCost!), faction: Faction(rawValue: squad.faction!)!)
+        for (i, pilot) in squad.ships.enumerate() {
+          new.addPilot(pilot as! PilotCard, atIndex: i)
+        }
+        squadArray.append(new)
       }
     } catch {
-      fatalError("Failed to fetch any squads. \(error)")
+      fatalError("Error fetching squads. \(error)")
     }
+    
+    return squadArray
+    
   }
 
 }
