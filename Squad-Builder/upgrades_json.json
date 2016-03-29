@@ -26,7 +26,7 @@
               },
               {
               "upgrade":"Veteran Instincts",
-              "type":"Elite",
+              "type":"EPT",
               "text":"Increase your pilot skill value by 2.",
               "effect":"Pilot,+2",
               "limitation":"nil",

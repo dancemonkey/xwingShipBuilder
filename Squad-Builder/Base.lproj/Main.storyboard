@@ -1386,13 +1386,13 @@
     </scenes>
     <resources>
         <image name="Astromech" width="84" height="84"/>
-        <image name="Rebel" width="100" height="100"/>
-        <image name="Scum" width="100" height="100"/>
+        <image name="Rebel" width="247" height="248"/>
+        <image name="Scum" width="333" height="400"/>
         <image name="T-65 X-Wing" width="1008" height="704"/>
         <image name="spaceBG" width="1024" height="1024"/>
         <image name="xWingLogo" width="1781" height="736"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f4o-1g-65b"/>
+        <segue reference="e3n-iH-rcS"/>
     </inferredMetricsTieBreakers>
 </document>
