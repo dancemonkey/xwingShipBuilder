@@ -10,7 +10,7 @@
 
 import Foundation
 
-class UpgradeCard {
+class UpgradeCard: NSObject, NSCoding {
   private let _upgradeCard: UpgradeData.Upgrade!
   
   var text: String {
@@ -52,6 +52,19 @@ class UpgradeCard {
   init(name: String) {
     let upgrades = UpgradeData()
     _upgradeCard = upgrades.getUpgrade(name)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    guard let upgrade = aDecoder.decodeObjectForKey("upgradeName") as? String else {
+      fatalError("no upgrade found")
+    }
+    
+    let upgrades = UpgradeData()
+    self._upgradeCard = upgrades.getUpgrade(upgrade)
+  }
+  
+  func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(self.name, forKey: "upgradeName")
   }
   
 }

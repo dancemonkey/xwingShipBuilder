@@ -14,6 +14,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
   var squadrons = [Squadron]()
   var selectedFaction: Faction!
+  let moc = DataController().managedObjectContext
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var factionSelectView: UIView!
@@ -59,7 +60,30 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     if !found {
       squadrons.append(squad)
     }
+    saveSquadronList()
     tableView.reloadData()
+  }
+  
+  func saveSquadronList() {
+   
+    // TODO: have this update the objects rather than append new ones, or simply delete and re-save the data? That sounds dangerous
+    // ???: or have this be a managedobjecttable controller, rather than a standard view controller?
+    
+    for squad in squadrons {
+      
+      let entity = NSEntityDescription.insertNewObjectForEntityForName("SquadEntity", inManagedObjectContext: moc) as! Squad
+      entity.setValue(squad.name, forKey: "name")
+      entity.setValue(squad.faction.rawValue, forKey: "faction")
+      entity.setValue(squad.pointCost, forKey: "pointCost")
+      entity.setValue(squad.ships, forKey: "ships")
+      
+      do {
+        try moc.save()
+      } catch {
+        fatalError("Failure to save context: \(error)")
+      }
+      
+    }
   }
   
   func selectFaction() {
@@ -84,7 +108,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   
   func fetchSquads() -> [Squadron] {
     
-    let moc = DataController().managedObjectContext
     let squadFetch = NSFetchRequest(entityName: "SquadEntity")
     var squadArray = [Squadron]()
     

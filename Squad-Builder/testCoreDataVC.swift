@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-// TODO: next step is to move this into main app so it can be used by main squad list
-
 import UIKit
 import CoreData
 

@@ -136,7 +136,10 @@ class PilotCard: NSObject, NSCoding {
     aCoder.encodeObject(_availUpgrades, forKey: "availableUpgrades")
     aCoder.encodeObject(_originalUpgrades, forKey: "originalUpgrades")
     aCoder.encodeObject(currentPointCost, forKey: "currentPointCost")
-    aCoder.encodeObject(_shipStats! as? AnyObject, forKey: "shipStats")
+    aCoder.encodeObject(_shipStats.attack, forKey: "attack")
+    aCoder.encodeObject(_shipStats.agility, forKey: "agility")
+    aCoder.encodeObject(_shipStats.hull, forKey: "hull")
+    aCoder.encodeObject(_shipStats.shield, forKey: "shield")
     for (index,action) in _actions.enumerate() {
       aCoder.encodeObject(action.rawValue, forKey: "action\(index)")
     }
@@ -150,9 +153,15 @@ class PilotCard: NSObject, NSCoding {
     self._shipCard = ShipData().getShip(ofType: ship, withPilot: name)
     self._currentUpgrades = (aDecoder.decodeObjectForKey("currentUpgrades") as? [UpgradeCard])!
     self._availUpgrades = (aDecoder.decodeObjectForKey("availableUpgrades") as? [String])!
+    print(_availUpgrades)
     self._availUpgrades = (aDecoder.decodeObjectForKey("originalUpgrades") as? [String])!
     self.currentPointCost = (aDecoder.decodeObjectForKey("currentPointCost") as? Int)!
-    self._shipStats = aDecoder.decodeObjectForKey("shipStats") as? PilotCard.Stats
+    //self._shipStats = aDecoder.decodeObjectForKey("shipStats") as? Stats
+    let attack = aDecoder.decodeObjectForKey("attack") as? Int
+    let agility = aDecoder.decodeObjectForKey("agility") as? Int
+    let hull = aDecoder.decodeObjectForKey("hull") as? Int
+    let shield = aDecoder.decodeObjectForKey("shield") as? Int
+    self._shipStats = Stats(attack: attack!, agility: agility!, hull: hull!, shield: shield!)
     self._actions = [Actions]()
     if let actionCount = aDecoder.decodeObjectForKey("actionCount") as? Int {
       for i in 0..<actionCount {
