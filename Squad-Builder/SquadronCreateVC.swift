@@ -6,6 +6,8 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+// TODO: THEN convert this tableVC to a fetchedResultsVC?
+
 import UIKit
 import CoreData
 
@@ -26,7 +28,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   override func viewWillAppear(animated: Bool) {
-    squadrons = fetchSquads()
+    squadrons = fetchAllSquads()
     tableView.reloadData()
   }
   
@@ -65,17 +67,17 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func saveSquadronList() {
-   
-    // TODO: have this update the objects rather than append new ones, or simply delete and re-save the data? That sounds dangerous
-    // ???: or have this be a managedobjecttable controller, rather than a standard view controller?
     
     for squad in squadrons {
       
-      let entity = NSEntityDescription.insertNewObjectForEntityForName("SquadEntity", inManagedObjectContext: moc) as! Squad
-      entity.setValue(squad.name, forKey: "name")
-      entity.setValue(squad.faction.rawValue, forKey: "faction")
-      entity.setValue(squad.pointCost, forKey: "pointCost")
-      entity.setValue(squad.ships, forKey: "ships")
+      let coreSquad = fetch(squadronNamed: squad.name)
+      if coreSquad == nil {
+        let entity = NSEntityDescription.insertNewObjectForEntityForName("SquadEntity", inManagedObjectContext: moc) as! Squad
+        entity.setValue(squad.name, forKey: "name")
+        entity.setValue(squad.faction.rawValue, forKey: "faction")
+        entity.setValue(squad.pointCost, forKey: "pointCost")
+        entity.setValue(squad.ships, forKey: "ships")
+      }
       
       do {
         try moc.save()
@@ -86,7 +88,25 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
   }
   
-  func fetchSquads() -> [Squadron] {
+  func fetch(squadronNamed name: String) -> Squad? {
+    let squadFetch = NSFetchRequest(entityName: "SquadEntity")
+    do {
+      let result = try moc.executeFetchRequest(squadFetch) as? [Squad]
+      print(result!.count)
+      if result != nil {
+        for squad in result! {
+          if squad.name == name {
+            return squad
+          }
+        }
+      }
+    } catch {
+      fatalError("big problem searching for a single squad")
+    }
+    return nil
+  }
+  
+  func fetchAllSquads() -> [Squadron] {
     
     let squadFetch = NSFetchRequest(entityName: "SquadEntity")
     var squadArray = [Squadron]()

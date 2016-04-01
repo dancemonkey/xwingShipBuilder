@@ -6,6 +6,8 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
+// TODO: okay i think I need to make this a subclass of NSManagedObject and have the core data class be an extension of this?
+
 import Foundation
 import CoreData
 
