@@ -86,26 +86,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
   }
   
-  func selectFaction() {
-    
-    if let customView = NSBundle.mainBundle().loadNibNamed("FactionSelect", owner: self, options: nil).first as? FactionSelect {
-      let popupFrame = CGRect(x: self.view.frame.size.width/2 - customView.frame.width/2, y: self.view.frame.size.height/2-customView.frame.height/2, width: customView.frame.width, height: customView.frame.height)
-      customView.layer.cornerRadius = 10.0
-      customView.clipsToBounds = true
-      customView.frame = popupFrame
-      self.view.addSubview(customView)
-      factionSelectView = customView
-      customView.factionSelectDelegate = self
-    }
-  }
-  
-  func factionSelected(faction: Faction) {
-    self.selectedFaction = faction
-    performSegueWithIdentifier("newSquadron", sender: nil)
-    factionSelectView.removeFromSuperview()
-  }
-  
-  
   func fetchSquads() -> [Squadron] {
     
     let squadFetch = NSFetchRequest(entityName: "SquadEntity")
@@ -126,9 +106,27 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     return squadArray
-    
   }
 
+  
+  func selectFaction() {
+    
+    if let customView = NSBundle.mainBundle().loadNibNamed("FactionSelect", owner: self, options: nil).first as? FactionSelect {
+      let popupFrame = CGRect(x: self.view.frame.size.width/2 - customView.frame.width/2, y: self.view.frame.size.height/2-customView.frame.height/2, width: customView.frame.width, height: customView.frame.height)
+      customView.layer.cornerRadius = 10.0
+      customView.clipsToBounds = true
+      customView.frame = popupFrame
+      self.view.addSubview(customView)
+      factionSelectView = customView
+      customView.factionSelectDelegate = self
+    }
+  }
+  
+  func factionSelected(faction: Faction) {
+    self.selectedFaction = faction
+    performSegueWithIdentifier("newSquadron", sender: nil)
+    factionSelectView.removeFromSuperview()
+  }
   
   // MARK: Tableview junk
   
