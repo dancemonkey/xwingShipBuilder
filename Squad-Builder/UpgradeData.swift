@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum UpgradeType: String {
-  case Elite, Astromech, Torpedoes, Missiles, Cannon, Turret, Bomb, Crew, SalvagedAstromech, System, Title, Modification, Illicit, Cargo, Hardpoint, Team, Tech
+  case EPT, Astromech, Torpedoes, Missiles, Cannon, Turret, Bomb, Crew, SalvagedAstromech, System, Title, Modification, Illicit, Cargo, Hardpoint, Team, Tech
 }
 
 class UpgradeData {

@@ -6,15 +6,12 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-// TODO: okay i think I need to make this a subclass of NSManagedObject and have the core data class be an extension of this?
-
 import Foundation
 import CoreData
 
 class Squadron {
   
   private var _name: String
-  private var _pointCost: Int
   private var _ships = [PilotCard]()
   private var _faction: Faction
   
@@ -48,7 +45,6 @@ class Squadron {
   
   init(name: String, pointCost: Int = 0, faction: Faction) {
     self._name = name
-    self._pointCost = pointCost
     self._faction = faction
   }
   

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-//TODO: implement upgrade effects and test for limitations
-
 import Foundation
 
 class UpgradeCard: NSObject, NSCoding {

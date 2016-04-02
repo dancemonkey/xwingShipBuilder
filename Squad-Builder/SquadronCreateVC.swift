@@ -6,8 +6,6 @@
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
-// TODO: THEN convert this tableVC to a fetchedResultsVC?
-
 import UIKit
 import CoreData
 
@@ -70,6 +68,9 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     for squad in squadrons {
       
+      // this currently only lets you save if the squad does not already exist
+      // next step is to save a unique ID with each squadron so that it is always saved to its original entity in core data
+      
       let coreSquad = fetch(squadronNamed: squad.name)
       if coreSquad == nil {
         let entity = NSEntityDescription.insertNewObjectForEntityForName("SquadEntity", inManagedObjectContext: moc) as! Squad
@@ -92,7 +93,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     let squadFetch = NSFetchRequest(entityName: "SquadEntity")
     do {
       let result = try moc.executeFetchRequest(squadFetch) as? [Squad]
-      print(result!.count)
       if result != nil {
         for squad in result! {
           if squad.name == name {
