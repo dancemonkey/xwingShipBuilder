@@ -9,18 +9,19 @@
 import Foundation
 import CoreData
 
-class Squadron {
+@objc(Squadron)
+class Squadron: NSManagedObject {
   
-  private var _name: String
-  private var _ships = [PilotCard]()
-  private var _faction: Faction
+  @NSManaged private var coreName: String
+  @NSManaged private var coreShips: [PilotCard]
+  @NSManaged private var coreFaction: String
   
   var name: String {
     get {
-      return self._name
+      return self.coreName
     }
     set {
-      self._name = newValue
+      self.coreName = newValue
     }
     
   }
@@ -28,7 +29,7 @@ class Squadron {
   var pointCost: Int {
     get {
       var cost = 0
-      for ship in _ships {
+      for ship in coreShips {
         cost += ship.currentPointCost
       }
       return cost
@@ -36,28 +37,31 @@ class Squadron {
   }
   
   var ships: [PilotCard] {
-    return _ships
+    return coreShips
   }
   
   var faction: Faction {
-    return _faction
+    return Faction(rawValue: coreFaction)!
   }
   
-  init(name: String, pointCost: Int = 0, faction: Faction) {
-    self._name = name
-    self._faction = faction
+  convenience init(name: String, pointCost: Int = 0, faction: Faction, context: NSManagedObjectContext) {
+    let entity = NSEntityDescription.entityForName("SquadEntity", inManagedObjectContext: context)
+    self.init(entity: entity!, insertIntoManagedObjectContext: context)
+    self.coreName = name
+    self.coreFaction = faction.rawValue
+    self.coreShips = [PilotCard]()
   }
   
   func addPilot(pilot: PilotCard, atIndex index: Int?) {
-    if index == nil || _ships.count == 0 || _ships.count <= index! {
-      _ships.append(pilot)
+    if index == nil || coreShips.count == 0 || coreShips.count <= index! {
+      coreShips.append(pilot)
     } else {
-      _ships[index!] = pilot
+      coreShips[index!] = pilot
     }
   }
   
   func removePilot(atIndex index: Int) {
-    _ships.removeAtIndex(index)
+    coreShips.removeAtIndex(index)
   }
   
 }

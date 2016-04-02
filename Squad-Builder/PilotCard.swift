@@ -153,7 +153,6 @@ class PilotCard: NSObject, NSCoding {
     self._shipCard = ShipData().getShip(ofType: ship, withPilot: name)
     self._currentUpgrades = (aDecoder.decodeObjectForKey("currentUpgrades") as? [UpgradeCard])!
     self._availUpgrades = (aDecoder.decodeObjectForKey("availableUpgrades") as? [String])!
-    print(_availUpgrades)
     self._availUpgrades = (aDecoder.decodeObjectForKey("originalUpgrades") as? [String])!
     self.currentPointCost = (aDecoder.decodeObjectForKey("currentPointCost") as? Int)!
     //self._shipStats = aDecoder.decodeObjectForKey("shipStats") as? Stats

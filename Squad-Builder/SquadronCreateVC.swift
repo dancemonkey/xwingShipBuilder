@@ -23,10 +23,11 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    print(fetchAllSquads().count)
   }
   
   override func viewWillAppear(animated: Bool) {
-    squadrons = fetchAllSquads()
+    //squadrons = fetchAllSquads()
     tableView.reloadData()
   }
   
@@ -38,7 +39,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         if let table = sender as? UITableView {
           destination.squadron = squadrons[(table.indexPathForSelectedRow?.row)!]
         } else if sender == nil {
-          destination.squadron = Squadron(name: "\(self.selectedFaction) Squad", faction: self.selectedFaction)
+          destination.squadron = Squadron(name: "\(self.selectedFaction) Squad", faction: self.selectedFaction, context: self.moc)
         }
       }
     }
@@ -65,31 +66,14 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func saveSquadronList() {
-    
-    for squad in squadrons {
-      
-      // this currently only lets you save if the squad does not already exist
-      // next step is to save a unique ID with each squadron so that it is always saved to its original entity in core data
-      
-      let coreSquad = fetch(squadronNamed: squad.name)
-      if coreSquad == nil {
-        let entity = NSEntityDescription.insertNewObjectForEntityForName("SquadEntity", inManagedObjectContext: moc) as! Squad
-        entity.setValue(squad.name, forKey: "name")
-        entity.setValue(squad.faction.rawValue, forKey: "faction")
-        entity.setValue(squad.pointCost, forKey: "pointCost")
-        entity.setValue(squad.ships, forKey: "ships")
-      }
-      
-      do {
-        try moc.save()
-      } catch {
-        fatalError("Failure to save context: \(error)")
-      }
-      
+    do {
+      try moc.save()
+    } catch {
+      fatalError("Failure to save context: \(error)")
     }
   }
   
-  func fetch(squadronNamed name: String) -> Squad? {
+  /*func fetch(squadronNamed name: String) -> Squad? {
     let squadFetch = NSFetchRequest(entityName: "SquadEntity")
     do {
       let result = try moc.executeFetchRequest(squadFetch) as? [Squad]
@@ -104,7 +88,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       fatalError("big problem searching for a single squad")
     }
     return nil
-  }
+  }*/
   
   func fetchAllSquads() -> [Squadron] {
     
@@ -112,15 +96,8 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     var squadArray = [Squadron]()
     
     do {
-      let fetchedSquad = try moc.executeFetchRequest(squadFetch) as! [Squad]
-      
-      for squad in fetchedSquad {
-        let new = Squadron(name: squad.name!, pointCost: Int(squad.pointCost!), faction: Faction(rawValue: squad.faction!)!)
-        for (i, pilot) in squad.ships.enumerate() {
-          new.addPilot(pilot as! PilotCard, atIndex: i)
-        }
-        squadArray.append(new)
-      }
+      let fetchedSquad = try moc.executeFetchRequest(squadFetch) as! [Squadron]
+      squadArray = fetchedSquad
     } catch {
       fatalError("Error fetching squads. \(error)")
     }
