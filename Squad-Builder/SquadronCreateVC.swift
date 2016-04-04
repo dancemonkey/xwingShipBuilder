@@ -50,26 +50,14 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func saveToSquadList(squad: Squadron) {
-    var found = false
-    for (index,s) in squadrons.enumerate() {
-      if s === squad {
-        squadrons[index] = squad
-        found = true
-      }
-    }
-    if !found {
-      squadrons.append(squad)
-    }
-    saveSquadronList()
-    tableView.reloadData()
-  }
-  
-  func saveSquadronList() {
+    
+    //currently only saving changes to first squad in list?
     do {
       try moc.save()
     } catch {
       fatalError("Failure to save context: \(error)")
     }
+    tableView.reloadData()
   }
   
   func fetchAllSquads() -> [Squadron] {

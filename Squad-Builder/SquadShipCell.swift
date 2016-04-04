@@ -19,7 +19,7 @@ class SquadShipCell: UITableViewCell {
     self.pilotNameLbl.text = pilot.pilotName
     var upgrades = ""
     for upgrade in pilot.currentUpgrades {
-      upgrades += upgrade.name + " "
+      upgrades += upgrade.name + "..."
     }
     self.pilotUpgradesLbl.text = upgrades
     self.factionImg.image = UIImage(imageLiteral: "\(pilot.faction)")

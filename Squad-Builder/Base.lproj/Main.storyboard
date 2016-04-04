@@ -265,8 +265,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Upgrades upgrades upgrades" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="5ju-ki-Iq5">
-                                                    <rect key="frame" x="66" y="30" width="448" height="37"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Upgrades upgrades upgrades" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="5ju-ki-Iq5">
+                                                    <rect key="frame" x="66" y="22" width="448" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="88" id="g6l-uC-JNs"/>
                                                     </constraints>
@@ -280,7 +280,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilot Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTb-jM-wdU">
-                                                    <rect key="frame" x="66" y="8" width="448" height="22"/>
+                                                    <rect key="frame" x="66" y="0.0" width="448" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="y8d-XU-Kvu"/>
                                                     </constraints>
@@ -295,7 +295,7 @@
                                                 <constraint firstItem="5ju-ki-Iq5" firstAttribute="top" secondItem="nTb-jM-wdU" secondAttribute="bottom" id="NZz-C7-dg4"/>
                                                 <constraint firstAttribute="trailing" secondItem="Om1-7v-d7l" secondAttribute="trailing" constant="8" id="PPo-HM-Gns"/>
                                                 <constraint firstItem="5ju-ki-Iq5" firstAttribute="top" secondItem="nTb-jM-wdU" secondAttribute="bottom" constant="8" id="PhW-xZ-Fhb"/>
-                                                <constraint firstItem="nTb-jM-wdU" firstAttribute="top" secondItem="aIA-83-zfW" secondAttribute="top" constant="8" id="TdB-R3-pXn"/>
+                                                <constraint firstItem="nTb-jM-wdU" firstAttribute="top" secondItem="aIA-83-zfW" secondAttribute="top" id="TdB-R3-pXn"/>
                                                 <constraint firstItem="nTb-jM-wdU" firstAttribute="leading" secondItem="9cC-tn-ZIb" secondAttribute="trailing" constant="8" id="Uzf-2L-ERc"/>
                                                 <constraint firstItem="Om1-7v-d7l" firstAttribute="leading" secondItem="nTb-jM-wdU" secondAttribute="trailing" constant="8" id="emy-gC-CBv"/>
                                                 <constraint firstItem="Om1-7v-d7l" firstAttribute="leading" secondItem="5ju-ki-Iq5" secondAttribute="trailing" constant="8" id="g7r-xB-39p"/>
@@ -496,7 +496,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squad members" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-KC-Jyq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squad members" lineBreakMode="wordWrap" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-KC-Jyq">
                                                     <rect key="frame" x="81" y="16" width="433" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="94" id="xTd-j9-ncE"/>
@@ -1393,6 +1393,6 @@
         <image name="xWingLogo" width="1781" height="736"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e3n-iH-rcS"/>
+        <segue reference="f4o-1g-65b"/>
     </inferredMetricsTieBreakers>
 </document>
