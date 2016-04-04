@@ -133,9 +133,15 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   }
   
   func userSelectedNewPilot(name: String) {
+    let newPilot = PilotCard(ship: self.pilot.shipType, pilot: name)
+
+    if newPilot.originalUpgrades.sort() == self.pilot.originalUpgrades.sort() {
+      for upgrade in self.pilot.currentUpgrades {
+        newPilot.attachUpgrade(upgrade)
+      }
+    }
     
-    self.pilot = PilotCard(ship: self.pilot.shipType, pilot: name)
-    self.pilot.clearUpgrades()
+    self.pilot = newPilot
     initializePilotData()
     tableView.reloadData()
   }
