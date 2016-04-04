@@ -23,11 +23,10 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
-    print(fetchAllSquads().count)
   }
   
   override func viewWillAppear(animated: Bool) {
-    //squadrons = fetchAllSquads()
+    squadrons = fetchAllSquads()
     tableView.reloadData()
   }
   
@@ -72,23 +71,6 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
       fatalError("Failure to save context: \(error)")
     }
   }
-  
-  /*func fetch(squadronNamed name: String) -> Squad? {
-    let squadFetch = NSFetchRequest(entityName: "SquadEntity")
-    do {
-      let result = try moc.executeFetchRequest(squadFetch) as? [Squad]
-      if result != nil {
-        for squad in result! {
-          if squad.name == name {
-            return squad
-          }
-        }
-      }
-    } catch {
-      fatalError("big problem searching for a single squad")
-    }
-    return nil
-  }*/
   
   func fetchAllSquads() -> [Squadron] {
     
@@ -149,6 +131,12 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    moc.deleteObject(squadrons[indexPath.row])
+    do {
+      try moc.save()
+    } catch {
+      fatalError("problem saving after delete")
+    }
     squadrons.removeAtIndex(indexPath.row)
     tableView.reloadData()
   }

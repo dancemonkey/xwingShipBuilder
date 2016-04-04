@@ -133,6 +133,7 @@ class ShipDetailVC: UIViewController, PilotSelectedDelegate, UpgradeSelectedDele
   }
   
   func userSelectedNewPilot(name: String) {
+    
     self.pilot = PilotCard(ship: self.pilot.shipType, pilot: name)
     self.pilot.clearUpgrades()
     initializePilotData()
