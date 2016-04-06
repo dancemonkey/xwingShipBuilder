@@ -11,6 +11,7 @@ protocol SquadSaveDelegate {
 }
 
 import UIKit
+import CoreData
 
 class SquadBuildVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 

@@ -51,11 +51,10 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   
   func saveToSquadList(squad: Squadron) {
     
-    //currently only saving changes to first squad in list?
     do {
-      try moc.save()
+      try squad.managedObjectContext!.save()
     } catch {
-      fatalError("Failure to save context: \(error)")
+      fatalError("failed to save squad - \(error)")
     }
     tableView.reloadData()
   }

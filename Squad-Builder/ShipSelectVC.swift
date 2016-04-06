@@ -19,7 +19,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
   
   var shipTypes = [String]()
   var filteredShipTypes = [String]()
-  let SHIP_FACTIONS: [Faction] = [.Scum, .Rebel, .Imperial]
+  //let SHIP_FACTIONS: [Faction] = [.Scum, .Rebel, .Imperial]
   var selectedFaction: Faction!
   
   var selectedShipTitle: String!
@@ -101,7 +101,7 @@ class ShipSelectVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     if kind == UICollectionElementKindSectionHeader {
       header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as? ShipFactionSectionHeader
-      header?.configureCell(forFaction: SHIP_FACTIONS[indexPath.section].rawValue)
+      header?.configureCell(forFaction: selectedFaction.rawValue)
     }
     if searching {
       header?.factionImg.hidden = true
