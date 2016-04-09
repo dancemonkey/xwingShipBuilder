@@ -26,6 +26,7 @@ class PointCostUILbl: UILabel {
   override func awakeFromNib() {
     layer.cornerRadius = 5.0
     clipsToBounds = true
+
     self.font = UIFont(name: "Helvetica Neue", size: 17.0)
     self.textColor = UIColor.darkGrayColor()
     self.backgroundColor = UIColor.lightGrayColor()

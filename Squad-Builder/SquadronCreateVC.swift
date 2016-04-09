@@ -80,7 +80,10 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     if let customView = NSBundle.mainBundle().loadNibNamed("FactionSelect", owner: self, options: nil).first as? FactionSelect {
       let popupFrame = CGRect(x: self.view.frame.size.width/2 - customView.frame.width/2, y: self.view.frame.size.height/2-customView.frame.height/2, width: customView.frame.width, height: customView.frame.height)
       customView.layer.cornerRadius = 10.0
-      customView.clipsToBounds = true
+      customView.layer.shadowColor = UIColor.blackColor().CGColor
+      customView.layer.shadowOpacity = 1.0
+      customView.layer.shadowOffset = CGSize(width: 10, height: 10)
+      customView.layer.shadowRadius = 5
       customView.frame = popupFrame
       self.view.addSubview(customView)
       factionSelectView = customView
