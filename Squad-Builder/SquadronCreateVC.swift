@@ -18,6 +18,7 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var factionSelectView: UIView!
+  @IBOutlet weak var logoImg: UIImageView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +29,11 @@ class SquadronCreateVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   override func viewWillAppear(animated: Bool) {
     squadrons = fetchAllSquads()
     tableView.reloadData()
+    
+    logoImg.layer.shadowColor = UIColor.whiteColor().CGColor
+    logoImg.layer.shadowRadius = 10
+    logoImg.layer.shadowOffset = CGSizeZero
+    logoImg.layer.shadowOpacity = 1
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
