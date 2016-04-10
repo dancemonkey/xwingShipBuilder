@@ -75,6 +75,19 @@
                         <action selector="rebelPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="YO2-zn-4hi"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-8f-dyR">
+                    <rect key="frame" x="278" y="0.0" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="MbW-7r-kwM"/>
+                        <constraint firstAttribute="height" constant="22" id="tIV-Qp-GaX"/>
+                    </constraints>
+                    <state key="normal" title="X">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="poa-ua-x9X"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.67000000000000004" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -85,9 +98,12 @@
                 <constraint firstItem="cBp-s5-atG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="R2c-za-sOI"/>
                 <constraint firstItem="6t7-ql-DPt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aDv-zv-8aa"/>
                 <constraint firstAttribute="trailing" secondItem="qOw-Aw-cM3" secondAttribute="trailing" constant="8" id="g0v-tD-81y"/>
+                <constraint firstItem="fDb-8f-dyR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g8p-lf-CoX"/>
+                <constraint firstAttribute="trailing" secondItem="fDb-8f-dyR" secondAttribute="trailing" id="i3j-fS-uI5"/>
                 <constraint firstItem="cBp-s5-atG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="k3S-z9-ouE"/>
                 <constraint firstAttribute="bottom" secondItem="8oI-Pt-54A" secondAttribute="bottom" constant="8" id="psA-pe-neF"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">

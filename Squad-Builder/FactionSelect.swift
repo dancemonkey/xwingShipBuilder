@@ -15,6 +15,16 @@ import UIKit
 class FactionSelect: UIView {
   
   var factionSelectDelegate: FactionSelectDelegate!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.layer.cornerRadius = 10.0
+    self.layer.shadowColor = UIColor.blackColor().CGColor
+    self.layer.shadowOpacity = 1.0
+    self.layer.shadowOffset = CGSize(width: 3, height: 3)
+    self.layer.shadowRadius = 5
+
+  }
 
   @IBAction func rebelPressed(sender: UIButton) {
     factionSelectDelegate.factionSelected(.Rebel)
@@ -28,12 +38,8 @@ class FactionSelect: UIView {
     factionSelectDelegate.factionSelected(.Scum)
   }
   
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+  @IBAction func cancelPressed(sender: UIButton) {
+    self.removeFromSuperview()
+  }
+  
 }
